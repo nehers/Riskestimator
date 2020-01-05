@@ -1,0 +1,667 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Riskestimator</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-buttons>
+    <ion-back-button defaultHref="" icon="arrow-back"></ion-back-button>
+  </ion-buttons>
+    <ion-segment (ionChange)="onInputChange($event)">
+    <ion-segment-button value="range" checked color="primary">Range</ion-segment-button>
+    <ion-segment-button value="number">Number</ion-segment-button>
+  </ion-segment>
+  <ion-segment (ionChange)="onVisChange($event)">
+    <ion-segment-button value="table" checked>Table</ion-segment-button>
+    <ion-segment-button value="tree">Tree</ion-segment-button>
+    <ion-segment-button value="slider">Slider</ion-segment-button>
+    <ion-segment-button value="icon">Icon</ion-segment-button>
+  </ion-segment>
+  <ion-grid>
+    <div *ngIf="selectedInput === 'number'">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Ill & Testpos Persons</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="trueposn"
+              (ionChange)="trueposchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Healty & Testpos Persons</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="falseposn"
+              (ionChange)="falseposchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Ill & Testneg Persons</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="falsenegn"
+              (ionChange)="falsenegchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Healthy & Testneg Persons</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="truenegn"
+              (ionChange)="truenegchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedVis === 'table' && selectedInput === 'number'">
+      <ion-row>
+        <ion-col> </ion-col>
+        <ion-col>
+          Diagnose positiv
+        </ion-col>
+        <ion-col>
+          Diagnose negativ
+        </ion-col>
+        <ion-col>
+          Total
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Test positiv</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ trueposn }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ falseposn }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totaltestposn }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>Test negativ</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>{{ falsenegn }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>{{ truenegn }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>{{ totaltestnegn }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totalilln }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totalwelln }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totaln }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>PPV: {{ trueposn/totaltestposn*100 }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>NPV: {{ truenegn/totaltestnegn*100 }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FNR: {{ falsenegn/totaltestnegn*100 }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FPR: {{ falseposn/totaltestposn*100 }}%</ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedInput === 'range'">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Prävalenz</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="prevalence"
+              (ionChange)="prevalencechange($event)"
+            ></ion-input>
+            <ion-range
+              [(ngModel)]="prevalence"
+              max="100"
+              min="0"
+              step="1"
+              pin="true"
+            ></ion-range>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Sensitivität</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="sensitivity"
+              (ionChange)="sensitivitychange($event)"
+            ></ion-input>
+            <ion-range
+              [(ngModel)]="sensitivity"
+              max="100"
+              min="0"
+              step="1"
+              pin="true"
+            ></ion-range>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Spezifität</ion-label>
+            <ion-input
+              type="number"
+              [(ngModel)]="specifity"
+              (ionChange)="specifitychange($event)"
+            ></ion-input>
+            <ion-range
+              [(ngModel)]="specifity"
+              max="100"
+              min="0"
+              step="1"
+              pin="true"
+            ></ion-range>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedInput === 'range' && selectedVis === 'table'">
+      <ion-row>
+        <ion-col> </ion-col>
+        <ion-col>
+          Diagnose positiv
+        </ion-col>
+        <ion-col>
+          Diagnose negativ
+        </ion-col>
+        <ion-col>
+          Total
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Test positiv</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ trueposr }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ falseposr }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totaltestposr }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>Test negativ</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>{{ falsenegr }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>{{ truenegr }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-label>{{ totaltestnegr }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col> </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totalillr }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totalwellr }}</ion-label>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label>{{ totalr }}</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>PPV: {{ ppvr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>NPV: {{ npvr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FNR: {{ fnr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FPR: {{ fpr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedVis === 'tree' && selectedInput === 'number'">
+      <ion-row>
+        <ion-col offset="4.5">
+          <svg>
+            <line
+              x1="100"
+              y1="30"
+              x2="0"
+              y2="150"
+              style="stroke:rgb(0, 0, 0);stroke-width:2"
+            />
+            <text x="130" y="15" fill="black">{{ totaln }}</text>
+            <line
+              x1="200"
+              y1="30"
+              x2="300"
+              y2="150"
+              style="stroke:rgb(0, 0, 0);stroke-width:2"
+            />
+          </svg>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="3">
+          <svg>
+            <line
+              x1="100"
+              y1="30"
+              x2="0"
+              y2="150"
+              style="stroke:rgb(0,0,0);stroke-width:2"
+            />
+            <text x="130" y="15" fill="black">{{ totalilln }}</text>
+            <line
+              x1="200"
+              y1="30"
+              x2="300"
+              y2="150"
+              style="stroke:rgb(0,0,0);stroke-width:2"
+            />
+          </svg>
+        </ion-col>
+        <ion-col pull="1.5">
+          <svg>
+            <line
+              x1="100"
+              y1="30"
+              x2="0"
+              y2="150"
+              style="stroke:rgb(0,0,0);stroke-width:2"
+            />
+            <text x="130" y="15" fill="black">{{ totalwelln }}</text>
+            <line
+              x1="200"
+              y1="30"
+              x2="300"
+              y2="150"
+              style="stroke:rgb(0, 0, 0);stroke-width:2"
+            />
+          </svg>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col push="1.75">
+          <svg>
+            <text x="130" y="15" fill="black">{{ trueposn }}</text>
+          </svg>
+        </ion-col>
+        <ion-col push="1.25">
+          <svg>
+            <text x="130" y="15" fill="black">{{ falsenegn }}</text>
+          </svg>
+        </ion-col>
+        <ion-col pull="1.25">
+          <svg>
+            <text x="130" y="15" fill="black">{{ falseposn }}</text>
+          </svg>
+        </ion-col>
+        <ion-col pull="1.75">
+          <svg>
+            <text x="130" y="15" fill="black">{{ truenegn }}</text>
+          </svg>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>PPV: {{ ppvn }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>NPV: {{ npvn }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FNR: {{ fnrn }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FPR: {{ fprn }}%</ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedVis === 'tree' && selectedInput === 'range'">
+      <ion-row>
+        <ion-col offset="4.5">
+          <svg>
+            <line
+              x1="100"
+              y1="30"
+              x2="0"
+              y2="150"
+              style="stroke:rgb(0, 0, 0);stroke-width:2"
+            />
+            <text x="130" y="15" fill="black">{{ totalr }}</text>
+            <line
+              x1="200"
+              y1="30"
+              x2="300"
+              y2="150"
+              style="stroke:rgb(0, 0, 0);stroke-width:2"
+            />
+          </svg>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offset="3">
+          <svg>
+            <line
+              x1="100"
+              y1="30"
+              x2="0"
+              y2="150"
+              style="stroke:rgb(0,0,0);stroke-width:2"
+            />
+            <text x="130" y="15" fill="black">{{ totalillr }}</text>
+            <line
+              x1="200"
+              y1="30"
+              x2="300"
+              y2="150"
+              style="stroke:rgb(0,0,0);stroke-width:2"
+            />
+          </svg>
+        </ion-col>
+        <ion-col pull="1.5">
+          <svg>
+            <line
+              x1="100"
+              y1="30"
+              x2="0"
+              y2="150"
+              style="stroke:rgb(0,0,0);stroke-width:2"
+            />
+            <text x="130" y="15" fill="black">{{ totalwellr }}</text>
+            <line
+              x1="200"
+              y1="30"
+              x2="300"
+              y2="150"
+              style="stroke:rgb(0, 0, 0);stroke-width:2"
+            />
+          </svg>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col push="1.75">
+          <svg>
+            <text x="130" y="15" fill="black">{{ trueposr }}</text>
+          </svg>
+        </ion-col>
+        <ion-col push="1.25">
+          <svg>
+            <text x="130" y="15" fill="black">{{ falsenegr }}</text>
+          </svg>
+        </ion-col>
+        <ion-col pull="1.25">
+          <svg>
+            <text x="130" y="15" fill="black">{{ falseposr }}</text>
+          </svg>
+        </ion-col>
+        <ion-col pull="1.75">
+          <svg>
+            <text x="130" y="15" fill="black">{{ truenegr }}</text>
+          </svg>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>PPV: {{ ppvr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>NPV: {{ npvr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FNR: {{ fnr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label>FPR: {{ fpr }}%</ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedInput === 'range' && selectedVis === 'icon'">
+      <ion-row>
+        <ion-col>
+          <div>
+            <img
+              *ngFor="let img of rediconr"
+              width="20"
+              height="40"
+              src="{{ rediconr[0] }}"
+            />
+            <img
+              *ngFor="let img of yellowiconr"
+              width="20"
+              height="40"
+              src="{{ yellowiconr[0] }}"
+            />
+            <img
+              *ngFor="let img of blueiconr"
+              width="20"
+              height="40"
+              src="{{ blueiconr[0] }}"
+            />
+            <img
+              *ngFor="let img of greeniconr"
+              width="20"
+              height="40"
+              src="{{ greeniconr[0] }}"
+            />
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedInput === 'number' && selectedVis === 'icon'">
+      <ion-row>
+        <ion-col>
+          <div>
+            <img
+              *ngFor="let img of rediconn"
+              width="20"
+              height="40"
+              src="{{ rediconn[0] }}"
+            />
+            <img
+              *ngFor="let img of yellowiconn"
+              width="20"
+              height="40"
+              src="{{ yellowiconn[0] }}"
+            />
+            <img
+              *ngFor="let img of blueiconn"
+              width="20"
+              height="40"
+              src="{{ blueiconn[0] }}"
+            />
+            <img
+              *ngFor="let img of greeniconn"
+              width="20"
+              height="40"
+              src="{{ greeniconn[0] }}"
+            />
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedInput === 'range' && selectedVis === 'slider'">
+      <ion-row>
+        <ion-col>
+          <div>
+            <svg>
+              <g>
+                <rect
+                  *ngFor="let rrr of redrectr"
+                  width="40"
+                  [attr.height]="rrr"
+                  style="fill: red;"
+                ></rect>
+                <rect
+                  *ngFor="let yrr of yellowrectr"
+                  width="40"
+                  [attr.height]="yrr"
+                  x="40"
+                  style="fill: orange;"
+                ></rect>
+
+                <rect
+                  *ngFor="let grr of greenrectr"
+                  width="40"
+                  [attr.height]="grr"
+                  x="80"
+                  style="fill: green;"
+                ></rect>
+                <rect
+                  *ngFor="let brr of bluerectr"
+                  width="40"
+                  [attr.height]="brr"
+                  x="120"
+                  style="fill: blue;"
+                ></rect>
+              </g>
+            </svg>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="selectedInput === 'number' && selectedVis === 'slider'">
+      <ion-row>
+        <ion-col>
+          <div>
+            <svg>
+              <g>
+                <rect
+                  *ngFor="let rrn of redrectn"
+                  width="40"
+                  [attr.height]="rrn"
+                  style="fill: red;"
+                ></rect>
+                <rect
+                  *ngFor="let yrn of yellowrectn"
+                  width="40"
+                  [attr.height]="yrn"
+                  x="40"
+                  style="fill: orange;"
+                ></rect>
+                <rect
+                  *ngFor="let grn of greenrectn"
+                  width="40"
+                  [attr.height]="grn"
+                  x="80"
+                  style="fill: green;"
+                ></rect>
+                <rect
+                  *ngFor="let brn of bluerectn"
+                  width="40"
+                  [attr.height]="brn"
+                  x="120"
+                  style="fill: blue;"
+                ></rect>
+              </g>
+            </svg>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>
