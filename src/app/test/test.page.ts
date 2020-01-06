@@ -9,9 +9,6 @@ import { SegmentChangeEventDetail } from "@ionic/core";
 export class TestPage implements OnInit {
   // Number für Testaufgaben
   tasknumber = 1;
-  // 1. angezeigt Visualisierung -> Table mit numerischem Input
-  selectedInput = "range";
-  selectedVis = "table";
   // Variablen für RangeInput mit  "r"
   prevalence = 15.11;
   sensitivity = 99;
@@ -101,7 +98,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
-    this.forRectRangeLoop();
   }
   // Sensitivitätsregler
   sensitivitychange() {
@@ -109,7 +105,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
-    this.forRectRangeLoop();
   }
   // Sepzifitätsregler
   specifitychange() {
@@ -117,7 +112,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
-    this.forRectRangeLoop();
   }
   // TrueposEingabe
   trueposchange() {
@@ -125,7 +119,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
-    this.forRectNumberLoop();
   }
   // TruenegEingabe
   truenegchange() {
@@ -133,7 +126,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
-    this.forRectNumberLoop();
   }
   // FalseposEingabe
   falseposchange() {
@@ -141,7 +133,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
-    this.forRectNumberLoop();
   }
   // FalsenegEingabe
   falsenegchange() {
@@ -149,7 +140,6 @@ export class TestPage implements OnInit {
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
-    this.forRectNumberLoop();
   }
   // Löscht alte Icons
   clearIcon() {
@@ -173,73 +163,43 @@ export class TestPage implements OnInit {
     this.bluerectn = [];
     this.yellowrectn = [];
   }
-  // IconArray mit Schiebern
+  // Images generieren mit Schiebern
   forIconRangeLoop() {
     for (this.tp = this.trueposr; this.tp > 0; this.tp--) {
       this.rediconr.push("assets/img/Circlerot.svg");
+      this.redrectr.push(this.trueposr);
     }
     for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
       this.blueiconr.push("assets/img/Circleblau.svg");
-    }
-    for (this.fn = this.falsenegr; this.fn > 0; this.fn--) {
-      this.yellowiconr.push("assets/img/Circlegelb.svg");
-    }
-    for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
-      this.greeniconr.push("assets/img/Circlegrün.svg");
-    }
-  }
-  // IconArray mit NumerikInput
-  forIconNumberLoop() {
-    for (this.tp = this.trueposn; this.tp > 0; this.tp--) {
-      this.rediconn.push("assets/img/Circlerot.svg");
-    }
-    for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
-      this.blueiconn.push("assets/img/Circleblau.svg");
-    }
-    for (this.fn = this.falsenegn; this.fn > 0; this.fn--) {
-      this.yellowiconn.push("assets/img/Circlegelb.svg");
-    }
-    for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
-      this.greeniconn.push("assets/img/Circlegrün.svg");
-    }
-  }
-  // RectSliders mit Schiebern
-  forRectRangeLoop() {
-    for (this.tp = this.trueposr; this.tp > 0; this.tp--) {
-      this.redrectr.push(this.trueposr);
-    }
-    for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
-      this.greenrectr.push(this.truenegr);
-    }
-    for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
       this.bluerectr.push(this.falseposr);
     }
     for (this.fn = this.falsenegr; this.fn > 0; this.fn--) {
+      this.yellowiconr.push("assets/img/Circlegelb.svg");
       this.yellowrectr.push(this.falsenegr);
     }
+    for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
+      this.greeniconr.push("assets/img/Circlegrün.svg");
+      this.greenrectr.push(this.truenegr);
+    }
   }
-  // RectSliders mit NumerikInput
-  forRectNumberLoop() {
+  // Images generieren mit NumerikInput
+  forIconNumberLoop() {
     for (this.tp = this.trueposn; this.tp > 0; this.tp--) {
+      this.rediconn.push("assets/img/Circlerot.svg");
       this.redrectn.push(this.trueposn);
     }
-    for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
-      this.greenrectn.push(this.truenegn);
-    }
     for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
+      this.blueiconn.push("assets/img/Circleblau.svg");
       this.bluerectn.push(this.falseposn);
     }
     for (this.fn = this.falsenegn; this.fn > 0; this.fn--) {
+      this.yellowiconn.push("assets/img/Circlegelb.svg");
       this.yellowrectn.push(this.falsenegn);
     }
-  }
-  // Zur Anzeige
-  onInputChange(event: CustomEvent<SegmentChangeEventDetail>) {
-    this.selectedInput = event.detail.value;
-  }
-  // Zur Anzeige
-  onVisChange(event: CustomEvent<SegmentChangeEventDetail>) {
-    this.selectedVis = event.detail.value;
+    for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
+      this.greeniconn.push("assets/img/Circlegrün.svg");
+      this.greenrectn.push(this.truenegn);
+    }
   }
 
   getNextTask() {
