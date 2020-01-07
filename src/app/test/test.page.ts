@@ -205,9 +205,23 @@ export class TestPage implements OnInit {
   getNextTask() {
     this.tasknumber = this.tasknumber + 1;
     console.log(this.tasknumber);
+    this.prevalence = 15.11;
+    this.sensitivity = 99;
+    this.specifity = 90;
+    this.trueposn = 10;
+    this.truenegn = 10;
+    this.falseposn = 10;
+    this.falsenegn = 10;
   }
   getLastTask() {
     this.tasknumber = this.tasknumber - 1;
     console.log(this.tasknumber);
+    this.prevalence = 15.11;
+    this.sensitivity = 99;
+    this.specifity = 90;
+    this.trueposn = 10;
+    this.truenegn = 10;
+    this.falseposn = 10;
+    this.falsenegn = 10;
   }
 }
