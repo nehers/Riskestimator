@@ -6,10 +6,12 @@
 
 <ion-content class="ion-padding">
   <ion-buttons>
-    <ion-back-button defaultHref="" icon="arrow-back"></ion-back-button>
+    <ion-back-button defaultHref="" icon="arrow-back" color="primary"></ion-back-button>
   </ion-buttons>
-    <ion-segment (ionChange)="onInputChange($event)">
-    <ion-segment-button value="range" checked color="primary">Range</ion-segment-button>
+  <ion-segment (ionChange)="onInputChange($event)">
+    <ion-segment-button value="range" checked color="primary"
+      >Range</ion-segment-button
+    >
     <ion-segment-button value="number">Number</ion-segment-button>
   </ion-segment>
   <ion-segment (ionChange)="onVisChange($event)">
@@ -551,6 +553,48 @@
           </div>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            Rot = {{ trueposr }}, Gelb = {{ falsenegr }}, Blau = {{ falseposr
+            }}, Grün = {{ truenegr }}, Total = {{ totalr }}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >PPV: {{trueposr}}/{{totaltestposr}} = {{ (trueposr /
+            totaltestposr)*100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >NPV: {{ truenegr }}/{{totaltestnegr}} = {{ (truenegr /
+            totaltestnegr) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: {{falsenegr}}/{{totaltestnegr}} = {{ (falsenegr /
+            totaltestnegr) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FPR: {{falseposr}}/{{totaltestnegr}} = {{ (falseposr /
+            totaltestposr) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
     </div>
     <div *ngIf="selectedInput === 'number' && selectedVis === 'icon'">
       <ion-row>
@@ -581,6 +625,48 @@
               src="{{ greeniconn[0] }}"
             />
           </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            Rot = {{ trueposn }}, Gelb = {{ falsenegn }}, Blau = {{ falseposn
+            }}, Grün = {{ truenegn }}, Total = {{ totaln }}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >PPV: {{trueposn}}/{{totaltestposn}} = {{ (trueposn /
+            totaltestposn)*100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >NPV: {{ truenegn }}/{{totaltestnegn}} = {{ (truenegn /
+            totaltestnegn) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: {{falsenegn}}/{{totaltestnegn}} = {{ (falsenegn /
+            totaltestnegn) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FPR: {{falseposn}}/{{totaltestnegn}} = {{ (falseposn /
+            totaltestposn) *100 }}%</ion-label
+          >
         </ion-col>
       </ion-row>
     </div>
@@ -617,10 +703,51 @@
                   x="80"
                   style="fill: green;"
                 ></rect>
-                
               </g>
             </svg>
           </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            Rot = {{ trueposr }}, Gelb = {{ falsenegr }}, Blau = {{ falseposr
+            }}, Grün = {{ truenegr }}, Total = {{ totalr }}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >PPV: {{trueposr}}/{{totaltestposr}} = {{ (trueposr /
+            totaltestposr)*100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >NPV: {{ truenegr }}/{{totaltestnegr}} = {{ (truenegr /
+            totaltestnegr) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: {{falsenegr}}/{{totaltestnegr}} = {{ (falsenegr /
+            totaltestnegr) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FPR: {{falseposr}}/{{totaltestnegr}} = {{ (falseposr /
+            totaltestposr) *100 }}%</ion-label
+          >
         </ion-col>
       </ion-row>
     </div>
@@ -657,10 +784,51 @@
                   x="80"
                   style="fill: green;"
                 ></rect>
-                
               </g>
             </svg>
           </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            Rot = {{ trueposn }}, Gelb = {{ falsenegn }}, Blau = {{ falseposn
+            }}, Grün = {{ truenegn }}, Total = {{ totaln }}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >PPV: {{trueposn}}/{{totaltestposn}} = {{ (trueposn /
+            totaltestposn)*100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >NPV: {{ truenegn }}/{{totaltestnegn}} = {{ (truenegn /
+            totaltestnegn) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: {{falsenegn}}/{{totaltestnegn}} = {{ (falsenegn /
+            totaltestnegn) *100 }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FPR: {{falseposn}}/{{totaltestnegn}} = {{ (falseposn /
+            totaltestposn) *100 }}%</ion-label
+          >
         </ion-col>
       </ion-row>
     </div>
