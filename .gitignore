@@ -31,3 +31,6 @@ npm-debug.log*
 /www
 /e2e
 /typings
+browserslist
+tslint.json
+tsconfig.spec.json
