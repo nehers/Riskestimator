@@ -6,7 +6,11 @@
 
 <ion-content class="ion-padding">
   <ion-buttons>
-    <ion-back-button defaultHref="" icon="arrow-back" color="primary"></ion-back-button>
+    <ion-back-button
+      defaultHref=""
+      icon="arrow-back"
+      color="primary"
+    ></ion-back-button>
   </ion-buttons>
   <ion-segment (ionChange)="onInputChange($event)">
     <ion-segment-button value="range" checked color="primary"
@@ -86,12 +90,12 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label>{{ trueposn }}</ion-label>
+            <ion-label class="truepos">{{ trueposn }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label>{{ falseposn }}</ion-label>
+            <ion-label class="falsepos">{{ falseposn }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
@@ -108,12 +112,12 @@
         </ion-col>
         <ion-col size="3">
           <ion-item>
-            <ion-label>{{ falsenegn }}</ion-label>
+            <ion-label class="falseneg">{{ falsenegn }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col size="3">
           <ion-item>
-            <ion-label>{{ truenegn }}</ion-label>
+            <ion-label class="trueneg">{{ truenegn }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col size="3">
@@ -237,12 +241,12 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label>{{ trueposr }}</ion-label>
+            <ion-label class="truepos">{{ trueposr }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label>{{ falseposr }}</ion-label>
+            <ion-label class="falsepos">{{ falseposr }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col>
@@ -259,12 +263,12 @@
         </ion-col>
         <ion-col size="3">
           <ion-item>
-            <ion-label>{{ falsenegr }}</ion-label>
+            <ion-label class="falseneg">{{ falsenegr }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col size="3">
           <ion-item>
-            <ion-label>{{ truenegr }}</ion-label>
+            <ion-label class="trueneg">{{ truenegr }}</ion-label>
           </ion-item>
         </ion-col>
         <ion-col size="3">
@@ -342,7 +346,7 @@
               y1="30"
               x2="0"
               y2="150"
-              style="stroke:rgb(0,0,0);stroke-width:2"
+              style="stroke:red;stroke-width:2"
             />
             <text x="130" y="15" fill="black">{{ totalilln }}</text>
             <line
@@ -350,7 +354,7 @@
               y1="30"
               x2="300"
               y2="150"
-              style="stroke:rgb(0,0,0);stroke-width:2"
+              style="stroke:yellow;stroke-width:2"
             />
           </svg>
         </ion-col>
@@ -361,7 +365,7 @@
               y1="30"
               x2="0"
               y2="150"
-              style="stroke:rgb(0,0,0);stroke-width:2"
+              style="stroke:blue;stroke-width:2"
             />
             <text x="130" y="15" fill="black">{{ totalwelln }}</text>
             <line
@@ -369,7 +373,7 @@
               y1="30"
               x2="300"
               y2="150"
-              style="stroke:rgb(0, 0, 0);stroke-width:2"
+              style="stroke:green;stroke-width:2"
             />
           </svg>
         </ion-col>
@@ -377,22 +381,22 @@
       <ion-row>
         <ion-col push="1.75">
           <svg>
-            <text x="130" y="15" fill="black">{{ trueposn }}</text>
+            <text x="130" y="15" fill="red">{{ trueposn }}</text>
           </svg>
         </ion-col>
         <ion-col push="1.25">
           <svg>
-            <text x="130" y="15" fill="black">{{ falsenegn }}</text>
+            <text x="130" y="15" fill="yellow">{{ falsenegn }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.25">
           <svg>
-            <text x="130" y="15" fill="black">{{ falseposn }}</text>
+            <text x="130" y="15" fill="blue">{{ falseposn }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.75">
           <svg>
-            <text x="130" y="15" fill="black">{{ truenegn }}</text>
+            <text x="130" y="15" fill="green">{{ truenegn }}</text>
           </svg>
         </ion-col>
       </ion-row>
@@ -447,7 +451,7 @@
               y1="30"
               x2="0"
               y2="150"
-              style="stroke:rgb(0,0,0);stroke-width:2"
+              style="stroke:red;stroke-width:2"
             />
             <text x="130" y="15" fill="black">{{ totalillr }}</text>
             <line
@@ -455,7 +459,7 @@
               y1="30"
               x2="300"
               y2="150"
-              style="stroke:rgb(0,0,0);stroke-width:2"
+              style="stroke:yellow;stroke-width:2"
             />
           </svg>
         </ion-col>
@@ -466,7 +470,7 @@
               y1="30"
               x2="0"
               y2="150"
-              style="stroke:rgb(0,0,0);stroke-width:2"
+              style="stroke:blue;stroke-width:2"
             />
             <text x="130" y="15" fill="black">{{ totalwellr }}</text>
             <line
@@ -474,7 +478,7 @@
               y1="30"
               x2="300"
               y2="150"
-              style="stroke:rgb(0, 0, 0);stroke-width:2"
+              style="stroke:green;stroke-width:2"
             />
           </svg>
         </ion-col>
@@ -482,22 +486,22 @@
       <ion-row>
         <ion-col push="1.75">
           <svg>
-            <text x="130" y="15" fill="black">{{ trueposr }}</text>
+            <text x="130" y="15" fill="red">{{ trueposr }}</text>
           </svg>
         </ion-col>
         <ion-col push="1.25">
           <svg>
-            <text x="130" y="15" fill="black">{{ falsenegr }}</text>
+            <text x="130" y="15" fill="yellow">{{ falsenegr }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.25">
           <svg>
-            <text x="130" y="15" fill="black">{{ falseposr }}</text>
+            <text x="130" y="15" fill="blue">{{ falseposr }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.75">
           <svg>
-            <text x="130" y="15" fill="black">{{ truenegr }}</text>
+            <text x="130" y="15" fill="green">{{ truenegr }}</text>
           </svg>
         </ion-col>
       </ion-row>
