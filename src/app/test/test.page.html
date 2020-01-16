@@ -7,11 +7,15 @@
 <ion-content>
   <ion-grid>
     <ion-buttons>
-      <ion-back-button defaultHref="" icon="arrow-back" color="primary"></ion-back-button>
+      <ion-back-button
+        defaultHref=""
+        icon="arrow-back"
+        color="primary"
+      ></ion-back-button>
     </ion-buttons>
 
     <div *ngIf="tasknumber === 1">
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
       <ion-row>
         <ion-col>
@@ -191,33 +195,33 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>5</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="5"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>100</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="100"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>0</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="0"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>95</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="95"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>37</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="37"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
     </div>
 
-    <ion-button (click)="getLastTask()">Zurück</ion-button>
+    <ion-button (click)="getBackTask()">Zurück</ion-button>
     <ion-button (click)="getNextTask()">Weiter</ion-button>
 
     <div *ngIf="tasknumber === 2">
@@ -402,32 +406,32 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>5</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="5"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>100</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="100"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>0</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="0"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>95</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="95"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>37</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="37"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
 
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -620,31 +624,31 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group  (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>72</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="72"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="62"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="8"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>28</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="28"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>45</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="45"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -839,31 +843,31 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>72</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="72"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="62"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="38"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>28</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="28"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>45</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="45"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -1023,31 +1027,31 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="62"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>66</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="66"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>34</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="34"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="38"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>36</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="36"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -1204,31 +1208,31 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="62"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>66</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="66"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>34</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="34"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="38"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>36</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="36"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -1386,31 +1390,31 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>29</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="29"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>99</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="99"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>1</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="1"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>71</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="71"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>60</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="60"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -1570,31 +1574,31 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group>
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>29</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio value="29"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>99</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio value="99"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>1</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio value="1"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>71</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio value="71"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>60</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="60"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getLastTask()">Zurück</ion-button>
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
   </ion-grid>

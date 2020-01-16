@@ -60,6 +60,12 @@ export class TestPage implements OnInit {
   greeniconn = [];
   blueiconn = [];
   yellowiconn = [];
+  // Ergebnbisse speichern
+  result: any;
+  results = [];
+  frage: any;
+  value: any;
+  date: any;
 
   constructor() {}
 
@@ -204,7 +210,9 @@ export class TestPage implements OnInit {
 
   getNextTask() {
     this.tasknumber = this.tasknumber + 1;
-    console.log(this.tasknumber);
+    // console.log(this.tasknumber);
+    this.results.push(this.result);
+    console.log(this.results);
     this.prevalence = 15.11;
     this.sensitivity = 99;
     this.specifity = 90;
@@ -213,7 +221,7 @@ export class TestPage implements OnInit {
     this.falseposn = 10;
     this.falsenegn = 10;
   }
-  getLastTask() {
+  getBackTask() {
     this.tasknumber = this.tasknumber - 1;
     console.log(this.tasknumber);
     this.prevalence = 15.11;
@@ -223,5 +231,12 @@ export class TestPage implements OnInit {
     this.truenegn = 10;
     this.falseposn = 10;
     this.falsenegn = 10;
+  }
+
+  Frage(event) {
+    this.frage = "Frage" + this.tasknumber;
+    this.value = event.target.value;
+    this.date = new Date().toLocaleString();
+    this.result = [this.frage, this.value, this.date];
   }
 }
