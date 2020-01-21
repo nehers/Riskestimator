@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  riskestimator:
+    image: nehers/ionic
+    ports:
+    - "8100:8100"
+    volumes:
+    - ./volume:/home/ionic/volume
+    tty: true
+    
