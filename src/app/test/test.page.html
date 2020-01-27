@@ -19,14 +19,14 @@
       <ion-button (click)="getNextTask()">Weiter</ion-button>
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 1 mit NumberTable</b></p>
+          <p><b>Aufgabe 1</b></p>
           <p>
             Sie haben einen Patienten vor sich bei dem Sie aufgrund seiner
             Symptome eine Lungenembolie vermuten. Um ihren Verdacht zu erhärten
             machen sie einen D-Dimer Test. Sie wissen, dass 10 von 500 Personen
             mit den Symptomen ihres Patienten eine Lungenembolie haben. Ihr
-            D-Dimer Test hat bei allen 10 Erkrankten ein positives Testergebnis.
-            Allerdings haben auch 181 von 490 nicht-Erkrankten ein positives
+            D-Dimer Test hat bei 9 Erkrankten ein positives Testergebnis.
+            Allerdings haben auch 180 von 490 nicht-Erkrankten ein positives
             Testergebnis. Wie hoch ist die Wahrscheinlichkeit, dass ihr Patient
             mit einem positiven Testergebnis auch tatsächlich eine Lungenembolie
             hat? Wählen sie <b>eine</b> Antwortmöglichkeit aus!
@@ -50,18 +50,6 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"
-              >Gesund & Testpositive Personen</ion-label
-            >
-            <ion-input
-              type="number"
-              [(ngModel)]="falseposn"
-              (ionChange)="falseposchange($event)"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating"
               >Krank & Testnegative Personen</ion-label
             >
             <ion-input
@@ -71,6 +59,19 @@
             ></ion-input>
           </ion-item>
         </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating"
+              >Gesund & Testpositive Personen</ion-label
+            >
+            <ion-input
+              type="number"
+              [(ngModel)]="falseposn"
+              (ionChange)="falseposchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -162,33 +163,38 @@
 
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{trueposn}}/{{totaltestposn}} = {{ trueposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ trueposn }}/{{ totaltestposn }} = {{ ppvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ trueposn }}/{{ totalilln }} = {{ sensn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{truenegn}}/{{totaltestnegn}} = {{ truenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ truenegn }}/{{ totaltestnegn }} = {{ npvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ truenegn }}/{{ totalwelln }} {{ specn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falsenegn}}/{{totaltestnegn}} = {{ falsenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falsenegn }}/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falseposn}}/{{totaltestposn}} = {{ falseposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falseposn }}/{{ totaltestnegn }} = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -197,24 +203,24 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>5</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-label>4</ion-label>
+              <ion-radio value="4r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>100</ion-label>
-              <ion-radio value="100"></ion-radio>
+              <ion-label>99</ion-label>
+              <ion-radio value="99f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>0</ion-label>
-              <ion-radio value="0"></ion-radio>
+              <ion-label>1</ion-label>
+              <ion-radio value="1f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>95</ion-label>
-              <ion-radio value="95"></ion-radio>
+              <ion-label>96</ion-label>
+              <ion-radio value="96f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>37</ion-label>
-              <ion-radio value="37"></ion-radio>
+              <ion-label>90</ion-label>
+              <ion-radio value="90f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -227,7 +233,7 @@
     <div *ngIf="tasknumber === 2">
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 2 mit RangeTable</b></p>
+          <p><b>Aufgabe 2</b></p>
           <p>
             Sie haben einen Patienten vor sich bei dem Sie aufgrund seiner
             Symptome eine Lungenembolie vermuten. Um ihren Verdacht zu erhärten
@@ -374,32 +380,43 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >{{trueposr}}/{{totaltestposr}} = {{ (trueposr / totaltestposr)*100
-            }}%</ion-label
+            >{{ trueposr }}/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ trueposr }}/{{ totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{ truenegr }}/{{totaltestnegr}} = {{ (truenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ truenegr }}/{{ totaltestnegr }} = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ truenegr }}/{{ totalwellr }} = {{ specifity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falsenegr}}/{{totaltestnegr}} = {{ (falsenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ falsenegr }}/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ totalillr }}/{{ totalillr }} = {{ prevalence }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falseposr}}/{{totaltestnegr}} = {{ (falseposr / totaltestposr)
-            *100 }}%</ion-label
+            >{{ falseposr }}/{{ totaltestposr }} = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -409,23 +426,23 @@
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>5</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio value="5f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>100</ion-label>
-              <ion-radio value="100"></ion-radio>
+              <ion-radio value="100r"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>0</ion-label>
-              <ion-radio value="0"></ion-radio>
+              <ion-radio value="0f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>95</ion-label>
-              <ion-radio value="95"></ion-radio>
+              <ion-radio value="95f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>37</ion-label>
-              <ion-radio value="37"></ion-radio>
+              <ion-radio value="37f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -438,7 +455,7 @@
     <div *ngIf="tasknumber === 3">
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 3 mit NumberTree</b></p>
+          <p><b>Aufgabe 3</b></p>
           <p>
             Sie haben einen Patienten untersuchen einen Patienten mit den
             typischen Zeichen einer Cystitis (Harnblasenentzündung). Um ihren
@@ -470,18 +487,6 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"
-              >Gesund & Testpositive Personen</ion-label
-            >
-            <ion-input
-              type="number"
-              [(ngModel)]="falseposn"
-              (ionChange)="falseposchange($event)"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating"
               >Krank & Testnegative Personen</ion-label
             >
             <ion-input
@@ -491,6 +496,19 @@
             ></ion-input>
           </ion-item>
         </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating"
+              >Gesund & Testpositive Personen</ion-label
+            >
+            <ion-input
+              type="number"
+              [(ngModel)]="falseposn"
+              (ionChange)="falseposchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -591,59 +609,64 @@
 
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{trueposn}}/{{totaltestposn}} = {{ trueposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ trueposn }}/{{ totaltestposn }} = {{ ppvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ trueposn }}/{{ totalilln }} = {{ sensn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{truenegn}}/{{totaltestnegn}} = {{ truenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ truenegn }}/{{ totaltestnegn }} = {{ npvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ truenegn }}/{{ totalwelln }} {{ specn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falsenegn}}/{{totaltestnegn}} = {{ falsenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falsenegn }}/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falseposn}}/{{totaltestposn}} = {{ falseposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falseposn }}/{{ totaltestnegn }} = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <ion-radio-group  (ionChange)="Frage($event)">
+          <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>72</ion-label>
-              <ion-radio value="72"></ion-radio>
+              <ion-radio value="72r"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="62"></ion-radio>
+              <ion-radio value="62f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="8"></ion-radio>
+              <ion-radio value="8f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>28</ion-label>
-              <ion-radio value="28"></ion-radio>
+              <ion-radio value="28f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>45</ion-label>
-              <ion-radio value="45"></ion-radio>
+              <ion-label>44</ion-label>
+              <ion-radio value="44f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -655,7 +678,7 @@
     <div *ngIf="tasknumber === 4">
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 4 mit RangeTree</b></p>
+          <p><b>Aufgabe 4</b></p>
           <p>
             Sie haben einen Patienten untersuchen einen Patienten mit den
             typischen Zeichen einer Cystitis (Harnblasenentzündung). Um ihren
@@ -811,32 +834,43 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >{{trueposr}}/{{totaltestposr}} = {{ (trueposr / totaltestposr)*100
-            }}%</ion-label
+            >{{ trueposr }}/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ trueposr }}/{{ totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{ truenegr }}/{{totaltestnegr}} = {{ (truenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ truenegr }}/{{ totaltestnegr }} = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ truenegr }}/{{ totalwellr }} = {{ specifity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falsenegr}}/{{totaltestnegr}} = {{ (falsenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ falsenegr }}/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ totalillr }}/{{ totalillr }} = {{ prevalence }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falseposr}}/{{totaltestnegr}} = {{ (falseposr / totaltestposr)
-            *100 }}%</ion-label
+            >{{ falseposr }}/{{ totaltestposr }} = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -846,23 +880,23 @@
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>72</ion-label>
-              <ion-radio value="72"></ion-radio>
+              <ion-radio value="72r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>62</ion-label>
-              <ion-radio value="62"></ion-radio>
+              <ion-label>61</ion-label>
+              <ion-radio value="61f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>38</ion-label>
-              <ion-radio value="38"></ion-radio>
+              <ion-label>39f</ion-label>
+              <ion-radio value="39f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>28</ion-label>
-              <ion-radio value="28"></ion-radio>
+              <ion-label>28f</ion-label>
+              <ion-radio value="28f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>45</ion-label>
-              <ion-radio value="45"></ion-radio>
+              <ion-radio value="45f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -875,10 +909,7 @@
       <ion-row>
         <ion-col>
           <p>
-            <b
-              >Aufgabe 5 mit NumberSlider ggf noch Sens/Spez/Präv einfügen auch
-              bei NumberIcon</b
-            >
+            <b>Aufgabe 5</b>
           </p>
           <p>
             Sie arbeiten auf einer Intensivstation und vermuten eine VAP
@@ -910,18 +941,6 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"
-              >Gesund & Testpositive Personen</ion-label
-            >
-            <ion-input
-              type="number"
-              [(ngModel)]="falseposn"
-              (ionChange)="falseposchange($event)"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating"
               >Krank & Testnegative Personen</ion-label
             >
             <ion-input
@@ -931,6 +950,19 @@
             ></ion-input>
           </ion-item>
         </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating"
+              >Gesund & Testpositive Personen</ion-label
+            >
+            <ion-input
+              type="number"
+              [(ngModel)]="falseposn"
+              (ionChange)="falseposchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -957,24 +989,24 @@
                   style="fill: red;"
                 ></rect>
                 <rect
-                  *ngFor="let yrn of yellowrectn"
-                  width="40"
-                  [attr.height]="yrn"
-                  x="40"
-                  style="fill: orange;"
-                ></rect>
-                <rect
                   *ngFor="let brn of bluerectn"
                   width="40"
                   [attr.height]="brn"
-                  x="120"
+                  x="40"
                   style="fill: blue;"
+                ></rect>
+                <rect
+                  *ngFor="let yrn of yellowrectn"
+                  width="40"
+                  [attr.height]="yrn"
+                  x="80"
+                  style="fill: orange;"
                 ></rect>
                 <rect
                   *ngFor="let grn of greenrectn"
                   width="40"
                   [attr.height]="grn"
-                  x="80"
+                  x="120"
                   style="fill: green;"
                 ></rect>
               </g>
@@ -986,41 +1018,49 @@
       <ion-row>
         <ion-col>
           <ion-label>
-            Rot = {{ trueposn }}, Gelb = {{ falsenegn }}, Blau = {{ falseposn
-            }}, Grün = {{ truenegn }}, Total = {{ totaln }}
+            <span class="spanr">Rot = {{ trueposn }}</span>,
+            <span class="spanb">Blau = {{ falsenegn }}</span>,
+            <span class="spano">Orange = {{ falseposn }}</span>,
+            <span class="spang">Grün = {{ truenegn }}</span>, Total = {{ totaln
+            }}
           </ion-label>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{trueposn}}/{{totaltestposn}} = {{ trueposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ trueposn }}/{{ totaltestposn }} = {{ ppvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ trueposn }}/{{ totalilln }} = {{ sensn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{truenegn}}/{{totaltestnegn}} = {{ truenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ truenegn }}/{{ totaltestnegn }} = {{ npvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ truenegn }}/{{ totalwelln }} = {{ specn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falsenegn}}/{{totaltestnegn}} = {{ falsenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falsenegn }}/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falseposn}}/{{totaltestposn}} = {{ falseposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falseposn }}/{{ totaltestposn }} = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -1030,23 +1070,23 @@
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="62"></ion-radio>
+              <ion-radio value="62f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>66</ion-label>
-              <ion-radio value="66"></ion-radio>
+              <ion-radio value="66r"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>34</ion-label>
-              <ion-radio value="34"></ion-radio>
+              <ion-radio value="34f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="38"></ion-radio>
+              <ion-radio value="38f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>36</ion-label>
-              <ion-radio value="36"></ion-radio>
+              <ion-label>65</ion-label>
+              <ion-radio value="65f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -1058,7 +1098,7 @@
     <div *ngIf="tasknumber === 6">
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 6 mit RangeSlider</b></p>
+          <p><b>Aufgabe 6</b></p>
           <p>
             Sie arbeiten auf einer Intensivstation und vermuten eine VAP
             (Ventilations-assoziierte Pneuomie) bei einem ihrer Patieten. Sie
@@ -1138,24 +1178,24 @@
                   style="fill: red;"
                 ></rect>
                 <rect
-                  *ngFor="let yrr of yellowrectr"
-                  width="40"
-                  [attr.height]="yrr"
-                  x="40"
-                  style="fill: orange;"
-                ></rect>
-                <rect
                   *ngFor="let brr of bluerectr"
                   width="40"
                   [attr.height]="brr"
-                  x="120"
+                  x="40"
                   style="fill: blue;"
+                ></rect>
+                <rect
+                  *ngFor="let yrr of yellowrectr"
+                  width="40"
+                  [attr.height]="yrr"
+                  x="80"
+                  style="fill: orange;"
                 ></rect>
                 <rect
                   *ngFor="let grr of greenrectr"
                   width="40"
                   [attr.height]="grr"
-                  x="80"
+                  x="120"
                   style="fill: green;"
                 ></rect>
               </g>
@@ -1167,8 +1207,11 @@
       <ion-row>
         <ion-col>
           <ion-label>
-            Rot = {{ trueposr }}, Gelb = {{ falsenegr }}, Blau = {{ falseposr
-            }}, Grün = {{ truenegr }}, Total = {{ totalr }}
+            <span class="spanr">Rot = {{ trueposr }}</span>,
+            <span class="spanb">Blau = {{ falsenegr }}</span>,
+            <span class="spano">Orange = {{ falseposr }}</span>,
+            <span class="spang">Grün = {{ truenegr }}</span>, Total = {{ totalr
+            }}
           </ion-label>
         </ion-col>
       </ion-row>
@@ -1176,32 +1219,43 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >{{trueposr}}/{{totaltestposr}} = {{ (trueposr / totaltestposr)*100
-            }}%</ion-label
+            >{{ trueposr }}/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ trueposr }}/{{ totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{ truenegr }}/{{totaltestnegr}} = {{ (truenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ truenegr }}/{{ totaltestnegr }} = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ truenegr }}/{{ totalwellr }} = {{ specifity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falsenegr}}/{{totaltestnegr}} = {{ (falsenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ falsenegr }}/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ totalillr }}/{{ totalillr }} = {{ prevalence }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falseposr}}/{{totaltestnegr}} = {{ (falseposr / totaltestposr)
-            *100 }}%</ion-label
+            >{{ falseposr }}/{{ totaltestposr }} = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -1211,23 +1265,23 @@
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
               <ion-label>62</ion-label>
-              <ion-radio value="62"></ion-radio>
+              <ion-radio value="62f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>66</ion-label>
-              <ion-radio value="66"></ion-radio>
+              <ion-radio value="66r"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>34</ion-label>
-              <ion-radio value="34"></ion-radio>
+              <ion-radio value="34f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>38</ion-label>
-              <ion-radio value="38"></ion-radio>
+              <ion-radio value="38f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>36</ion-label>
-              <ion-radio value="36"></ion-radio>
+              <ion-radio value="36f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -1239,7 +1293,7 @@
     <div *ngIf="tasknumber === 7">
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 7 mit NumberIcon</b></p>
+          <p><b>Aufgabe 7</b></p>
           <p>
             Eine Maserninfektion während der frühen Schwangerschaftsphase können
             einen schweren pränatalen Schaden im Fötus verursachen. Deshalb
@@ -1255,8 +1309,8 @@
             hatte, dass das Kind einen schweren pränatalen Schaden hat beträgt
             2/5. Die Wahrscheinlichkeit, wenn die Mutter eine Maserninfektion
             hatte, dass das Kind keinen schweren pränatalen Schaden hat beträgt
-            5/495. Wie hoch ist die Wahrscheinlichkeit, dass das Kind einen
-            schweren pränatalen Schaden hat, wenn die Mutter eine
+            4/495. Wie hoch ist die Wahrscheinlichkeit, dass das Kind keinen
+            schweren pränatalen Schaden hat, wenn die Mutter <b>keine</b>
             Maserninfektion in der frühen Schwangerschaftsphase hatte? Wählen
             Sie
             <b>eine</b> Antwortmöglichkeit aus!
@@ -1280,18 +1334,6 @@
         <ion-col>
           <ion-item>
             <ion-label position="floating"
-              >Gesund & Testpositive Personen</ion-label
-            >
-            <ion-input
-              type="number"
-              [(ngModel)]="falseposn"
-              (ionChange)="falseposchange($event)"
-            ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating"
               >Krank & Testnegative Personen</ion-label
             >
             <ion-input
@@ -1301,6 +1343,19 @@
             ></ion-input>
           </ion-item>
         </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating"
+              >Gesund & Testpositive Personen</ion-label
+            >
+            <ion-input
+              type="number"
+              [(ngModel)]="falseposn"
+              (ionChange)="falseposchange($event)"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -1325,16 +1380,16 @@
               src="{{ rediconn[0] }}"
             />
             <img
-              *ngFor="let img of yellowiconn"
-              width="20"
-              height="40"
-              src="{{ yellowiconn[0] }}"
-            />
-            <img
               *ngFor="let img of blueiconn"
               width="20"
               height="40"
               src="{{ blueiconn[0] }}"
+            />
+            <img
+              *ngFor="let img of yellowiconn"
+              width="20"
+              height="40"
+              src="{{ yellowiconn[0] }}"
             />
             <img
               *ngFor="let img of greeniconn"
@@ -1349,41 +1404,49 @@
       <ion-row>
         <ion-col>
           <ion-label>
-            Rot = {{ trueposn }}, Gelb = {{ falsenegn }}, Blau = {{ falseposn
-            }}, Grün = {{ truenegn }}, Total = {{ totaln }}
+            <span class="spanr">Rot = {{ trueposn }}</span>,
+            <span class="spanb">Blau = {{ falsenegn }}</span>,
+            <span class="spano">Orange = {{ falseposn }}</span>,
+            <span class="spang">Grün = {{ truenegn }}</span>, Total = {{ totaln
+            }}
           </ion-label>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{trueposn}}/{{totaltestposn}} = {{ trueposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ trueposn }}/{{ totaltestposn }} = {{ ppvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ trueposn }}/{{ totalilln }} = {{ sensn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{truenegn}}/{{totaltestnegn}} = {{ truenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ truenegn }}/{{ totaltestnegn }} = {{ npvn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ truenegn }}/{{ totalwelln }} = {{ specn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falsenegn}}/{{totaltestnegn}} = {{ falsenegn/totaltestnegn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falsenegn }}/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label>{{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-label>
-            {{falseposn}}/{{totaltestposn}} = {{ falseposn/totaltestposn*100
-            }}%</ion-label
+          <ion-label
+            >{{ falseposn }}/{{ totaltestposn }} = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -1392,24 +1455,24 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>29</ion-label>
-              <ion-radio value="29"></ion-radio>
+              <ion-label>0</ion-label>
+              <ion-radio value="0f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>99</ion-label>
-              <ion-radio value="99"></ion-radio>
+              <ion-label>66</ion-label>
+              <ion-radio value="66r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-label>34</ion-label>
+              <ion-radio value="34f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>71</ion-label>
-              <ion-radio value="71"></ion-radio>
+              <ion-label>100</ion-label>
+              <ion-radio value="100f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>60</ion-label>
-              <ion-radio value="60"></ion-radio>
+              <ion-label>40</ion-label>
+              <ion-radio value="40f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -1421,7 +1484,7 @@
     <div *ngIf="tasknumber === 8">
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 8 mit RangeIcon</b></p>
+          <p><b>Aufgabe 8</b></p>
           <p>
             Eine Maserninfektion während der frühen Schwangerschaftsphase können
             einen schweren pränatalen Schaden im Fötus verursachen. Deshalb
@@ -1437,9 +1500,9 @@
             dass das Kind einen schweren pränatalen Schaden hat beträgt 40%. Die
             Wahrscheinlichkeit, wenn die Mutter eine Maserninfektion hatte, dass
             das Kind keinen schweren pränatalen Schaden hat beträgt 99%. Wie
-            hoch ist die Wahrscheinlichkeit, dass das Kind einen schweren
-            pränatalen Schaden hat, wenn die Mutter eine Maserninfektion in der
-            frühen Schwangerschaftsphase hatte? Wählen Sie
+            hoch ist die Wahrscheinlichkeit, dass das Kind keinen schweren
+            pränatalen Schaden hat, wenn die Mutter <b>keine</b> Maserninfektion
+            in der frühen Schwangerschaftsphase hatte? Wählen Sie
             <b>eine</b> Antwortmöglichkeit aus!
           </p>
         </ion-col>
@@ -1509,16 +1572,16 @@
               src="{{ rediconr[0] }}"
             />
             <img
-              *ngFor="let img of yellowiconr"
-              width="20"
-              height="40"
-              src="{{ yellowiconr[0] }}"
-            />
-            <img
               *ngFor="let img of blueiconr"
               width="20"
               height="40"
               src="{{ blueiconr[0] }}"
+            />
+            <img
+              *ngFor="let img of yellowiconr"
+              width="20"
+              height="40"
+              src="{{ yellowiconr[0] }}"
             />
             <img
               *ngFor="let img of greeniconr"
@@ -1533,8 +1596,11 @@
       <ion-row>
         <ion-col>
           <ion-label>
-            Rot = {{ trueposr }}, Gelb = {{ falsenegr }}, Blau = {{ falseposr
-            }}, Grün = {{ truenegr }}, Total = {{ totalr }}
+            <span class="spanr">Rot = {{ trueposr }}</span>,
+            <span class="spanb">Blau = {{ falsenegr }}</span>,
+            <span class="spano">Orange = {{ falseposr }}</span>,
+            <span class="spang">Grün = {{ truenegr }}</span>, Total = {{ totalr
+            }}
           </ion-label>
         </ion-col>
       </ion-row>
@@ -1542,32 +1608,43 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >{{trueposr}}/{{totaltestposr}} = {{ (trueposr / totaltestposr)*100
-            }}%</ion-label
+            >{{ trueposr }}/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ trueposr }}/{{ totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{ truenegr }}/{{totaltestnegr}} = {{ (truenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ truenegr }}/{{ totaltestnegr }} = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ truenegr }}/{{ totalwellr }} = {{ specifity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falsenegr}}/{{totaltestnegr}} = {{ (falsenegr / totaltestnegr)
-            *100 }}%</ion-label
+            >{{ falsenegr }}/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >{{ totalillr }}/{{ totalillr }} = {{ prevalence }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >{{falseposr}}/{{totaltestnegr}} = {{ (falseposr / totaltestposr)
-            *100 }}%</ion-label
+            >{{ falseposr }}/{{ totaltestposr }} = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -1576,30 +1653,30 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>29</ion-label>
-              <ion-radio value="29"></ion-radio>
+              <ion-label>0</ion-label>
+              <ion-radio value="0f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>99</ion-label>
-              <ion-radio value="99"></ion-radio>
+              <ion-label>66</ion-label>
+              <ion-radio value="66r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-label>34</ion-label>
+              <ion-radio value="34f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>71</ion-label>
-              <ion-radio value="71"></ion-radio>
+              <ion-label>100</ion-label>
+              <ion-radio value="100"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>60</ion-label>
-              <ion-radio value="60"></ion-radio>
+              <ion-label>40</ion-label>
+              <ion-radio value="40f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
       </ion-row>
       <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
+      <ion-button (click)="uploadResults()">Weiter</ion-button>
     </div>
   </ion-grid>
 </ion-content>

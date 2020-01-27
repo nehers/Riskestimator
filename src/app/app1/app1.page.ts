@@ -11,22 +11,22 @@ export class App1Page implements OnInit {
   selectedInput = "range";
   selectedVis = "table";
   // Variablen für RangeInput mit  "r"
-  prevalence = 15.11;
+  prevalence = 15;
   sensitivity = 99;
   specifity = 90;
   totalr = 500;
-  trueposr = 75;
-  truenegr = 764;
-  falseposr = 85;
+  trueposr = 74;
+  truenegr = 383;
+  falseposr = 42;
   falsenegr = 1;
-  totaltestposr = 234;
-  totaltestnegr = 766;
-  totalillr = 151;
-  totalwellr = 849;
-  ppvr = 64;
-  npvr = 100;
-  fpr = 36;
-  fnr = 0;
+  totaltestposr = 116;
+  totaltestnegr = 384;
+  totalillr = 75;
+  totalwellr = 425;
+  ppvr = 63;
+  npvr = 99;
+  fprr = 37;
+  fnrr = 1;
   tp: number;
   tn: number;
   fp: number;
@@ -40,19 +40,22 @@ export class App1Page implements OnInit {
   blueiconr = [];
   yellowiconr = [];
   // Variablen für NumberInput mit "n"
-  trueposn = 10;
-  truenegn = 10;
-  falseposn = 10;
-  falsenegn = 10;
-  totaln = 40;
-  totaltestposn = 20;
-  totaltestnegn = 20;
-  totalilln = 20;
-  totalwelln = 20;
+  trueposn = 74;
+  truenegn = 383;
+  falseposn = 42;
+  falsenegn = 1;
+  totaln = 500;
+  totaltestposn = 116;
+  totaltestnegn = 384;
+  totalilln = 75;
+  totalwelln = 425;
   ppvn: number;
   npvn: number;
   fnrn: number;
   fprn: number;
+  sensn: number;
+  specn: number;
+  prevn: number;
   redrectn = [];
   greenrectn = [];
   bluerectn = [];
@@ -68,18 +71,18 @@ export class App1Page implements OnInit {
 
   // Calculation für Regler
   calculationrange() {
-    this.totalillr = Math.round(this.totalr * (this.prevalence / 100));
-    this.totalwellr = Math.round(this.totalr - this.totalillr);
-    this.trueposr = Math.round((this.sensitivity / 100) * this.totalillr);
-    this.falsenegr = Math.round(this.totalillr - this.trueposr);
-    this.truenegr = Math.round((this.specifity / 100) * this.totalwellr);
-    this.falseposr = Math.round(this.totalwellr - this.truenegr);
-    this.totaltestposr = Math.round(this.trueposr + this.falseposr);
-    this.totaltestnegr = Math.round(this.falsenegr + this.truenegr);
-    this.ppvr = Math.round((this.trueposr / this.totaltestposr) * 100);
-    this.npvr = Math.round((this.truenegr / this.totaltestnegr) * 100);
-    this.fpr = 100 - this.ppvr;
-    this.fnr = 100 - this.npvr;
+    this.totalillr = Math.trunc(this.totalr * (this.prevalence / 100));
+    this.totalwellr = Math.trunc(this.totalr - this.totalillr);
+    this.trueposr = Math.trunc((this.sensitivity / 100) * this.totalillr);
+    this.falsenegr = Math.trunc(this.totalillr - this.trueposr);
+    this.truenegr = Math.trunc((this.specifity / 100) * this.totalwellr);
+    this.falseposr = Math.trunc(this.totalwellr - this.truenegr);
+    this.totaltestposr = Math.trunc(this.trueposr + this.falseposr);
+    this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
+    this.ppvr = Math.trunc((this.trueposr / this.totaltestposr) * 100);
+    this.npvr = Math.trunc((this.truenegr / this.totaltestnegr) * 100);
+    this.fprr = 100 - this.ppvr;
+    this.fnrr = 100 - this.npvr;
   }
   // Calculation für NumerischenInput
   calculationnumber() {
@@ -88,10 +91,13 @@ export class App1Page implements OnInit {
     this.totalilln = this.trueposn + this.falsenegn;
     this.totalwelln = this.falseposn + this.truenegn;
     this.totaln = this.totalilln + this.totalwelln;
-    this.ppvn = Math.round((this.trueposn / this.totaltestposn) * 100);
-    this.npvn = Math.round((this.truenegn / this.totaltestnegn) * 100);
+    this.ppvn = Math.trunc((this.trueposn / this.totaltestposn) * 100);
+    this.npvn = Math.trunc((this.truenegn / this.totaltestnegn) * 100);
     this.fprn = 100 - this.ppvn;
     this.fnrn = 100 - this.npvn;
+    this.sensn = Math.trunc((this.trueposn / this.totalilln)*100);
+    this.specn = Math.trunc((this.truenegn / this.totalwelln)*100);
+    this.prevn = Math.trunc((this.totalilln / this.totaln)*100);
   }
   // Prävalenzregler
   prevalencechange() {
@@ -167,38 +173,38 @@ export class App1Page implements OnInit {
   // Images generieren mit Schiebern
   forIconRangeLoop() {
     for (this.tp = this.trueposr; this.tp > 0; this.tp--) {
-      this.rediconr.push("assets/img/Circlerot.svg");
+      this.rediconr.push("assets/img/Imagered.svg");
       this.redrectr.push(this.trueposr);
     }
-    for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
-      this.blueiconr.push("assets/img/Circleblau.svg");
-      this.bluerectr.push(this.falseposr);
-    }
     for (this.fn = this.falsenegr; this.fn > 0; this.fn--) {
-      this.yellowiconr.push("assets/img/Circlegelb.svg");
-      this.yellowrectr.push(this.falsenegr);
+      this.blueiconr.push("assets/img/Imageblue.svg");
+      this.bluerectr.push(this.falsenegr);
+    }
+    for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
+      this.yellowiconr.push("assets/img/Imageorange.svg");
+      this.yellowrectr.push(this.falseposr);
     }
     for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
-      this.greeniconr.push("assets/img/Circlegrün.svg");
+      this.greeniconr.push("assets/img/Imagegreen.svg");
       this.greenrectr.push(this.truenegr);
     }
   }
   // Images generieren mit NumerikInput
   forIconNumberLoop() {
     for (this.tp = this.trueposn; this.tp > 0; this.tp--) {
-      this.rediconn.push("assets/img/Circlerot.svg");
+      this.rediconn.push("assets/img/Imagered.svg");
       this.redrectn.push(this.trueposn);
     }
-    for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
-      this.blueiconn.push("assets/img/Circleblau.svg");
-      this.bluerectn.push(this.falseposn);
-    }
     for (this.fn = this.falsenegn; this.fn > 0; this.fn--) {
-      this.yellowiconn.push("assets/img/Circlegelb.svg");
-      this.yellowrectn.push(this.falsenegn);
+      this.blueiconn.push("assets/img/Imageblue.svg");
+      this.bluerectn.push(this.falsenegn);
+    }
+    for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
+      this.yellowiconn.push("assets/img/Imageorange.svg");
+      this.yellowrectn.push(this.falseposn);
     }
     for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
-      this.greeniconn.push("assets/img/Circlegrün.svg");
+      this.greeniconn.push("assets/img/Imagegreen.svg");
       this.greenrectn.push(this.truenegn);
     }
   }

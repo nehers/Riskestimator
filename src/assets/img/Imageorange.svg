@@ -9,15 +9,15 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="10.32mm"
-   height="7.276mm"
-   viewBox="0 0 10.32 7.276"
+   width="67.988098mm"
+   height="86.922592mm"
+   viewBox="-1.9428903e-16 0 67.988099 86.922596"
    version="1.1"
-   id="svg52"
+   id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="Circlerot.svg">
+   sodipodi:docname="Imageorange.svg">
   <defs
-     id="defs46" />
+     id="defs2" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,22 +26,24 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-341.9262"
-     inkscape:cy="-373.39293"
+     inkscape:cx="139.91005"
+     inkscape:cy="99.999897"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="837"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-top="1.5"
+     fit-margin-left="3"
+     fit-margin-right="3"
+     fit-margin-bottom="0"
+     scale-x="1"
+     viewbox-x="-1.9428903e-16" />
   <metadata
-     id="metadata49">
+     id="metadata5">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -56,13 +58,34 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-63.631664,-42.763787)">
+     transform="translate(-68.815468,-88.369044)">
     <ellipse
-       style="fill:#ff0000;stroke-width:0.26458332"
-       id="path54"
-       cx="68.791664"
-       cy="46.401787"
-       rx="5.1599998"
-       ry="3.638" />
+       style="fill:#ff6600;stroke-width:0.26458332"
+       id="path10"
+       cx="102.43154"
+       cy="104.10615"
+       rx="14.741072"
+       ry="14.237103" />
+    <rect
+       style="fill:#ff6600;stroke-width:0.26458332"
+       id="rect12"
+       width="15.119047"
+       height="53.784611"
+       x="94.494049"
+       y="121.50703" />
+    <rect
+       style="fill:#ff6600;stroke-width:0.22913589"
+       id="rect28"
+       width="22.678574"
+       height="10.282359"
+       x="71.815468"
+       y="121.50703" />
+    <rect
+       style="fill:#ff6600;stroke-width:0.22563741"
+       id="rect30"
+       width="24.19047"
+       height="9.4914093"
+       x="109.6131"
+       y="121.50703" />
   </g>
 </svg>

@@ -1,16 +1,30 @@
 .truepos {
-  color: black;
+  color: white;
   background-color: red;
 }
 .falsepos {
-  color: black;
-  background-color: blue;
+  color: white;
+  background-color: orange;
 }
 .falseneg {
-  color: black;
-  background-color: yellow;
+  color: white;
+  background-color: blue;
 }
 .trueneg {
-  color: black;
+  color: white;
   background-color: green;
+}
+
+.spanr {
+  color: red;
+}
+
+.spanb {
+  color: blue;
+}
+.spano {
+  color: orange;
+}
+.spang {
+  color: green;
 }
