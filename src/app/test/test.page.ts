@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { SegmentChangeEventDetail } from "@ionic/core";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: "app-test",
@@ -65,14 +66,18 @@ export class TestPage implements OnInit {
   greeniconn = [];
   blueiconn = [];
   yellowiconn = [];
-  // Ergebnbisse speichern
+  // Ergebnbisse erzeugen
   result: any;
   results = [];
   frage: any;
   value: any;
   date: any;
+  data = {};
+  // Ergebnisse abspeichern
+  fileName = 'myData.json';
+  filetoSave: Blob;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit() {}
 
@@ -221,6 +226,11 @@ export class TestPage implements OnInit {
     // console.log(this.tasknumber);
     this.results.push(this.result);
     console.log(this.results);
+    this.data = { Id1: this.results
+    };
+    this.filetoSave = new Blob([JSON.stringify(this.results)], {
+      type: 'application/json'
+    });
     this.prevalence = 15;
     this.sensitivity = 99;
     this.specifity = 90;
@@ -241,23 +251,27 @@ export class TestPage implements OnInit {
     this.falsenegn = 10;
   }
 
-  uploadResults() {
-    this.tasknumber = this.tasknumber + 1;
-    this.results.push(this.result);
-    console.log(this.results);
-    this.http
-      .post("https://ionic-e0cc9.firebaseio.com/Ergebnisse.json", {
-        ...this.results
-      })
-      .subscribe(response => {
-        console.log(response);
-      });
-  }
+  // uploadResults() {
+  //   this.tasknumber = this.tasknumber + 1;
+  //   this.results.push(this.result);
+  //   console.log(this.results);
+  //   this.http
+  //     .post("https://ionic-e0cc9.firebaseio.com/Ergebnisse.json", {
+  //       ...this.results
+  //     })
+  //     .subscribe(response => {
+  //       console.log(response);
+  //     });
+  // }
 
   Frage(event) {
     this.frage = "Frage" + this.tasknumber;
     this.value = event.target.value;
     this.date = new Date().toLocaleString();
     this.result = [this.frage, this.value, this.date];
+  }
+
+  saveToFile () {
+    saveAs(this.filetoSave, this.fileName);
   }
 }

@@ -16,7 +16,7 @@ RUN rm -rf /tmp/* /var/cache/apk/*
 # CLONE RISKESTIMATOR
 RUN git clone https://github.com/nehers/Riskestimator.git
 
-# Installing NPM
+# Installing ANGULAR
 RUN cd Riskestimator && \
     npm i -D -E @angular/cli
 

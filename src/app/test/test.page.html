@@ -450,6 +450,7 @@
 
       <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
+      <ion-button (click)="saveToFile()">SaveToFile</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 3">
@@ -887,11 +888,11 @@
               <ion-radio value="61f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>39f</ion-label>
+              <ion-label>39</ion-label>
               <ion-radio value="39f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>28f</ion-label>
+              <ion-label>28</ion-label>
               <ion-radio value="28f"></ion-radio>
             </ion-item>
             <ion-item>
@@ -1666,7 +1667,7 @@
             </ion-item>
             <ion-item>
               <ion-label>100</ion-label>
-              <ion-radio value="100"></ion-radio>
+              <ion-radio value="100f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>40</ion-label>
@@ -1676,7 +1677,13 @@
         </ion-col>
       </ion-row>
       <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="uploadResults()">Weiter</ion-button>
+      <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
+
+    <div *ngIf="tasknumber === 9">
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
+      <ion-button (click)="saveToFile()">SaveToFile</ion-button>
+    </div>
+
   </ion-grid>
 </ion-content>
