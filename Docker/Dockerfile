@@ -13,6 +13,9 @@ RUN apk update && apk upgrade && \
 #FILES DELETION
 RUN rm -rf /tmp/* /var/cache/apk/*
 
+# CREATE DIRECTORY
+run mkdir /download
+
 # CLONE RISKESTIMATOR
 RUN git clone https://github.com/nehers/Riskestimator.git
 
