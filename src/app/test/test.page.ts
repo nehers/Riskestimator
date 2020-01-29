@@ -77,6 +77,8 @@ export class TestPage implements OnInit {
   fileName = 'myData.json';
   filetoSave: Blob;
 
+  id: any;
+
   constructor() {}
 
   ngOnInit() {}
@@ -223,7 +225,6 @@ export class TestPage implements OnInit {
 
   getNextTask() {
     this.tasknumber = this.tasknumber + 1;
-    // console.log(this.tasknumber);
     this.results.push(this.result);
     console.log(this.results);
     this.data = { Id1: this.results
@@ -265,13 +266,14 @@ export class TestPage implements OnInit {
   // }
 
   Frage(event) {
+    this.id = new Date;
     this.frage = "Frage" + this.tasknumber;
     this.value = event.target.value;
     this.date = new Date().toLocaleString();
-    this.result = [this.frage, this.value, this.date];
+    this.result = [this.id, this.frage, this.value, this.date];
   }
 
   saveToFile () {
-    saveAs(this.filetoSave, this.fileName);
+    saveAs(this.filetoSave, 'Ergebnisse');
   }
 }
