@@ -17,6 +17,7 @@
     <div *ngIf="tasknumber === 1">
       <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
+      <ion-button (click)="savetoStorage()">SavetoStorage</ion-button>
       <ion-row>
         <ion-col>
           <p><b>Aufgabe 1</b></p>
@@ -229,6 +230,7 @@
 
     <ion-button (click)="getBackTask()">Zurück</ion-button>
     <ion-button (click)="getNextTask()">Weiter</ion-button>
+    <ion-button (click)="savetoStorage()">SavetoStorage</ion-button>
 
     <div *ngIf="tasknumber === 2">
       <ion-row>
@@ -451,6 +453,7 @@
       <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
       <ion-button (click)="saveToFile()">SaveToFile</ion-button>
+      <ion-button (click)="savetoStorage()">SavetoStorage</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 3">

@@ -266,7 +266,7 @@ export class TestPage implements OnInit {
   // }
 
   Frage(event) {
-    this.id = new Date;
+    this.id = new Date().toLocaleString();
     this.frage = "Frage" + this.tasknumber;
     this.value = event.target.value;
     this.date = new Date().toLocaleString();
@@ -275,5 +275,9 @@ export class TestPage implements OnInit {
 
   saveToFile () {
     saveAs(this.filetoSave, 'Ergebnisse');
+  }
+
+  savetoStorage() {
+    localStorage.setItem(this.id, this.result);
   }
 }
