@@ -3,6 +3,7 @@ import { SegmentChangeEventDetail } from "@ionic/core";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
 import { saveAs } from 'file-saver';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: "app-test",
@@ -79,7 +80,7 @@ export class TestPage implements OnInit {
 
   id: any;
 
-  constructor() {}
+  constructor(private alertCtrl: AlertController) {}
 
   ngOnInit() {}
 
@@ -114,49 +115,203 @@ export class TestPage implements OnInit {
     this.prevn = Math.trunc((this.totalilln / this.totaln)*100);
   }
   // Prävalenzregler
-  prevalencechange() {
+  prevalencechange(event: CustomEvent<any>) {
+    if (event.detail.value > 100) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 100 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.prevalence = 15;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.prevalence = 15;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
   }
   // Sensitivitätsregler
-  sensitivitychange() {
+  sensitivitychange(event: CustomEvent<any>) {
+    if (event.detail.value > 100) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 100 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.sensitivity = 99;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.sensitivity = 99;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
   }
   // Sepzifitätsregler
-  specifitychange() {
+  specifitychange(event: CustomEvent<any>) {
+    if (event.detail.value > 100) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 100 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.specifity = 90;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.specifity = 90;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
   }
   // TrueposEingabe
-  trueposchange() {
+  trueposchange(event: CustomEvent<any>) {
+    if (event.detail.value > 500) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.trueposn = 74;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.trueposn = 74;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
   // TruenegEingabe
-  truenegchange() {
+  truenegchange(event: CustomEvent<any>) {
+    if (event.detail.value > 500) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.truenegn = 383;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.truenegn = 383;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
   // FalseposEingabe
-  falseposchange() {
+  falseposchange(event: CustomEvent<any>) {
+    if (event.detail.value > 500) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.falseposn = 42;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.falseposn = 42;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
   // FalsenegEingabe
-  falsenegchange() {
+  falsenegchange(event: CustomEvent<any>) {
+    if (event.detail.value > 500) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.falsenegn = 1;
+          alertEl.present();
+        });
+    }
+    if (event.detail.value <0) {
+      this.alertCtrl.create({
+        header: 'Ein Fehler ist aufgetreten!',
+        message: "Der Wert muss größer oder gleich 500 sein!",
+        buttons: ["Okay"]
+      }).then(alertEl => {
+        this.falsenegn = 1;
+        alertEl.present();
+      });
+    }
     this.clearIcon();
     this.clearRect();
     this.calculationnumber();
@@ -223,6 +378,7 @@ export class TestPage implements OnInit {
     }
   }
 
+  // Ergebnisse speichern
   getNextTask() {
     this.tasknumber = this.tasknumber + 1;
     this.results.push(this.result);

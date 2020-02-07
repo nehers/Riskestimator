@@ -14,29 +14,68 @@
       ></ion-back-button>
     </ion-buttons>
 
-    <ion-segment (ionChange)="onInputChange($event)">
-      <ion-segment-button value="range" checked color="primary"
-        >Schieber</ion-segment-button
-      >
-      <ion-segment-button value="number">Zahlen</ion-segment-button>
-    </ion-segment>
+    <ion-row>
+      <ion-col>
+        <ion-segment (ionChange)="onInputChange($event)">
+          <ion-item lines="none">
+            <ion-label>
+              <ion-segment-button value="range" checked color="primary"
+                >Schieber
+              </ion-segment-button>
+            </ion-label>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>
+              <ion-segment-button value="number">Zahlen</ion-segment-button>
+            </ion-label>
+          </ion-item>
+        </ion-segment>
+      </ion-col>
+    </ion-row>
 
-    <ion-segment (ionChange)="onVisChange($event)">
-      <ion-segment-button value="table" checked
-        >4-Felder-Tafel</ion-segment-button
-      >
-      <ion-segment-button value="tree">Baumdiagramm</ion-segment-button>
-      <ion-segment-button value="slider">Balkendiagramm</ion-segment-button>
-      <ion-segment-button value="icon">IconArray</ion-segment-button>
+
+    <ion-row>
+      <ion-segment (ionChange)="onVisChange($event)">
+   
+    <ion-row>
+      <ion-col>
+        
+          <ion-item lines="none">
+            <ion-segment-button value="table" checked
+              >4-Felder-Tafel</ion-segment-button
+            >
+          </ion-item>
+          <ion-item lines="none">
+            <ion-segment-button value="tree">Baumdiagramm</ion-segment-button>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-segment-button value="slider"
+              >Balkendiagramm</ion-segment-button
+            >
+          </ion-item>
+          
+       
+      </ion-col>
+    </ion-row>
+      <ion-row>
+        <ion-item lines="none">
+          <ion-segment-button value="icon">Icon Array</ion-segment-button>
+        </ion-item>
+      </ion-row>
     </ion-segment>
+    </ion-row>
 
     <div *ngIf="selectedInput === 'number'">
       <ion-row>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Krank & Testpositive Personen</ion-label>
+            <ion-label position="floating"
+              >Krank & Testpositive Personen</ion-label
+            >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="trueposn"
               (ionChange)="trueposchange($event)"
             ></ion-input>
@@ -44,9 +83,13 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Krank & Testnegative Personen</ion-label>
+            <ion-label position="floating"
+              >Krank & Testnegative Personen</ion-label
+            >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falsenegn"
               (ionChange)="falsenegchange($event)"
             ></ion-input>
@@ -54,20 +97,28 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Gesund & Testpositive Personen</ion-label>
+            <ion-label position="floating"
+              >Gesund & Testpositive Personen</ion-label
+            >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falseposn"
               (ionChange)="falseposchange($event)"
             ></ion-input>
           </ion-item>
         </ion-col>
-        
+
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Gesund & Testnegative Personen</ion-label>
+            <ion-label position="floating"
+              >Gesund & Testnegative Personen</ion-label
+            >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="truenegn"
               (ionChange)="truenegchange($event)"
             ></ion-input>
@@ -205,6 +256,8 @@
             <ion-label position="floating">Prävalenz</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="prevalence"
               (ionChange)="prevalencechange($event)"
             ></ion-input>
@@ -222,6 +275,8 @@
             <ion-label position="floating">Sensitivität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="sensitivity"
               (ionChange)="sensitivitychange($event)"
             ></ion-input>
@@ -236,9 +291,11 @@
         </ion-col>
         <ion-col>
           <ion-item>
-            <ion-label position="floating">Spezifität</ion-label>
+            <ion-label position="floating">Spezifität </ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="specifity"
               (ionChange)="specifitychange($event)"
             ></ion-input>
@@ -769,6 +826,17 @@
 
       <ion-row>
         <ion-col>
+          <img
+            *ngFor="let img of yellowiconn"
+            width="20"
+            height="40"
+            src="{{ yellowiconn[0] }}"
+          />
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposn }}</span>,
             <span class="spanb">Blau = Falschnegativ = {{ falsenegn }}</span>,
@@ -829,7 +897,7 @@
       <ion-row>
         <ion-col>
           <div>
-            <svg>
+            <svg width="200" height="500">
               <g>
                 <rect
                   *ngFor="let rrr of redrectr"
@@ -928,7 +996,7 @@
       <ion-row>
         <ion-col>
           <div>
-            <svg>
+            <svg height="500">
               <g>
                 <rect
                   *ngFor="let rrn of redrectn"

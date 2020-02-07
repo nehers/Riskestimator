@@ -4,6 +4,6 @@ services:
   riskestimator:
     image: nehers/ionic
     ports:
-    - "8100:8100"
+    - "80:8100"
     tty: true
     

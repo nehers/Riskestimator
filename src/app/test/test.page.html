@@ -14,10 +14,14 @@
       ></ion-back-button>
     </ion-buttons>
 
-    <div *ngIf="tasknumber === 1">
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
+    <div>
+      <ion-button (click)="getBackTask()">Zurück2 2</ion-button>
+      <ion-button (click)="getNextTask()">Weiter 2</ion-button>
       <ion-button (click)="savetoStorage()">SavetoStorage</ion-button>
+    </div>
+
+    <div *ngIf="tasknumber === 1">
+      
       <ion-row>
         <ion-col>
           <p><b>Aufgabe 1</b></p>
@@ -43,6 +47,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="trueposn"
               (ionChange)="trueposchange($event)"
             ></ion-input>
@@ -55,6 +61,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falsenegn"
               (ionChange)="falsenegchange($event)"
             ></ion-input>
@@ -67,6 +75,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falseposn"
               (ionChange)="falseposchange($event)"
             ></ion-input>
@@ -80,6 +90,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="truenegn"
               (ionChange)="truenegchange($event)"
             ></ion-input>
@@ -228,10 +240,6 @@
       </ion-row>
     </div>
 
-    <ion-button (click)="getBackTask()">Zurück</ion-button>
-    <ion-button (click)="getNextTask()">Weiter</ion-button>
-    <ion-button (click)="savetoStorage()">SavetoStorage</ion-button>
-
     <div *ngIf="tasknumber === 2">
       <ion-row>
         <ion-col>
@@ -256,6 +264,8 @@
             <ion-label position="floating">Prävalenz</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="prevalence"
               (ionChange)="prevalencechange($event)"
             ></ion-input>
@@ -273,6 +283,8 @@
             <ion-label position="floating">Sensitivität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="sensitivity"
               (ionChange)="sensitivitychange($event)"
             ></ion-input>
@@ -290,6 +302,8 @@
             <ion-label position="floating">Spezifität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="specifity"
               (ionChange)="specifitychange($event)"
             ></ion-input>
@@ -450,8 +464,6 @@
         </ion-col>
       </ion-row>
 
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
       <ion-button (click)="saveToFile()">SaveToFile</ion-button>
       <ion-button (click)="savetoStorage()">SavetoStorage</ion-button>
     </div>
@@ -483,6 +495,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="trueposn"
               (ionChange)="trueposchange($event)"
             ></ion-input>
@@ -495,6 +509,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falsenegn"
               (ionChange)="falsenegchange($event)"
             ></ion-input>
@@ -507,12 +523,14 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falseposn"
               (ionChange)="falseposchange($event)"
             ></ion-input>
           </ion-item>
         </ion-col>
-        
+
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -520,6 +538,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="truenegn"
               (ionChange)="truenegchange($event)"
             ></ion-input>
@@ -675,8 +695,6 @@
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 4">
@@ -703,6 +721,8 @@
             <ion-label position="floating">Prävalenz</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="prevalence"
               (ionChange)="prevalencechange($event)"
             ></ion-input>
@@ -720,6 +740,8 @@
             <ion-label position="floating">Sensitivität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="sensitivity"
               (ionChange)="sensitivitychange($event)"
             ></ion-input>
@@ -737,6 +759,8 @@
             <ion-label position="floating">Spezifität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="specifity"
               (ionChange)="specifitychange($event)"
             ></ion-input>
@@ -905,8 +929,6 @@
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 5">
@@ -937,6 +959,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="trueposn"
               (ionChange)="trueposchange($event)"
             ></ion-input>
@@ -949,6 +973,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falsenegn"
               (ionChange)="falsenegchange($event)"
             ></ion-input>
@@ -961,12 +987,14 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falseposn"
               (ionChange)="falseposchange($event)"
             ></ion-input>
           </ion-item>
         </ion-col>
-        
+
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -974,6 +1002,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="truenegn"
               (ionChange)="truenegchange($event)"
             ></ion-input>
@@ -984,7 +1014,7 @@
       <ion-row>
         <ion-col>
           <div>
-            <svg>
+            <svg height="500">
               <g>
                 <rect
                   *ngFor="let rrn of redrectn"
@@ -1095,8 +1125,6 @@
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 6">
@@ -1122,6 +1150,8 @@
             <ion-label position="floating">Prävalenz</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="prevalence"
               (ionChange)="prevalencechange($event)"
             ></ion-input>
@@ -1139,6 +1169,8 @@
             <ion-label position="floating">Sensitivität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="sensitivity"
               (ionChange)="sensitivitychange($event)"
             ></ion-input>
@@ -1156,6 +1188,8 @@
             <ion-label position="floating">Spezifität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="specifity"
               (ionChange)="specifitychange($event)"
             ></ion-input>
@@ -1173,7 +1207,7 @@
       <ion-row>
         <ion-col>
           <div>
-            <svg>
+            <svg height="500">
               <g>
                 <rect
                   *ngFor="let rrr of redrectr"
@@ -1290,8 +1324,6 @@
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 7">
@@ -1311,7 +1343,7 @@
             Wahrscheinlichkeit von schwerem pränatalen Kindsschaden beträgt
             5/500. Die Wahrscheinlichkeit, wenn die Mutter keine Maserninfektion
             hatte, dass das Kind einen schweren pränatalen Schaden hat beträgt
-            2/5. Die Wahrscheinlichkeit, wenn die Mutter eine Maserninfektion
+            2/5. Die Wahrscheinlichkeit, wenn die Mutter keine Maserninfektion
             hatte, dass das Kind keinen schweren pränatalen Schaden hat beträgt
             4/495. Wie hoch ist die Wahrscheinlichkeit, dass das Kind keinen
             schweren pränatalen Schaden hat, wenn die Mutter <b>keine</b>
@@ -1330,6 +1362,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="trueposn"
               (ionChange)="trueposchange($event)"
             ></ion-input>
@@ -1342,6 +1376,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falsenegn"
               (ionChange)="falsenegchange($event)"
             ></ion-input>
@@ -1354,12 +1390,14 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="falseposn"
               (ionChange)="falseposchange($event)"
             ></ion-input>
           </ion-item>
         </ion-col>
-        
+
         <ion-col>
           <ion-item>
             <ion-label position="floating"
@@ -1367,6 +1405,8 @@
             >
             <ion-input
               type="number"
+              min="0"
+              max="500"
               [(ngModel)]="truenegn"
               (ionChange)="truenegchange($event)"
             ></ion-input>
@@ -1481,8 +1521,6 @@
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 8">
@@ -1518,6 +1556,8 @@
             <ion-label position="floating">Prävalenz</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="prevalence"
               (ionChange)="prevalencechange($event)"
             ></ion-input>
@@ -1535,6 +1575,8 @@
             <ion-label position="floating">Sensitivität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="sensitivity"
               (ionChange)="sensitivitychange($event)"
             ></ion-input>
@@ -1552,6 +1594,8 @@
             <ion-label position="floating">Spezifität</ion-label>
             <ion-input
               type="number"
+              min="0"
+              max="100"
               [(ngModel)]="specifity"
               (ionChange)="specifitychange($event)"
             ></ion-input>
@@ -1679,14 +1723,16 @@
           </ion-radio-group>
         </ion-col>
       </ion-row>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
+    </div>
+
+    <div>
+      <ion-button (click)="getBackTask()">Zurück 1</ion-button>
+      <ion-button (click)="getNextTask()">Weiter 1</ion-button>
     </div>
 
     <div *ngIf="tasknumber === 9">
       <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="saveToFile()">SaveToFile</ion-button>
     </div>
-
   </ion-grid>
 </ion-content>
