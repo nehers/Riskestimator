@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { SegmentChangeEventDetail } from "@ionic/core";
 import { HttpClient } from "@angular/common/http";
 import { tap } from "rxjs/operators";
-import { saveAs } from 'file-saver';
-import { AlertController } from '@ionic/angular';
+import { saveAs } from "file-saver";
+import { AlertController } from "@ionic/angular";
 
 @Component({
   selector: "app-test",
@@ -12,7 +12,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class TestPage implements OnInit {
   // Number für Testaufgaben
-  tasknumber = 1;
+  tasknumber = 0;
   // Variablen für RangeInput mit  "r"
   prevalence = 15;
   sensitivity = 99;
@@ -73,12 +73,13 @@ export class TestPage implements OnInit {
   frage: any;
   value: any;
   date: any;
-  data = {};
-  // Ergebnisse abspeichern
-  fileName = 'myData.json';
-  filetoSave: Blob;
+  datestart: any;
+  Id: number;
+  id: number;
 
-  id: any;
+  // Ergebnisse abspeichern
+  fileName = "myData.json";
+  filetoSave: Blob;
 
   constructor(private alertCtrl: AlertController) {}
 
@@ -110,9 +111,9 @@ export class TestPage implements OnInit {
     this.npvn = Math.trunc((this.truenegn / this.totaltestnegn) * 100);
     this.fprn = 100 - this.ppvn;
     this.fnrn = 100 - this.npvn;
-    this.sensn = Math.trunc((this.trueposn / this.totalilln)*100);
-    this.specn = Math.trunc((this.truenegn / this.totalwelln)*100);
-    this.prevn = Math.trunc((this.totalilln / this.totaln)*100);
+    this.sensn = Math.trunc((this.trueposn / this.totalilln) * 100);
+    this.specn = Math.trunc((this.truenegn / this.totalwelln) * 100);
+    this.prevn = Math.trunc((this.totalilln / this.totaln) * 100);
   }
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
@@ -128,15 +129,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 0 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.prevalence = 15;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.prevalence = 15;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -157,15 +160,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 0 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.sensitivity = 99;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.sensitivity = 99;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -186,15 +191,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 0 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.specifity = 90;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.specifity = 90;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -215,15 +222,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 0 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.trueposn = 74;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.trueposn = 74;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -244,15 +253,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 0 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.truenegn = 383;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.truenegn = 383;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -273,15 +284,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 0 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.falseposn = 42;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.falseposn = 42;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -302,15 +315,17 @@ export class TestPage implements OnInit {
           alertEl.present();
         });
     }
-    if (event.detail.value <0) {
-      this.alertCtrl.create({
-        header: 'Ein Fehler ist aufgetreten!',
-        message: "Der Wert muss größer oder gleich 500 sein!",
-        buttons: ["Okay"]
-      }).then(alertEl => {
-        this.falsenegn = 1;
-        alertEl.present();
-      });
+    if (event.detail.value < 0) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 500 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.falsenegn = 1;
+          alertEl.present();
+        });
     }
     this.clearIcon();
     this.clearRect();
@@ -383,10 +398,8 @@ export class TestPage implements OnInit {
     this.tasknumber = this.tasknumber + 1;
     this.results.push(this.result);
     console.log(this.results);
-    this.data = { Id1: this.results
-    };
     this.filetoSave = new Blob([JSON.stringify(this.results)], {
-      type: 'application/json'
+      type: "text/plain"
     });
     this.prevalence = 15;
     this.sensitivity = 99;
@@ -398,7 +411,6 @@ export class TestPage implements OnInit {
   }
   getBackTask() {
     this.tasknumber = this.tasknumber - 1;
-    console.log(this.tasknumber);
     this.prevalence = 15;
     this.sensitivity = 99;
     this.specifity = 90;
@@ -421,19 +433,49 @@ export class TestPage implements OnInit {
   //     });
   // }
 
+  IdInput() {
+    if (this.Id > 12) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss kleiner oder gleich 12 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.tasknumber = 0;
+          alertEl.present();
+        });
+    }
+    if (this.Id < 1) {
+      this.alertCtrl
+        .create({
+          header: "Ein Fehler ist aufgetreten!",
+          message: "Der Wert muss größer oder gleich 1 sein!",
+          buttons: ["Okay"]
+        })
+        .then(alertEl => {
+          this.tasknumber = 0;
+          alertEl.present();
+        });
+    }
+    this.tasknumber = this.tasknumber + 1;
+    this.datestart = new Date().toLocaleString();
+    this.id = this.Id;
+  }
+
   Frage(event) {
-    this.id = new Date().toLocaleString();
     this.frage = "Frage" + this.tasknumber;
     this.value = event.target.value;
     this.date = new Date().toLocaleString();
-    this.result = [this.id, this.frage, this.value, this.date];
+    this.result = [this.Id, this.datestart, this.frage, this.value, this.date];
   }
 
-  saveToFile () {
-    saveAs(this.filetoSave, 'Ergebnisse');
-  }
-
-  savetoStorage() {
-    localStorage.setItem(this.id, this.result);
+  saveToFile() {
+    this.results.push(this.result);
+    console.log(this.results);
+    this.filetoSave = new Blob([JSON.stringify(this.results)], {
+      type: "text/plain"
+    });
+    saveAs(this.filetoSave, this.Id);
   }
 }
