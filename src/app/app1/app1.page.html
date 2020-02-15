@@ -47,7 +47,7 @@
           </ion-item>
 
           <ion-item lines="none">
-            <ion-segment-button value="slider"
+            <ion-segment-button value="unitsquare"
               >Balkendiagramm</ion-segment-button
             >
           </ion-item>
@@ -199,32 +199,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }} = {{ ppvn }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
+            = {{ ppvn }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{ totalilln }} = {{ sensn
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }} = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
+            totalilln }} = {{ sensn }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
+            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }}
+            = {{ npvn }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln
+            }} {{ specn }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            = {{ fnrn }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -236,7 +240,8 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestnegn }} = {{ fprn }}%</ion-label
+            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestnegn }}
+            = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -383,33 +388,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
+            = {{ ppvr }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{ totalillr }} = {{ sensitivity
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }} = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr }} = {{ specifity
-            }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
+            totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
+            = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
+            }} = {{ specifity }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            = {{ fnrr }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -422,7 +430,8 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }} = {{ fprr }}%</ion-label
+            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -503,7 +512,7 @@
         </ion-col>
         <ion-col pull="1.25">
           <svg>
-            <text x="130" y="15" fill="orange">{{ falseposn}} </text>
+            <text x="130" y="15" fill="orange">{{ falseposn}}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.75">
@@ -516,32 +525,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }} = {{ ppvn }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
+            = {{ ppvn }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{ totalilln }} = {{ sensn
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }} = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
+            totalilln }} = {{ sensn }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
+            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }}
+            = {{ npvn }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln
+            }} {{ specn }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            = {{ fnrn }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -553,7 +566,8 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestposn }} = {{ fprn }}%</ion-label
+            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestposn }}
+            = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -648,33 +662,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
+            = {{ ppvr }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{ totalillr }} = {{ sensitivity
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }} = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr }} = {{ specifity
-            }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
+            totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
+            = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
+            }} = {{ specifity }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            = {{ fnrr }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -687,7 +704,8 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }} = {{ fprr }}%</ion-label
+            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -696,31 +714,31 @@
     <div *ngIf="selectedInput === 'range' && selectedVis === 'icon'">
       <ion-row>
         <ion-col>
-          <div>
-            <img
-              *ngFor="let img of rediconr"
-              width="20"
-              height="40"
-              src="{{ rediconr[0] }}"
-            />
-            <img
-              *ngFor="let img of blueiconr"
-              width="20"
-              height="40"
-              src="{{ blueiconr[0] }}"
-            />
-            <img
-              *ngFor="let img of yellowiconr"
-              width="20"
-              height="40"
-              src="{{ yellowiconr[0] }}"
-            />
-            <img
-              *ngFor="let img of greeniconr"
-              width="20"
-              height="40"
-              src="{{ greeniconr[0] }}"
-            />
+          <div class="container">
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of rediconr"
+                src="{{ rediconr[0] }}"
+              />
+
+              <img
+                class="icon"
+                *ngFor="let img of blueiconr"
+                src="{{ blueiconr[0] }}"
+              />
+            </div>
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of yellowiconr"
+                src="{{ yellowiconr[0] }}"
+              /><img
+                class="icon"
+                *ngFor="let img of greeniconr"
+                src="{{ greeniconr[0] }}"
+              />
+            </div>
           </div>
         </ion-col>
       </ion-row>
@@ -740,33 +758,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
+            = {{ ppvr }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{ totalillr }} = {{ sensitivity
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }} = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr }} = {{ specifity
-            }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
+            totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
+            = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
+            }} = {{ specifity }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            = {{ fnrr }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -779,7 +800,8 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }} = {{ fprr }}%</ion-label
+            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -788,52 +810,42 @@
     <div *ngIf="selectedInput === 'number' && selectedVis === 'icon'">
       <ion-row>
         <ion-col>
-          <div>
-            <img
-              *ngFor="let img of rediconn"
-              width="20"
-              height="40"
-              src="{{ rediconn[0] }}"
-            />
-            <img
-              *ngFor="let img of blueiconn"
-              width="20"
-              height="40"
-              src="{{ blueiconn[0] }}"
-            />
-            <img
-              *ngFor="let img of yellowiconn"
-              width="20"
-              height="40"
-              src="{{ yellowiconn[0] }}"
-            />
-            <img
-              *ngFor="let img of greeniconn"
-              width="20"
-              height="40"
-              src="{{ greeniconn[0] }}"
-            />
+          <div class="container">
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of rediconn"
+                src="{{ rediconn[0] }}"
+              />
+
+              <img
+                class="icon"
+                *ngFor="let img of blueiconn"
+                src="{{ blueiconn[0] }}"
+              />
+            </div>
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of yellowiconn"
+                src="{{ yellowiconn[0] }}"
+              /><img
+                class="icon"
+                *ngFor="let img of greeniconn"
+                src="{{ greeniconn[0] }}"
+              />
+            </div>
           </div>
         </ion-col>
       </ion-row>
-
-      <!-- <ion-row>
-        <ion-col>
-          <img
-            *ngFor="let img of yellowiconn"
-            width="20"
-            height="40"
-            src="{{ yellowiconn[0] }}"
-          />
-        </ion-col>
-      </ion-row> -->
 
       <ion-row>
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposn }}</span>,
             <span class="spanb">Blau = Falschnegativ = {{ falsenegn }}</span>,
-            <span class="spano">Orange = Falschpositiv = {{ falseposn }} </span>,
+            <span class="spano">Orange = Falschpositiv = {{ falseposn }} </span
+            >,
             <span class="spang">Grün = Richtignegativ = {{ truenegn }}</span>,
             Total = {{ totaln }}
           </ion-label>
@@ -843,32 +855,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }} = {{ ppvn }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
+            = {{ ppvn }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{ totalilln }} = {{ sensn
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }} = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
+            totalilln }} = {{ sensn }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
+            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }}
+            = {{ npvn }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln
+            }} {{ specn }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            = {{ fnrn }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -880,48 +896,44 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestposn }} = {{ fprn }}%</ion-label
+            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestposn }}
+            = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
     </div>
 
-    <div *ngIf="selectedInput === 'range' && selectedVis === 'slider'">
+    <div *ngIf="selectedInput === 'range' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <div>
-            <svg width="200" height="500">
-              <g>
-                <rect
-                  *ngFor="let rrr of redrectr"
-                  width="40"
-                  [attr.height]="rrr"
-                  style="fill: red;"
-                ></rect>
-                <rect
-                  *ngFor="let brr of bluerectr"
-                  width="40"
-                  [attr.height]="brr"
-                  x="40"
-                  style="fill: blue;"
-                ></rect>
-                <rect
-                  *ngFor="let yrr of yellowrectr"
-                  width="40"
-                  [attr.height]="yrr"
-                  x="80"
-                  style="fill: orange;"
-                ></rect>
-                <rect
-                  *ngFor="let grr of greenrectr"
-                  width="40"
-                  [attr.height]="grr"
-                  x="120"
-                  style="fill: green;"
-                ></rect>
-              </g>
-            </svg>
-          </div>
+          <svg height="500" width="500">
+            <rect
+              [attr.width.px]="250"
+              [attr.height.px]="trueposr"
+              style="fill: red;"
+            ></rect>
+            <rect
+              [attr.width.px]="250"
+              [attr.height.px]="falseposr"
+              [attr.x.px]="250"
+              style="fill: orange;"
+            ></rect>
+
+            <rect
+              [attr.width]="250"
+              [attr.height]="falsenegr"
+              [attr.y.px]="trueposr"
+              style="fill: blue;"
+            ></rect>
+
+            <rect
+              [attr.width]="250"
+              [attr.height]="truenegr"
+              [attr.y.px]="falseposr"
+              [attr.x.px]="250"
+              style="fill: green;"
+            ></rect>
+          </svg>
         </ion-col>
       </ion-row>
 
@@ -940,33 +952,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }} = {{ ppvr }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
+            = {{ ppvr }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{ totalillr }} = {{ sensitivity
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }} = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr }} = {{ specifity
-            }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
+            totalillr }} = {{ sensitivity }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }} = {{ fnrr }}%</ion-label
+            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
+            = {{ npvr }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
+            }} = {{ specifity }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            = {{ fnrr }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -979,48 +994,44 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }} = {{ fprr }}%</ion-label
+            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            = {{ fprr }}%</ion-label
           >
         </ion-col>
       </ion-row>
     </div>
 
-    <div *ngIf="selectedInput === 'number' && selectedVis === 'slider'">
+    <div *ngIf="selectedInput === 'number' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <div>
-            <svg height="500">
-              <g>
-                <rect
-                  *ngFor="let rrn of redrectn"
-                  width="40"
-                  [attr.height]="rrn"
-                  style="fill: red;"
-                ></rect>
-                <rect
-                  *ngFor="let brn of bluerectn"
-                  width="40"
-                  [attr.height]="brn"
-                  x="40"
-                  style="fill: blue;"
-                ></rect>
-                <rect
-                  *ngFor="let yrn of yellowrectn"
-                  width="40"
-                  [attr.height]="yrn"
-                  x="80"
-                  style="fill: orange;"
-                ></rect>
-                <rect
-                  *ngFor="let grn of greenrectn"
-                  width="40"
-                  [attr.height]="grn"
-                  x="120"
-                  style="fill: green;"
-                ></rect>
-              </g>
-            </svg>
-          </div>
+          <svg height="1000" width="1000">
+            <rect
+              [attr.width.px]="500"
+              [attr.height.px]="trueposn"
+              style="fill: red;"
+            ></rect>
+            <rect
+              [attr.width.px]="500"
+              [attr.height.px]="falseposn"
+              [attr.x.px]="500"
+              style="fill: orange;"
+            ></rect>
+
+            <rect
+              [attr.width]="500"
+              [attr.height]="falsenegn"
+              [attr.y.px]="trueposn"
+              style="fill: blue;"
+            ></rect>
+
+            <rect
+              [attr.width]="500"
+              [attr.height]="truenegn"
+              [attr.y.px]="falseposn"
+              [attr.x.px]="500"
+              style="fill: green;"
+            ></rect>
+          </svg>
         </ion-col>
       </ion-row>
 
@@ -1029,7 +1040,8 @@
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposn }}</span>,
             <span class="spanb">Blau = Falschnegativ = {{ falsenegn }}</span>,
-            <span class="spano">Orange = Falschpositiv = {{ falseposn }} </span>,
+            <span class="spano">Orange = Falschpositiv = {{ falseposn }} </span
+            >,
             <span class="spang">Grün = Richtignegativ = {{ truenegn }}</span>,
             Total = {{ totaln }}
           </ion-label>
@@ -1039,32 +1051,36 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }} = {{ ppvn }}%</ion-label
+            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
+            = {{ ppvn }}%</ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{ totalilln }} = {{ sensn
-            }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{truenegn }}</span>/{{ totaltestnegn }} = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{truenegn }}</span>/{{ totalwelln }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
+            totalilln }} = {{ sensn }}%</ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }} = {{ fnrn }}%</ion-label
+            >NPV: <span class="spang">{{truenegn }}</span>/{{ totaltestnegn }} =
+            {{ npvn }}%</ion-label
+          >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Spezifität: <span class="spang">{{truenegn }}</span>/{{ totalwelln
+            }} {{ specn }}%</ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            = {{ fnrn }}%</ion-label
           >
         </ion-col>
         <ion-col>
@@ -1076,7 +1092,8 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn}}</span>/{{ totaltestposn }} = {{ fprn }}%</ion-label
+            >FPR: <span class="spano">{{ falseposn}}</span>/{{ totaltestposn }}
+            = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>

@@ -34,10 +34,6 @@ export class TestPage implements OnInit {
   tn: number;
   fp: number;
   fn: number;
-  redrectr = [];
-  greenrectr = [];
-  bluerectr = [];
-  yellowrectr = [];
   rediconr = [];
   greeniconr = [];
   blueiconr = [];
@@ -59,14 +55,12 @@ export class TestPage implements OnInit {
   npvn: number;
   fnrn: number;
   fprn: number;
-  redrectn = [];
-  greenrectn = [];
-  bluerectn = [];
-  yellowrectn = [];
   rediconn = [];
   greeniconn = [];
   blueiconn = [];
   yellowiconn = [];
+
+  zahl: number;
   // Ergebnbisse erzeugen
   result: any;
   results = [];
@@ -76,10 +70,19 @@ export class TestPage implements OnInit {
   datestart: any;
   Id: number;
   id: number;
+  
 
   // Ergebnisse abspeichern
   fileName = "myData.json";
   filetoSave: Blob;
+
+  // Feedback
+  feed1: string;
+  feed2: string;
+  feed3: string;
+  feed4: string;
+  likert1: any;
+  likert2: any;
 
   constructor(private alertCtrl: AlertController) {}
 
@@ -87,7 +90,7 @@ export class TestPage implements OnInit {
 
   // Calculation für Regler
   calculationrange() {
-    this.totalillr = Math.trunc(this.totalr * (this.prevalence / 100));
+    this.totalillr = (this.totalr * (this.prevalence / 100));
     this.totalwellr = Math.trunc(this.totalr - this.totalillr);
     this.trueposr = Math.trunc((this.sensitivity / 100) * this.totalillr);
     this.falsenegr = Math.trunc(this.totalillr - this.trueposr);
@@ -142,7 +145,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
   }
@@ -173,7 +175,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
   }
@@ -204,7 +205,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationrange();
     this.forIconRangeLoop();
   }
@@ -235,7 +235,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
@@ -266,7 +265,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
@@ -297,7 +295,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
@@ -319,7 +316,7 @@ export class TestPage implements OnInit {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 500 sein!",
+          message: "Der Wert muss größer oder gleich 0 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -328,7 +325,6 @@ export class TestPage implements OnInit {
         });
     }
     this.clearIcon();
-    this.clearRect();
     this.calculationnumber();
     this.forIconNumberLoop();
   }
@@ -343,53 +339,35 @@ export class TestPage implements OnInit {
     this.yellowiconr = [];
     this.yellowiconn = [];
   }
-  // Löscht alle Rechtecke
-  clearRect() {
-    this.redrectr = [];
-    this.greenrectr = [];
-    this.bluerectr = [];
-    this.yellowrectr = [];
-    this.redrectn = [];
-    this.greenrectn = [];
-    this.bluerectn = [];
-    this.yellowrectn = [];
-  }
+
   // Images generieren mit Schiebern
   forIconRangeLoop() {
     for (this.tp = this.trueposr; this.tp > 0; this.tp--) {
       this.rediconr.push("assets/img/Imagered.svg");
-      this.redrectr.push(this.trueposr);
     }
     for (this.fn = this.falsenegr; this.fn > 0; this.fn--) {
       this.blueiconr.push("assets/img/Imageblue.svg");
-      this.bluerectr.push(this.falsenegr);
     }
     for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
       this.yellowiconr.push("assets/img/Imageorange.svg");
-      this.yellowrectr.push(this.falseposr);
     }
     for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
       this.greeniconr.push("assets/img/Imagegreen.svg");
-      this.greenrectr.push(this.truenegr);
     }
   }
   // Images generieren mit NumerikInput
   forIconNumberLoop() {
     for (this.tp = this.trueposn; this.tp > 0; this.tp--) {
       this.rediconn.push("assets/img/Imagered.svg");
-      this.redrectn.push(this.trueposn);
     }
     for (this.fn = this.falsenegn; this.fn > 0; this.fn--) {
       this.blueiconn.push("assets/img/Imageblue.svg");
-      this.bluerectn.push(this.falsenegn);
     }
     for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
       this.yellowiconn.push("assets/img/Imageorange.svg");
-      this.yellowrectn.push(this.falseposn);
     }
     for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
       this.greeniconn.push("assets/img/Imagegreen.svg");
-      this.greenrectn.push(this.truenegn);
     }
   }
 
@@ -471,11 +449,33 @@ export class TestPage implements OnInit {
   }
 
   saveToFile() {
-    this.results.push(this.result);
+    this.results.push(this.feed1,this.feed2,this.feed3,this.feed4, this.likert1,this.likert2);
     console.log(this.results);
     this.filetoSave = new Blob([JSON.stringify(this.results)], {
       type: "text/plain"
     });
+
     saveAs(this.filetoSave, this.Id);
   }
+
+  Likert1(event) {
+    this.likert1 = event.target.value;
+  }
+  Likert2(event) {
+    this.likert2 = event.target.value;
+  }
+
+  Feedback() {
+    console.log(this.feed1);
+    console.log(this.feed2);
+    console.log(this.feed3);
+    console.log(this.feed4);
+    console.log(this.likert1);
+    console.log(this.likert2);
+
+  }
+  roundtoTwo(value) {
+    return(Math.round(value/100)/100);
+  }
+  
 }

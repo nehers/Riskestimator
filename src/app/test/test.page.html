@@ -1031,39 +1031,34 @@
 
       <ion-row>
         <ion-col>
-          <div>
-            <svg height="500">
-              <g>
-                <rect
-                  *ngFor="let rrn of redrectn"
-                  width="40"
-                  [attr.height]="rrn"
-                  style="fill: red;"
-                ></rect>
-                <rect
-                  *ngFor="let brn of bluerectn"
-                  width="40"
-                  [attr.height]="brn"
-                  x="40"
-                  style="fill: blue;"
-                ></rect>
-                <rect
-                  *ngFor="let yrn of yellowrectn"
-                  width="40"
-                  [attr.height]="yrn"
-                  x="80"
-                  style="fill: orange;"
-                ></rect>
-                <rect
-                  *ngFor="let grn of greenrectn"
-                  width="40"
-                  [attr.height]="grn"
-                  x="120"
-                  style="fill: green;"
-                ></rect>
-              </g>
-            </svg>
-          </div>
+          <svg height="1000" width="1000">
+            <rect
+              [attr.width.px]="500"
+              [attr.height.px]="trueposn"
+              style="fill: red;"
+            ></rect>
+            <rect
+              [attr.width.px]="500"
+              [attr.height.px]="falseposn"
+              [attr.x.px]="500"
+              style="fill: orange;"
+            ></rect>
+
+            <rect
+              [attr.width]="500"
+              [attr.height]="falsenegn"
+              [attr.y.px]="trueposn"
+              style="fill: blue;"
+            ></rect>
+
+            <rect
+              [attr.width]="500"
+              [attr.height]="truenegn"
+              [attr.y.px]="falseposn"
+              [attr.x.px]="500"
+              style="fill: green;"
+            ></rect>
+          </svg>
         </ion-col>
       </ion-row>
 
@@ -1226,39 +1221,34 @@
 
       <ion-row>
         <ion-col>
-          <div>
-            <svg height="500">
-              <g>
-                <rect
-                  *ngFor="let rrr of redrectr"
-                  width="40"
-                  [attr.height]="rrr"
-                  style="fill: red;"
-                ></rect>
-                <rect
-                  *ngFor="let brr of bluerectr"
-                  width="40"
-                  [attr.height]="brr"
-                  x="40"
-                  style="fill: blue;"
-                ></rect>
-                <rect
-                  *ngFor="let yrr of yellowrectr"
-                  width="40"
-                  [attr.height]="yrr"
-                  x="80"
-                  style="fill: orange;"
-                ></rect>
-                <rect
-                  *ngFor="let grr of greenrectr"
-                  width="40"
-                  [attr.height]="grr"
-                  x="120"
-                  style="fill: green;"
-                ></rect>
-              </g>
-            </svg>
-          </div>
+          <svg height="500" width="500">
+            <rect
+              [attr.width.px]="250"
+              [attr.height.px]="trueposr"
+              style="fill: red;"
+            ></rect>
+            <rect
+              [attr.width.px]="250"
+              [attr.height.px]="falseposr"
+              [attr.x.px]="250"
+              style="fill: orange;"
+            ></rect>
+
+            <rect
+              [attr.width]="250"
+              [attr.height]="falsenegr"
+              [attr.y.px]="trueposr"
+              style="fill: blue;"
+            ></rect>
+
+            <rect
+              [attr.width]="250"
+              [attr.height]="truenegr"
+              [attr.y.px]="falseposr"
+              [attr.x.px]="250"
+              style="fill: green;"
+            ></rect>
+          </svg>
         </ion-col>
       </ion-row>
 
@@ -1438,31 +1428,31 @@
 
       <ion-row>
         <ion-col>
-          <div>
-            <img
-              *ngFor="let img of rediconn"
-              width="20"
-              height="40"
-              src="{{ rediconn[0] }}"
-            />
-            <img
-              *ngFor="let img of blueiconn"
-              width="20"
-              height="40"
-              src="{{ blueiconn[0] }}"
-            />
-            <img
-              *ngFor="let img of yellowiconn"
-              width="20"
-              height="40"
-              src="{{ yellowiconn[0] }}"
-            />
-            <img
-              *ngFor="let img of greeniconn"
-              width="20"
-              height="40"
-              src="{{ greeniconn[0] }}"
-            />
+          <div class="container">
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of rediconn"
+                src="{{ rediconn[0] }}"
+              />
+
+              <img
+                class="icon"
+                *ngFor="let img of blueiconn"
+                src="{{ blueiconn[0] }}"
+              />
+            </div>
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of yellowiconn"
+                src="{{ yellowiconn[0] }}"
+              /><img
+                class="icon"
+                *ngFor="let img of greeniconn"
+                src="{{ greeniconn[0] }}"
+              />
+            </div>
           </div>
         </ion-col>
       </ion-row>
@@ -1550,7 +1540,7 @@
     >
       <ion-row>
         <ion-col>
-          <p><b>Aufgabe 4b</b></p>
+          <p><b>Aufgabe 4</b></p>
           <p>
             Eine Maserninfektion während der frühen Schwangerschaftsphase können
             einen schweren pränatalen Schaden im Fötus verursachen. Deshalb
@@ -1636,31 +1626,31 @@
 
       <ion-row>
         <ion-col>
-          <div>
-            <img
-              *ngFor="let img of rediconr"
-              width="20"
-              height="40"
-              src="{{ rediconr[0] }}"
-            />
-            <img
-              *ngFor="let img of blueiconr"
-              width="20"
-              height="40"
-              src="{{ blueiconr[0] }}"
-            />
-            <img
-              *ngFor="let img of yellowiconr"
-              width="20"
-              height="40"
-              src="{{ yellowiconr[0] }}"
-            />
-            <img
-              *ngFor="let img of greeniconr"
-              width="20"
-              height="40"
-              src="{{ greeniconr[0] }}"
-            />
+          <div class="container">
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of rediconr"
+                src="{{ rediconr[0] }}"
+              />
+
+              <img
+                class="icon"
+                *ngFor="let img of blueiconr"
+                src="{{ blueiconr[0] }}"
+              />
+            </div>
+            <div>
+              <img
+                class="icon"
+                *ngFor="let img of yellowiconr"
+                src="{{ yellowiconr[0] }}"
+              /><img
+                class="icon"
+                *ngFor="let img of greeniconr"
+                src="{{ greeniconr[0] }}"
+              />
+            </div>
           </div>
         </ion-col>
       </ion-row>
@@ -1756,7 +1746,123 @@
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
+    <!-- <div *ngIf="tasknumber === 5">
+      <ion-button (click)="getBackTask()">Zurück</ion-button>
+      <ion-button (click)="getNextTask()">Weiter</ion-button>
+    </div> -->
+
     <div *ngIf="tasknumber === 5">
+      <h1>Feedback</h1>
+      <p>Bitte beantworten Sie noch kurz die folgenden Fragen:</p>
+      <hr />
+      <h3>Bitte bewerten Sie die didaktische Umsetzung:</h3>
+      <ion-radio-group (ionChange)="Likert1($event)">
+        <ion-row>
+          <ion-col>
+            <ion-item color="primary" lines="none" class="likert"
+              ><ion-label>1</ion-label> <ion-radio value="1"></ion-radio
+            ></ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="primary" lines="none">
+              <ion-label>2</ion-label>
+              <ion-radio value="2"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>3</ion-label>
+              <ion-radio value="3"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>4</ion-label>
+              <ion-radio value="4"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>5</ion-label>
+              <ion-radio value="5"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>6</ion-label>
+              <ion-radio value="6"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>7</ion-label>
+              <ion-radio value="7"></ion-radio></ion-item
+          ></ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <br />
+      <p>Was ist gut?</p>
+      <ion-textarea
+        placeholder="Bitte geben Sie hier einen Text ein..."
+        [(ngModel)]="feed1"
+      ></ion-textarea>
+      <p>Was ist verbesserungsbedürftig?</p>
+      <ion-textarea
+        placeholder="Bitte geben Sie hier einen Text ein..."
+        [(ngModel)]="feed2"
+      ></ion-textarea>
+      <h3>Bitte bewerten Sie die technische Umsetzung:</h3>
+
+      <ion-radio-group (ionChange)="Likert2($event)">
+        <ion-row>
+          <ion-col>
+            <ion-item color="primary" lines="none" class="likert"
+              ><ion-label>1</ion-label> <ion-radio value="1"></ion-radio
+            ></ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="primary" lines="none">
+              <ion-label>2</ion-label>
+              <ion-radio value="2"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>3</ion-label>
+              <ion-radio value="3"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>4</ion-label>
+              <ion-radio value="4"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>5</ion-label>
+              <ion-radio value="5"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>6</ion-label>
+              <ion-radio value="6"></ion-radio></ion-item
+          ></ion-col>
+          <ion-col
+            ><ion-item color="primary" lines="none" class="likert"
+              ><ion-label>7</ion-label>
+              <ion-radio value="7"></ion-radio></ion-item
+          ></ion-col>
+        </ion-row>
+      </ion-radio-group>
+      <br />
+
+      <p>Was ist gut?</p>
+      <ion-textarea
+        placeholder="Bitte geben Sie hier einen Text ein..."
+        [(ngModel)]="feed3"
+      ></ion-textarea>
+      <p>Was ist verbesserungsbedürftig?</p>
+      <ion-textarea
+        placeholder="Bitte geben Sie hier einen Text ein..."
+        [(ngModel)]="feed4"
+      ></ion-textarea>
+      <br />
+      <ion-button (click)="Feedback()">Feedback</ion-button>
       <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="saveToFile()">Beenden</ion-button>
     </div>

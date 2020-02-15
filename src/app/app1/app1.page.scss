@@ -28,3 +28,14 @@
 .spang {
   color: green;
 }
+
+.container {
+  max-width: 1500px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+img.icon {
+  width: 20px;
+  height: 30px;
+}
