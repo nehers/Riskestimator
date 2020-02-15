@@ -84,7 +84,7 @@ export class TestPage implements OnInit {
   likert1: any;
   likert2: any;
 
-  constructor(private alertCtrl: AlertController) {}
+  constructor(private alertCtrl: AlertController, private http: HttpClient) {}
 
   ngOnInit() {}
 
@@ -398,18 +398,18 @@ export class TestPage implements OnInit {
     this.falsenegn = 10;
   }
 
-  // uploadResults() {
-  //   this.tasknumber = this.tasknumber + 1;
-  //   this.results.push(this.result);
-  //   console.log(this.results);
-  //   this.http
-  //     .post("https://ionic-e0cc9.firebaseio.com/Ergebnisse.json", {
-  //       ...this.results
-  //     })
-  //     .subscribe(response => {
-  //       console.log(response);
-  //     });
-  // }
+  uploadResults() {
+    this.tasknumber = this.tasknumber + 1;
+    this.results.push(this.result);
+    console.log(this.results);
+    this.http
+      .post("http://localhost:8081/", {
+        ...this.results
+      })
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
 
   IdInput() {
     if (this.Id > 12) {
