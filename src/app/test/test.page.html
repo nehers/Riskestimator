@@ -1041,14 +1041,14 @@
               [attr.width.px]="500"
               [attr.height.px]="falseposn"
               [attr.x.px]="500"
-              style="fill: orange;"
+              style="fill: blue;"
             ></rect>
 
             <rect
               [attr.width]="500"
               [attr.height]="falsenegn"
               [attr.y.px]="trueposn"
-              style="fill: blue;"
+              style="fill: orange;"
             ></rect>
 
             <rect
@@ -1066,8 +1066,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = {{ trueposn }}</span>,
-            <span class="spanb">Blau = {{ falsenegn }}</span>,
-            <span class="spano">Orange = {{ falseposn }}</span>,
+            <span class="spano">Orange = {{ falsenegn }}</span>,
+            <span class="spanb">Blau = {{ falseposn }}</span>,
             <span class="spang">Grün = {{ truenegn }}</span>, Total = {{ totaln
             }}
           </ion-label>
@@ -1231,14 +1231,14 @@
               [attr.width.px]="250"
               [attr.height.px]="falseposr"
               [attr.x.px]="250"
-              style="fill: orange;"
+              style="fill: blue;"
             ></rect>
 
             <rect
               [attr.width]="250"
               [attr.height]="falsenegr"
               [attr.y.px]="trueposr"
-              style="fill: blue;"
+              style="fill: orange;"
             ></rect>
 
             <rect
@@ -1256,8 +1256,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = {{ trueposr }}</span>,
-            <span class="spanb">Blau = {{ falsenegr }}</span>,
-            <span class="spano">Orange = {{ falseposr }}</span>,
+            <span class="spano">Orange = {{ falsenegr }}</span>,
+            <span class="spanb">Blau = {{ falseposr }}</span>,
             <span class="spang">Grün = {{ truenegr }}</span>, Total = {{ totalr
             }}
           </ion-label>
@@ -1435,19 +1435,19 @@
                 *ngFor="let img of rediconn"
                 src="{{ rediconn[0] }}"
               />
-
               <img
                 class="icon"
-                *ngFor="let img of blueiconn"
-                src="{{ blueiconn[0] }}"
+                *ngFor="let img of yellowiconn"
+                src="{{ yellowiconn[0] }}"
               />
             </div>
             <div>
               <img
                 class="icon"
-                *ngFor="let img of yellowiconn"
-                src="{{ yellowiconn[0] }}"
-              /><img
+                *ngFor="let img of blueiconn"
+                src="{{ blueiconn[0] }}"
+              />
+              <img
                 class="icon"
                 *ngFor="let img of greeniconn"
                 src="{{ greeniconn[0] }}"
@@ -1461,8 +1461,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = {{ trueposn }}</span>,
-            <span class="spanb">Blau = {{ falsenegn }}</span>,
-            <span class="spano">Orange = {{ falseposn }}</span>,
+            <span class="spano">Orange = {{ falsenegn }}</span>,
+            <span class="spanb">Blau = {{ falseposn }}</span>,
             <span class="spang">Grün = {{ truenegn }}</span>, Total = {{ totaln
             }}
           </ion-label>
@@ -1633,19 +1633,19 @@
                 *ngFor="let img of rediconr"
                 src="{{ rediconr[0] }}"
               />
-
               <img
                 class="icon"
-                *ngFor="let img of blueiconr"
-                src="{{ blueiconr[0] }}"
+                *ngFor="let img of yellowiconr"
+                src="{{ yellowiconr[0] }}"
               />
             </div>
             <div>
               <img
                 class="icon"
-                *ngFor="let img of yellowiconr"
-                src="{{ yellowiconr[0] }}"
-              /><img
+                *ngFor="let img of blueiconr"
+                src="{{ blueiconr[0] }}"
+              />
+              <img
                 class="icon"
                 *ngFor="let img of greeniconr"
                 src="{{ greeniconr[0] }}"
@@ -1659,8 +1659,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = {{ trueposr }}</span>,
-            <span class="spanb">Blau = {{ falsenegr }}</span>,
-            <span class="spano">Orange = {{ falseposr }}</span>,
+            <span class="spano">Orange = {{ falsenegr }}</span>,
+            <span class="spanb">Blau = {{ falseposr }}</span>,
             <span class="spang">Grün = {{ truenegr }}</span>, Total = {{ totalr
             }}
           </ion-label>
@@ -1745,11 +1745,6 @@
       <ion-button (click)="getBackTask()">Zurück</ion-button>
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
-
-    <!-- <div *ngIf="tasknumber === 5">
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="getNextTask()">Weiter</ion-button>
-    </div> -->
 
     <div *ngIf="tasknumber === 5">
       <h1>Feedback</h1>

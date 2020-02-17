@@ -63,23 +63,21 @@ export class App1Page implements OnInit {
 
   constructor(private alertCtrl: AlertController) {}
 
-  ngOnInit() {
-     
-  }
+  ngOnInit() {}
 
   // Calculation für Regler
   calculationrange() {
-    this.totalillr = Math.trunc((this.totalr * (this.prevalence / 100)));
-    this.totalwellr = Math.trunc((this.totalr - this.totalillr));
-    this.trueposr = Math.trunc(((this.sensitivity / 100) * this.totalillr));
-    this.falsenegr = Math.trunc((this.totalillr - this.trueposr));
-    this.truenegr = Math.trunc(((this.specifity / 100) * this.totalwellr));
-    this.falseposr = Math.trunc((this.totalwellr - this.truenegr));
-    this.totaltestposr = Math.trunc((this.trueposr + this.falseposr));
-    this.totaltestnegr = Math.trunc((this.falsenegr + this.truenegr));
-    this.ppvr = this.roundtoTwo(((this.trueposr / this.totaltestposr) * 100));
-    this.npvr = this.roundtoTwo(((this.truenegr / this.totaltestnegr) * 100));
-    this.fprr = this.roundtoTwo( 100 - this.ppvr);
+    this.totalillr = Math.trunc(this.totalr * (this.prevalence / 100));
+    this.totalwellr = Math.trunc(this.totalr - this.totalillr);
+    this.trueposr = Math.trunc((this.sensitivity / 100) * this.totalillr);
+    this.falsenegr = Math.trunc(this.totalillr - this.trueposr);
+    this.truenegr = Math.trunc((this.specifity / 100) * this.totalwellr);
+    this.falseposr = Math.trunc(this.totalwellr - this.truenegr);
+    this.totaltestposr = Math.trunc(this.trueposr + this.falseposr);
+    this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
+    this.ppvr = this.roundtoTwo((this.trueposr / this.totaltestposr) * 100);
+    this.npvr = this.roundtoTwo((this.truenegr / this.totaltestnegr) * 100);
+    this.fprr = this.roundtoTwo(100 - this.ppvr);
     this.fnrr = this.roundtoTwo(100 - this.npvr);
   }
   // Calculation für NumerischenInput
@@ -93,9 +91,9 @@ export class App1Page implements OnInit {
     this.npvn = this.roundtoTwo((this.truenegn / this.totaltestnegn) * 100);
     this.fprn = this.roundtoTwo(100 - this.ppvn);
     this.fnrn = this.roundtoTwo(100 - this.npvn);
-    this.sensn = Math.trunc((this.trueposn / this.totalilln) * 100);
-    this.specn = Math.trunc((this.truenegn / this.totalwelln) * 100);
-    this.prevn = Math.trunc((this.totalilln / this.totaln) * 100);
+    this.sensn = this.roundtoTwo((this.trueposn / this.totalilln) * 100);
+    this.specn = this.roundtoTwo((this.truenegn / this.totalwelln) * 100);
+    this.prevn = this.roundtoTwo((this.totalilln / this.totaln) * 100);
   }
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
@@ -326,10 +324,10 @@ export class App1Page implements OnInit {
       this.rediconr.push("assets/img/Imagered.svg");
     }
     for (this.fn = this.falsenegr; this.fn > 0; this.fn--) {
-      this.blueiconr.push("assets/img/Imageblue.svg");
+      this.yellowiconr.push("assets/img/Imageorange.svg");
     }
     for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
-      this.yellowiconr.push("assets/img/Imageorange.svg");
+      this.blueiconr.push("assets/img/Imageblue.svg");
     }
     for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
       this.greeniconr.push("assets/img/Imagegreen.svg");
@@ -341,10 +339,10 @@ export class App1Page implements OnInit {
       this.rediconn.push("assets/img/Imagered.svg");
     }
     for (this.fn = this.falsenegn; this.fn > 0; this.fn--) {
-      this.blueiconn.push("assets/img/Imageblue.svg");
+      this.yellowiconn.push("assets/img/Imageorange.svg");
     }
     for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
-      this.yellowiconn.push("assets/img/Imageorange.svg");
+      this.blueiconn.push("assets/img/Imageblue.svg");
     }
     for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
       this.greeniconn.push("assets/img/Imagegreen.svg");
@@ -361,8 +359,6 @@ export class App1Page implements OnInit {
   }
 
   roundtoTwo(value: number) {
-    return value = +Math.round(value * 1000) / 1000;
-    
-    
+    return (value = +Math.round(value * 1000) / 1000);
   }
 }

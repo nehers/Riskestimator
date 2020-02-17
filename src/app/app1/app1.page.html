@@ -47,9 +47,7 @@
           </ion-item>
 
           <ion-item lines="none">
-            <ion-segment-button value="unitsquare"
-              >Balkendiagramm</ion-segment-button
-            >
+            <ion-segment-button value="unitsquare">Rechteck</ion-segment-button>
           </ion-item>
           <ion-item lines="none">
             <ion-segment-button value="icon">Icon Array</ion-segment-button>
@@ -227,7 +225,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
             = {{ fnrn }}%</ion-label
           >
         </ion-col>
@@ -240,7 +238,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestnegn }}
+            >FPR: <span class="spanb">{{ falseposn }}</span>/{{ totaltestnegn }}
             = {{ fprn }}%</ion-label
           >
         </ion-col>
@@ -416,7 +414,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
             = {{ fnrr }}%</ion-label
           >
         </ion-col>
@@ -430,7 +428,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
             = {{ fprr }}%</ion-label
           >
         </ion-col>
@@ -475,7 +473,7 @@
               y1="30"
               x2="300"
               y2="150"
-              style="stroke:blue;stroke-width:2"
+              style="stroke:orange;stroke-width:2"
             />
           </svg>
         </ion-col>
@@ -486,7 +484,7 @@
               y1="30"
               x2="0"
               y2="150"
-              style="stroke:orange;stroke-width:2"
+              style="stroke:blue;stroke-width:2"
             />
             <text x="130" y="15" fill="black">{{ totalwelln }}</text>
             <line
@@ -507,12 +505,12 @@
         </ion-col>
         <ion-col push="1.25">
           <svg>
-            <text x="130" y="15" fill="blue">{{ falsenegn }}</text>
+            <text x="130" y="15" fill="orange">{{ falsenegn }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.25">
           <svg>
-            <text x="130" y="15" fill="orange">{{ falseposn}}</text>
+            <text x="130" y="15" fill="blue">{{ falseposn}}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.75">
@@ -553,7 +551,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
             = {{ fnrn }}%</ion-label
           >
         </ion-col>
@@ -566,7 +564,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestposn }}
+            >FPR: <span class="spanb">{{ falseposn }}</span>/{{ totaltestposn }}
             = {{ fprn }}%</ion-label
           >
         </ion-col>
@@ -611,7 +609,7 @@
               y1="30"
               x2="300"
               y2="150"
-              style="stroke:blue;stroke-width:2"
+              style="stroke:orange;stroke-width:2"
             />
           </svg>
         </ion-col>
@@ -622,7 +620,7 @@
               y1="30"
               x2="0"
               y2="150"
-              style="stroke:orange;stroke-width:2"
+              style="stroke:blue;stroke-width:2"
             />
             <text x="130" y="15" fill="black">{{ totalwellr }}</text>
             <line
@@ -644,12 +642,12 @@
         </ion-col>
         <ion-col push="1.25">
           <svg>
-            <text x="130" y="15" fill="blue">{{ falsenegr }}</text>
+            <text x="130" y="15" fill="orange">{{ falsenegr }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.25">
           <svg>
-            <text x="130" y="15" fill="orange">{{ falseposr }}</text>
+            <text x="130" y="15" fill="blue">{{ falseposr }}</text>
           </svg>
         </ion-col>
         <ion-col pull="1.75">
@@ -690,7 +688,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
             = {{ fnrr }}%</ion-label
           >
         </ion-col>
@@ -704,7 +702,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
             = {{ fprr }}%</ion-label
           >
         </ion-col>
@@ -721,19 +719,19 @@
                 *ngFor="let img of rediconr"
                 src="{{ rediconr[0] }}"
               />
-
               <img
                 class="icon"
-                *ngFor="let img of blueiconr"
-                src="{{ blueiconr[0] }}"
+                *ngFor="let img of yellowiconr"
+                src="{{ yellowiconr[0] }}"
               />
             </div>
             <div>
               <img
                 class="icon"
-                *ngFor="let img of yellowiconr"
-                src="{{ yellowiconr[0] }}"
-              /><img
+                *ngFor="let img of blueiconr"
+                src="{{ blueiconr[0] }}"
+              />
+              <img
                 class="icon"
                 *ngFor="let img of greeniconr"
                 src="{{ greeniconr[0] }}"
@@ -747,8 +745,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposr }}</span>,
-            <span class="spanb">Blau = Falschnegativ = {{ falsenegr }}</span>,
-            <span class="spano">Orange = Falschpositiv = {{ falseposr }}</span>,
+            <span class="spano">Orange = Falschnegativ = {{ falsenegr }}</span>,
+            <span class="spanb">Blau = Falschpositiv = {{ falseposr }}</span>,
             <span class="spang">Grün = Richtignegativ = {{ truenegr }}</span>,
             Total = {{ totalr }}
           </ion-label>
@@ -786,7 +784,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
             = {{ fnrr }}%</ion-label
           >
         </ion-col>
@@ -800,7 +798,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
             = {{ fprr }}%</ion-label
           >
         </ion-col>
@@ -817,19 +815,19 @@
                 *ngFor="let img of rediconn"
                 src="{{ rediconn[0] }}"
               />
-
               <img
                 class="icon"
-                *ngFor="let img of blueiconn"
-                src="{{ blueiconn[0] }}"
+                *ngFor="let img of yellowiconn"
+                src="{{ yellowiconn[0] }}"
               />
             </div>
             <div>
               <img
                 class="icon"
-                *ngFor="let img of yellowiconn"
-                src="{{ yellowiconn[0] }}"
-              /><img
+                *ngFor="let img of blueiconn"
+                src="{{ blueiconn[0] }}"
+              />
+              <img
                 class="icon"
                 *ngFor="let img of greeniconn"
                 src="{{ greeniconn[0] }}"
@@ -843,9 +841,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposn }}</span>,
-            <span class="spanb">Blau = Falschnegativ = {{ falsenegn }}</span>,
-            <span class="spano">Orange = Falschpositiv = {{ falseposn }} </span
-            >,
+            <span class="spano">Orange = Falschnegativ = {{ falsenegn }}</span>,
+            <span class="spanb">Blau = Falschpositiv = {{ falseposn }} </span>,
             <span class="spang">Grün = Richtignegativ = {{ truenegn }}</span>,
             Total = {{ totaln }}
           </ion-label>
@@ -883,7 +880,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
             = {{ fnrn }}%</ion-label
           >
         </ion-col>
@@ -896,7 +893,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn }}</span>/{{ totaltestposn }}
+            >FPR: <span class="spanb">{{ falseposn }}</span>/{{ totaltestposn }}
             = {{ fprn }}%</ion-label
           >
         </ion-col>
@@ -916,14 +913,14 @@
               [attr.width.px]="250"
               [attr.height.px]="falseposr"
               [attr.x.px]="250"
-              style="fill: orange;"
+              style="fill: blue;"
             ></rect>
 
             <rect
               [attr.width]="250"
               [attr.height]="falsenegr"
               [attr.y.px]="trueposr"
-              style="fill: blue;"
+              style="fill: orange;"
             ></rect>
 
             <rect
@@ -941,8 +938,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposr }}</span>,
-            <span class="spanb">Blau = Falschnegativ = {{ falsenegr }}</span>,
-            <span class="spano">Orange = Falschpositiv = {{ falseposr }}</span>,
+            <span class="spano">Orange = Falschnegativ = {{ falsenegr }}</span>,
+            <span class="spanb">Blau = Falschpositiv = {{ falseposr }}</span>,
             <span class="spang">Grün = Richtignegativ = {{ truenegr }}</span>,
             Total = {{ totalr }}
           </ion-label>
@@ -980,7 +977,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegr }}</span>/{{ totaltestnegr }}
+            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
             = {{ fnrr }}%</ion-label
           >
         </ion-col>
@@ -994,7 +991,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposr }}</span>/{{ totaltestposr }}
+            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
             = {{ fprr }}%</ion-label
           >
         </ion-col>
@@ -1014,14 +1011,14 @@
               [attr.width.px]="500"
               [attr.height.px]="falseposn"
               [attr.x.px]="500"
-              style="fill: orange;"
+              style="fill: blue;"
             ></rect>
 
             <rect
               [attr.width]="500"
               [attr.height]="falsenegn"
               [attr.y.px]="trueposn"
-              style="fill: blue;"
+              style="fill: orange;"
             ></rect>
 
             <rect
@@ -1039,9 +1036,8 @@
         <ion-col>
           <ion-label>
             <span class="spanr">Rot = Richtigpositiv = {{ trueposn }}</span>,
-            <span class="spanb">Blau = Falschnegativ = {{ falsenegn }}</span>,
-            <span class="spano">Orange = Falschpositiv = {{ falseposn }} </span
-            >,
+            <span class="spano">Orange = Falschnegativ = {{ falsenegn }}</span>,
+            <span class="spanb">Blau = Falschpositiv = {{ falseposn }} </span>,
             <span class="spang">Grün = Richtignegativ = {{ truenegn }}</span>,
             Total = {{ totaln }}
           </ion-label>
@@ -1079,7 +1075,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spanb">{{ falsenegn }}</span>/{{ totaltestnegn }}
+            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
             = {{ fnrn }}%</ion-label
           >
         </ion-col>
@@ -1092,7 +1088,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spano">{{ falseposn}}</span>/{{ totaltestposn }}
+            >FPR: <span class="spanb">{{ falseposn}}</span>/{{ totaltestposn }}
             = {{ fprn }}%</ion-label
           >
         </ion-col>
