@@ -76,12 +76,14 @@ export class TestPage implements OnInit {
   filetoSave: Blob;
 
   // Feedback
+  age: number;
   feed1: string;
   feed2: string;
   feed3: string;
   feed4: string;
   likert1: any;
   likert2: any;
+  likert3: any;
 
   constructor(private alertCtrl: AlertController, private http: HttpClient) {}
 
@@ -98,10 +100,10 @@ export class TestPage implements OnInit {
     this.falseposr = Math.trunc(this.totalwellr - this.truenegr);
     this.totaltestposr = Math.trunc(this.trueposr + this.falseposr);
     this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
-    this.ppvr = this.roundtoTwo((this.trueposr / this.totaltestposr) * 100);
-    this.npvr = this.roundtoTwo((this.truenegr / this.totaltestnegr) * 100);
-    this.fprr = this.roundtoTwo(100 - this.ppvr);
-    this.fnrr = this.roundtoTwo(100 - this.npvr);
+    this.ppvr = this.round((this.trueposr / this.totaltestposr) * 100);
+    this.npvr = this.round((this.truenegr / this.totaltestnegr) * 100);
+    this.fprr = this.round(100 - this.ppvr);
+    this.fnrr = this.round(100 - this.npvr);
   }
   // Calculation für NumerischenInput
   calculationnumber() {
@@ -110,13 +112,13 @@ export class TestPage implements OnInit {
     this.totalilln = this.trueposn + this.falsenegn;
     this.totalwelln = this.falseposn + this.truenegn;
     this.totaln = this.totalilln + this.totalwelln;
-    this.ppvn = this.roundtoTwo((this.trueposn / this.totaltestposn) * 100);
-    this.npvn = this.roundtoTwo((this.truenegn / this.totaltestnegn) * 100);
-    this.fprn = this.roundtoTwo(100 - this.ppvn);
-    this.fnrn = this.roundtoTwo(100 - this.npvn);
-    this.sensn = this.roundtoTwo((this.trueposn / this.totalilln) * 100);
-    this.specn = this.roundtoTwo((this.truenegn / this.totalwelln) * 100);
-    this.prevn = this.roundtoTwo((this.totalilln / this.totaln) * 100);
+    this.ppvn = this.round((this.trueposn / this.totaltestposn) * 100);
+    this.npvn = this.round((this.truenegn / this.totaltestnegn) * 100);
+    this.fprn = this.round(100 - this.ppvn);
+    this.fnrn = this.round(100 - this.npvn);
+    this.sensn = this.round((this.trueposn / this.totalilln) * 100);
+    this.specn = this.round((this.truenegn / this.totalwelln) * 100);
+    this.prevn = this.round((this.totalilln / this.totaln) * 100);
   }
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
@@ -210,11 +212,11 @@ export class TestPage implements OnInit {
   }
   // TrueposEingabe
   trueposchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -240,11 +242,11 @@ export class TestPage implements OnInit {
   }
   // TruenegEingabe
   truenegchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -270,11 +272,11 @@ export class TestPage implements OnInit {
   }
   // FalseposEingabe
   falseposchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -300,11 +302,11 @@ export class TestPage implements OnInit {
   }
   // FalsenegEingabe
   falsenegchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -371,53 +373,7 @@ export class TestPage implements OnInit {
     }
   }
 
-  // Ergebnisse speichern
-  getNextTask() {
-    this.tasknumber = this.tasknumber + 1;
-    this.results.push(this.result);
-    console.log(this.results);
-    this.filetoSave = new Blob([JSON.stringify(this.results)], {
-      type: "text/plain"
-    });
-    this.prevalence = 15;
-    this.sensitivity = 99;
-    this.specifity = 90;
-    this.trueposn = 74;
-    this.truenegn = 383;
-    this.falseposn = 42;
-    this.falsenegn = 1;
-  }
-  getBackTask() {
-    this.tasknumber = this.tasknumber - 1;
-    this.prevalence = 15;
-    this.sensitivity = 99;
-    this.specifity = 90;
-    this.trueposn = 10;
-    this.truenegn = 10;
-    this.falseposn = 10;
-    this.falsenegn = 10;
-  }
-
-  uploadResults() {
-    this.tasknumber = this.tasknumber + 1;
-    this.results.push(
-      this.feed1,
-      this.feed2,
-      this.feed3,
-      this.feed4,
-      this.likert1,
-      this.likert2
-    );
-    // console.log(this.results);
-    this.http
-      .post("http://localhost:8081", {
-        ...this.results
-      })
-      .subscribe(response => {
-        console.log(response);
-      });
-  }
-
+  // Abfrage welcher SchulungsPc benutzt wird
   IdInput() {
     if (this.Id > 12) {
       this.alertCtrl
@@ -448,6 +404,32 @@ export class TestPage implements OnInit {
     this.id = this.Id;
   }
 
+  // Ergebnisse speichern
+  getNextTask() {
+    this.tasknumber = this.tasknumber + 1;
+    this.results.push(this.result);
+    console.log(this.results);
+    this.filetoSave = new Blob([JSON.stringify(this.results)], {
+      type: "text/plain"
+    });
+    this.prevalence = 15;
+    this.sensitivity = 99;
+    this.specifity = 90;
+    this.trueposn = 74;
+    this.truenegn = 383;
+    this.falseposn = 42;
+    this.falsenegn = 1;
+  }
+  getBackTask() {
+    this.tasknumber = this.tasknumber - 1;
+    this.prevalence = 15;
+    this.sensitivity = 99;
+    this.specifity = 90;
+    this.trueposn = 10;
+    this.truenegn = 10;
+    this.falseposn = 10;
+    this.falsenegn = 10;
+  }
   Frage(event) {
     this.frage = "Frage" + this.tasknumber;
     this.value = event.target.value;
@@ -455,8 +437,11 @@ export class TestPage implements OnInit {
     this.result = [this.Id, this.datestart, this.frage, this.value, this.date];
   }
 
+  // Download
   saveToFile() {
     this.results.push(
+      this.age,
+      this.likert3,
       this.feed1,
       this.feed2,
       this.feed3,
@@ -472,22 +457,54 @@ export class TestPage implements OnInit {
     saveAs(this.filetoSave, this.Id);
   }
 
+  // Upload
+  uploadResults() {
+    this.tasknumber = this.tasknumber + 1;
+    this.results.push(
+      this.age,
+      this.likert3,
+      this.feed1,
+      this.feed2,
+      this.feed3,
+      this.feed4,
+      this.likert1,
+      this.likert2,
+      
+    );
+    // console.log(this.results);
+    this.http
+      .post("http://141.67.247.124:8081", {
+        ...this.results
+      })
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
+
   Likert1(event) {
     this.likert1 = event.target.value;
   }
   Likert2(event) {
     this.likert2 = event.target.value;
   }
+  Likert3(event) {
+    this.likert3 = event.target.value;
+  }
 
   Feedback() {
+    console.log(this.age);
+    console.log(this.likert3);
     console.log(this.feed1);
     console.log(this.feed2);
     console.log(this.feed3);
     console.log(this.feed4);
     console.log(this.likert1);
     console.log(this.likert2);
+    
   }
-  roundtoTwo(value) {
-    return Math.round(value / 100) / 100;
+
+  // Rundungsfunktion
+  round(value: number) {
+    return (value = +Math.round(value * 1000) / 1000);
   }
 }

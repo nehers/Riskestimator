@@ -6,24 +6,30 @@
 
 <ion-content>
   <ion-grid>
-    <ion-buttons>
+    <!-- <ion-buttons>
       <ion-back-button
         defaultHref=""
         icon="arrow-back"
         color="primary"
       ></ion-back-button>
-    </ion-buttons>
+    </ion-buttons> -->
 
     <div *ngIf="tasknumber === 0">
-      <ion-label position="floating">Computer ID</ion-label>
-      <ion-input [(ngModel)]="Id" type="number"></ion-input>
+      <p>
+        Bitte geben Sie die Nummer Ihres SchulungsPcs an: z.B. SchulungsPc01 ->
+        1
+      </p>
+      <ion-item>
+        <ion-label position="floating">Nummer:</ion-label>
+        <ion-input [(ngModel)]="Id" type="number" max="12" min="1"></ion-input>
+      </ion-item>
       <ion-button (click)="IdInput()">Eingabe</ion-button>
     </div>
 
     <div
       *ngIf="(tasknumber === 1 || tasknumber === 2 || tasknumber === 3 || tasknumber === 4) && (id === 1 || id === 3 || id === 5 || id === 7 || id === 9 || id === 11 || id === 2 || id === 4 || id === 6 || id === 8 || id === 10 || id === 12)"
     >
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
+      <!-- <ion-button (click)="getBackTask()">Zurück</ion-button> -->
       <ion-button (click)="getNextTask()">Weiter</ion-button>
     </div>
 
@@ -41,10 +47,10 @@
           <p>
             Sie haben einen Patienten vor sich bei dem Sie aufgrund seiner
             Symptome eine Lungenembolie vermuten. Um ihren Verdacht zu erhärten
-            machen sie einen D-Dimer Test. Sie wissen, dass 10 von 500 Personen
+            machen sie einen D-Dimer Test. Sie wissen, dass 20 von 1000 Personen
             mit den Symptomen ihres Patienten eine Lungenembolie haben. Ihr
-            D-Dimer Test hat bei 9 Erkrankten ein positives Testergebnis.
-            Allerdings haben auch 180 von 490 nicht-Erkrankten ein positives
+            D-Dimer Test hat bei 18 Erkrankten ein positives Testergebnis.
+            Allerdings haben auch 390 von 980 nicht-Erkrankten ein positives
             Testergebnis. Wie hoch ist die Wahrscheinlichkeit, dass ihr Patient
             mit einem positiven Testergebnis auch tatsächlich eine Lungenembolie
             hat? Wählen sie <b>eine</b> Antwortmöglichkeit aus!
@@ -220,7 +226,7 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >{{ falseposn }}/{{ totaltestnegn }} = {{ fprn }}%</ion-label
+            >{{ falseposn }}/{{ totaltestposn }} = {{ fprn }}%</ion-label
           >
         </ion-col>
       </ion-row>
@@ -229,24 +235,24 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>4</ion-label>
-              <ion-radio value="4r"></ion-radio>
+              <ion-label>4,878%</ion-label>
+              <ion-radio value="4,878f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>99</ion-label>
-              <ion-radio value="99f"></ion-radio>
+              <ion-label>4,412%</ion-label>
+              <ion-radio value="4,412r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>1</ion-label>
-              <ion-radio value="1f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>96</ion-label>
-              <ion-radio value="96f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>90</ion-label>
+              <ion-label>90%</ion-label>
               <ion-radio value="90f"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>99,662%</ion-label>
+              <ion-radio value="99,662f"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-label>95,588%</ion-label>
+              <ion-radio value="95,588f"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -264,7 +270,7 @@
             Symptome eine Lungenembolie vermuten. Um ihren Verdacht zu erhärten
             machen sie einen D-Dimer Test. Sie wissen, dass 2% der Bevölkerung
             mit den Symptomen ihres Patienten eine Lungenembolie haben. Ihr
-            D-Dimer Test hat bei Erkrankten zu 100% ein positives Testergebnis.
+            D-Dimer Test hat bei Erkrankten zu 90% ein positives Testergebnis.
             Allerdings haben auch 37% aller nicht Erkrankten ein positives
             Testergebnis. Wie hoch ist die Wahrscheinlichkeit, dass ihr Patient
             mit einem positiven Testergebnis auch tatsächlich eine Lungenembolie
@@ -456,24 +462,24 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>5</ion-label>
-              <ion-radio value="5f"></ion-radio>
+              <ion-label>90%</ion-label>
+              <ion-radio value="90f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>100</ion-label>
-              <ion-radio value="100r"></ion-radio>
+              <ion-label>95,288%</ion-label>
+              <ion-radio value="95,288%"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>0</ion-label>
-              <ion-radio value="0f"></ion-radio>
+              <ion-label>63%</ion-label>
+              <ion-radio value="63f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>95</ion-label>
-              <ion-radio value="95f"></ion-radio>
+              <ion-label>4,712%</ion-label>
+              <ion-radio value="4,712r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>37</ion-label>
-              <ion-radio value="37f"></ion-radio>
+              <ion-label>99,676%</ion-label>
+              <ion-radio value="99,676%"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -487,15 +493,14 @@
         <ion-col>
           <p><b>Aufgabe 2</b></p>
           <p>
-            Sie haben einen Patienten untersuchen einen Patienten mit den
-            typischen Zeichen einer Cystitis (Harnblasenentzündung). Um ihren
-            Verdacht zu erhärten ordnen sie einen U-Stix Test an. Sie wissen,
-            dass Patienten mit dieser Symptomatik zu 315 von 500 Personen eine
-            Cystits haben. Ihr Test hat bei 265 von 315 erkrankten Patienten ein
-            positives Testergebnis. Allerdings hat er auch bei 102 von 185
-            nicht-Erkrankten ein positives Testergebnis. Wie hoch ist die
-            Wahrscheinlichkeit, dass ihr Patiten bei einem positiven
-            Testergebnis tatsächlich eine Cystists hat? Wählen Sie
+            Sie haben einen Patienten mit den typischen Zeichen einer Cystitis
+            (Harnblasenentzündung). Um ihren Verdacht zu erhärten ordnen sie
+            einen U-Stix Test an. Sie wissen, dass 630 von 1000 Patienten mit
+            dieser Symptomatik eine Cystits haben. Ihr Test hat bei 530 von 630
+            erkrankten Patienten ein positives Testergebnis. Allerdings hat er
+            auch bei 204 von 370 nicht-Erkrankten ein positives Testergebnis.
+            Wie hoch ist die Wahrscheinlichkeit, dass ihr Patient bei einem
+            negativen Testergebnis tatsächlich keine Cystists hat? Wählen Sie
             <b>eine</b> Antwort aus!
           </p>
         </ion-col>
@@ -687,24 +692,24 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>72</ion-label>
-              <ion-radio value="72r"></ion-radio>
+              <ion-label>44,865%</ion-label>
+              <ion-radio value="44,865f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>62</ion-label>
-              <ion-radio value="62f"></ion-radio>
+              <ion-label>72,207%</ion-label>
+              <ion-radio value="72,207f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>38</ion-label>
-              <ion-radio value="8f"></ion-radio>
+              <ion-label>63%</ion-label>
+              <ion-radio value="63f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>28</ion-label>
-              <ion-radio value="28f"></ion-radio>
+              <ion-label>37,594%</ion-label>
+              <ion-radio value="37,594f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>44</ion-label>
-              <ion-radio value="44f"></ion-radio>
+              <ion-label>62,406%</ion-label>
+              <ion-radio value="62,406r"></ion-radio>
             </ion-item>
           </ion-radio-group>
         </ion-col>
@@ -718,15 +723,15 @@
         <ion-col>
           <p><b>Aufgabe 2</b></p>
           <p>
-            Sie haben einen Patienten untersuchen einen Patienten mit den
-            typischen Zeichen einer Cystitis (Harnblasenentzündung). Um ihren
-            Verdacht zu erhärten ordnen sie einen U-Stix Test an. Sie wissen,
-            dass Patienten mit dieser Symptomatik zu 63% eine Cystits haben. Ihr
-            Test hat bei einem erkrankten Patienten zu 84% ein positives
-            Testergebnis. Allerdings ist er auch bei 55% der nicht-Erkrankten
-            positiv. Wie hoch ist die Wahrscheinlichkeit, dass ihr Patiten bei
-            einem positiven Testergebnis tatsächlich eine Cystists hat? Wählen
-            Sie <b>eine</b> Antwort aus!
+            Sie haben einen Patienten mit den typischen Zeichen einer Cystitis
+            (Harnblasenentzündung). Um ihren Verdacht zu erhärten ordnen sie
+            einen U-Stix Test an. Sie wissen, dass Patienten mit dieser
+            Symptomatik zu 63% eine Cystits haben. Ihr Test hat bei einem
+            erkrankten Patienten zu 84% ein positives Testergebnis. Allerdings
+            ist er auch bei 55% der nicht-Erkrankten positiv. Wie hoch ist die
+            Wahrscheinlichkeit, dass ihr Patient bei einem negativen
+            Testergebnis tatsächlich keine Cystists hat? Wählen Sie
+            <b>eine</b> Antwort aus!
           </p>
         </ion-col>
       </ion-row>
@@ -923,20 +928,20 @@
         <ion-col>
           <ion-radio-group (ionChange)="Frage($event)">
             <ion-item>
-              <ion-label>72</ion-label>
-              <ion-radio value="72r"></ion-radio>
+              <ion-label>61,94%</ion-label>
+              <ion-radio value="61,94r"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>61</ion-label>
-              <ion-radio value="61f"></ion-radio>
+              <ion-label>72,131%</ion-label>
+              <ion-radio value="72,131f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>39</ion-label>
-              <ion-radio value="39f"></ion-radio>
+              <ion-label>38,06%</ion-label>
+              <ion-radio value="38,06f"></ion-radio>
             </ion-item>
             <ion-item>
-              <ion-label>28</ion-label>
-              <ion-radio value="28f"></ion-radio>
+              <ion-label>27,869%</ion-label>
+              <ion-radio value="27,869f"></ion-radio>
             </ion-item>
             <ion-item>
               <ion-label>45</ion-label>
@@ -958,13 +963,13 @@
           <p>
             Sie arbeiten auf einer Intensivstation und vermuten eine VAP
             (Ventilations-assoziierte Pneuomie) bei einem ihrer Patieten. Sie
-            wissen, dass 240 von 500 Personen eine Pneuomnie haben. Um
+            wissen, dass 480 von 1000 Personen eine Pneuomnie haben. Um
             sicherzugehen wollen Sie den CPIS Score verwenden. Aus einer
-            Fachzeitschrift wissen Sie, dass ihr Test bei 156 von 240 Erkrankten
-            ein positives Testergebnis hat und 166 von 260 nicht-Erkrankten
-            richtig erkennt. Wenn Sie ein negativen Score erhalten, wie hoch ist
-            die Wahrscheinlichkeit dass Ihr Patient <b>keine</b> VAP hat? Wählen
-            Sie <b>eine</b> Antwort aus!
+            Fachzeitschrift wissen Sie, dass ihr Test bei 312 von 480 Erkrankten
+            ein positives Testergebnis hat und 332 von 520 nicht-Erkrankten
+            richtig erkennt. Wenn Sie ein positives Testergebnis erhalten, wie
+            hoch ist die Wahrscheinlichkeit dass Ihr Patient eine VAP hat? Geben
+            Sie eine Antwort mit 2 Nachkommastellen an!
           </p>
         </ion-col>
       </ion-row>
@@ -1114,28 +1119,14 @@
 
       <ion-row>
         <ion-col>
-          <ion-radio-group (ionChange)="Frage($event)">
-            <ion-item>
-              <ion-label>62</ion-label>
-              <ion-radio value="62f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>66</ion-label>
-              <ion-radio value="66r"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>34</ion-label>
-              <ion-radio value="34f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>38</ion-label>
-              <ion-radio value="38f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>65</ion-label>
-              <ion-radio value="65f"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+          <ion-item>
+            <ion-label position="floating">Antwort</ion-label>
+            <ion-input
+              type="text"
+              (ionChange)="Frage($event)"
+              placeholder="0"
+            ></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
     </div>
@@ -1152,9 +1143,9 @@
             wissen, dass die Prävalenz der Pneuomie 48% beträgt. Um
             sicherzugehen wollen Sie den CPIS Score verwenden. Aus einer
             Fachzeitschrift wissen Sie, dass die Sensitivität 65% und die
-            Spezifität 64% betragen. Wenn Sie ein negativen Score erhalten, wie
-            hoch ist die Wahrscheinlichkeit dass Ihr Patient <b>keine</b> VAP
-            hat? Wählen Sie <b>eine</b> Antwort aus!
+            Spezifität 64% betragen. Wenn Sie ein positives Testergebnis
+            erhalten, wie hoch ist die Wahrscheinlichkeit dass Ihr Patient eine
+            VAP hat? Geben Sie eine Antwort mit 2 Nachkommastellen an!
           </p>
         </ion-col>
       </ion-row>
@@ -1309,29 +1300,15 @@
       </ion-row>
 
       <ion-row>
-        <ion-col>
-          <ion-radio-group (ionChange)="Frage($event)">
-            <ion-item>
-              <ion-label>62</ion-label>
-              <ion-radio value="62f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>66</ion-label>
-              <ion-radio value="66r"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>34</ion-label>
-              <ion-radio value="34f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>38</ion-label>
-              <ion-radio value="38f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>36</ion-label>
-              <ion-radio value="36f"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+        <ion-col
+          ><ion-item>
+            <ion-label position="floating">Antwort</ion-label>
+            <ion-input
+              type="text"
+              (ionChange)="Frage($event)"
+              placeholder="0"
+            ></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
     </div>
@@ -1359,9 +1336,8 @@
             hatte, dass das Kind keinen schweren pränatalen Schaden hat beträgt
             4/495. Wie hoch ist die Wahrscheinlichkeit, dass das Kind keinen
             schweren pränatalen Schaden hat, wenn die Mutter <b>keine</b>
-            Maserninfektion in der frühen Schwangerschaftsphase hatte? Wählen
-            Sie
-            <b>eine</b> Antwortmöglichkeit aus!
+            Maserninfektion in der frühen Schwangerschaftsphase hatte? Geben Sie
+            einen Antwort mit 2 Nachkommastellen an!
           </p>
         </ion-col>
       </ion-row>
@@ -1508,29 +1484,15 @@
       </ion-row>
 
       <ion-row>
-        <ion-col>
-          <ion-radio-group (ionChange)="Frage($event)">
-            <ion-item>
-              <ion-label>0</ion-label>
-              <ion-radio value="0f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>66</ion-label>
-              <ion-radio value="66r"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>34</ion-label>
-              <ion-radio value="34f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>100</ion-label>
-              <ion-radio value="100f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>40</ion-label>
-              <ion-radio value="40f"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+        <ion-col
+          ><ion-item>
+            <ion-label position="floating">Antwort</ion-label>
+            <ion-input
+              type="text"
+              (ionChange)="Frage($event)"
+              placeholder="0"
+            ></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
     </div>
@@ -1558,8 +1520,8 @@
             das Kind keinen schweren pränatalen Schaden hat beträgt 99%. Wie
             hoch ist die Wahrscheinlichkeit, dass das Kind keinen schweren
             pränatalen Schaden hat, wenn die Mutter <b>keine</b> Maserninfektion
-            in der frühen Schwangerschaftsphase hatte? Wählen Sie
-            <b>eine</b> Antwortmöglichkeit aus!
+            in der frühen Schwangerschaftsphase hatte? Geben Sie eine Antwort
+            mit 2 Nachkommastellen an!
           </p>
         </ion-col>
       </ion-row>
@@ -1712,29 +1674,15 @@
       </ion-row>
 
       <ion-row>
-        <ion-col>
-          <ion-radio-group (ionChange)="Frage($event)">
-            <ion-item>
-              <ion-label>0</ion-label>
-              <ion-radio value="0f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>66</ion-label>
-              <ion-radio value="66r"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>34</ion-label>
-              <ion-radio value="34f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>100</ion-label>
-              <ion-radio value="100f"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label>40</ion-label>
-              <ion-radio value="40f"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
+        <ion-col
+          ><ion-item>
+            <ion-label position="floating">Antwort</ion-label>
+            <ion-input
+              type="text"
+              (ionChange)="Frage($event)"
+              placeholder="0"
+            ></ion-input>
+          </ion-item>
         </ion-col>
       </ion-row>
     </div>
@@ -1748,9 +1696,45 @@
 
     <div *ngIf="tasknumber === 5">
       <h1>Feedback</h1>
-      <p>Bitte beantworten Sie noch kurz die folgenden Fragen:</p>
+      <h2>Bitte beantworten Sie noch kurz die folgenden Fragen:</h2>
       <hr />
+
+      <ion-item>
+        <p>Wie alt sind sie?</p>
+        <ion-label position="floating"></ion-label>
+        <ion-input type="number" [(ngModel)]="age" placeholder="0"></ion-input>
+      </ion-item>
+
+
+      <p>Welches Geschlecht haben Sie?</p>
+      <ion-radio-group (ionChange)="Likert3($event)">
+        <ion-row>
+          <ion-col>
+            <ion-item color="primary" lines="none" class="likert"
+              ><ion-label>Weiblich</ion-label> <ion-radio value="w"></ion-radio
+            ></ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="primary" lines="none" class="likert"
+              ><ion-label>Männlich</ion-label> <ion-radio value="m"></ion-radio
+            ></ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="primary" lines="none" class="likert"
+              ><ion-label>Weitere</ion-label> <ion-radio value="o"></ion-radio
+            ></ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item color="primary" lines="none" class="likert"
+              ><ion-label>Keine Angabe</ion-label> <ion-radio value="ka"></ion-radio
+            ></ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-radio-group>
+      
+
       <h3>Bitte bewerten Sie die didaktische Umsetzung:</h3>
+
       <ion-radio-group (ionChange)="Likert1($event)">
         <ion-row>
           <ion-col>
@@ -1791,6 +1775,7 @@
           ></ion-col>
         </ion-row>
       </ion-radio-group>
+
       <br />
       <p>Was ist gut?</p>
       <ion-textarea
@@ -1857,10 +1842,10 @@
         [(ngModel)]="feed4"
       ></ion-textarea>
       <br />
-      <ion-button (click)="Feedback()">Feedback</ion-button>
-      <ion-button (click)="getBackTask()">Zurück</ion-button>
-      <ion-button (click)="saveToFile()">Beenden</ion-button>
-      <ion-button (click)="uploadResults()">Upload</ion-button>
+      <!-- <ion-button (click)="Feedback()">Feedback</ion-button> -->
+      <!-- <ion-button (click)="getBackTask()">Zurück</ion-button> -->
+      <ion-button (click)="saveToFile()">Beenden mit Download</ion-button>
+      <ion-button (click)="uploadResults()">Beenden mit Upload</ion-button>
     </div>
   </ion-grid>
 </ion-content>
