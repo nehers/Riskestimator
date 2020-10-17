@@ -19,14 +19,14 @@
         <ion-segment (ionChange)="onInputChange($event)">
           <ion-item lines="none">
             <ion-label>
-              <ion-segment-button value="range" checked color="primary"
+              <ion-segment-button  value="range" checked class="oben"
                 >Schieber
               </ion-segment-button>
             </ion-label>
           </ion-item>
           <ion-item lines="none">
             <ion-label>
-              <ion-segment-button value="number">Zahlen</ion-segment-button>
+              <ion-segment-button value="number" class="oben">Zahlen</ion-segment-button>
             </ion-label>
           </ion-item>
         </ion-segment>
@@ -37,20 +37,20 @@
       <ion-segment (ionChange)="onVisChange($event)">
         <ion-row>
           <ion-item lines="none">
-            <ion-segment-button value="table" checked
+            <ion-segment-button value="table" checked class="unten"
               >4-Felder-Tafel</ion-segment-button
             >
           </ion-item>
 
           <ion-item lines="none">
-            <ion-segment-button value="tree">Baumdiagramm</ion-segment-button>
+            <ion-segment-button value="tree" class="unten">Baumdiagramm</ion-segment-button>
           </ion-item>
 
           <ion-item lines="none">
-            <ion-segment-button value="unitsquare">Rechteck</ion-segment-button>
+            <ion-segment-button value="unitsquare" class="unten">Rechteck</ion-segment-button>
           </ion-item>
           <ion-item lines="none">
-            <ion-segment-button value="icon">Icon Array</ion-segment-button>
+            <ion-segment-button value="icon" class="unten">Icon Array</ion-segment-button>
           </ion-item>
         </ion-row>
       </ion-segment>
@@ -197,50 +197,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
-            = {{ ppvn }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposn }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ ppvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
-            totalilln }} = {{ sensn }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }}
-            = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln
-            }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ sensn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
-            = {{ fnrn }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegn }} </span><b>/ (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ npvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegn }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegn }} +
+              <span class="spanb">{{ falseposn }}</span></span
+            ><b>) = {{ specn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposn }}</span>/{{ totaltestnegn }}
-            = {{ fprn }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegn }} </span><b>/ (</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }}</span><b>) = {{ fnrn }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }} </span> <b>) / (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ prevn }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposn }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegn }}</span> +
+            <span class="spanb">{{ falseposn }}</span> <b>) = {{ fprn }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -263,6 +280,7 @@
               min="0"
               step="1"
               pin="true"
+              class="range"
             ></ion-range>
           </ion-item>
         </ion-col>
@@ -282,6 +300,7 @@
               min="0"
               step="1"
               pin="true"
+              class="range"
             ></ion-range>
           </ion-item>
         </ion-col>
@@ -301,6 +320,7 @@
               min="0"
               step="1"
               pin="true"
+              class="range"
             ></ion-range>
           </ion-item>
         </ion-col>
@@ -386,51 +406,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
-            = {{ ppvr }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposr }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ ppvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
-            totalillr }} = {{ sensitivity }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
-            = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
-            }} = {{ specifity }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spano">{{ falsenegr }}</span><b>) = {{ sensitivity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
-            = {{ fnrr }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegr }} </span><b>/ (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spano">{{ falsenegr}}</span><b>) = {{ npvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalillr }}/{{ totalr }} = {{ prevalence
-            }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegr }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegr }} +
+              <span class="spanb">{{ falseposr }}</span></span
+            ><b>) = {{ specifity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
-            = {{ fprr }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegr }} </span><b>/ (</b><span class="spanr">{{ trueposr}}</span> +
+            <span class="spano">{{ falsenegr }}</span><b>) = {{ fnrr }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposr }}</span> +
+            <span class="spano">{{ falsenegr }} </span><b>) / (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ prevalence }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposr }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegr }}</span> +
+            <span class="spanb">{{ falseposr }}</span> <b>) = {{ fprr }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -523,50 +559,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
-            = {{ ppvn }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposn }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ ppvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
-            totalilln }} = {{ sensn }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }}
-            = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln
-            }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ sensn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
-            = {{ fnrn }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegn }} </span><b>/ (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ npvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegn }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegn }} +
+              <span class="spanb">{{ falseposn }}</span></span
+            ><b>) = {{ specn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposn }}</span>/{{ totaltestposn }}
-            = {{ fprn }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegn }} </span><b>/ (</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }}</span><b>) = {{ fnrn }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }} </span> <b>) / (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ prevn }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposn }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegn }}</span> +
+            <span class="spanb">{{ falseposn }}</span> <b>) = {{ fprn }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -660,51 +713,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
-            = {{ ppvr }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposr }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ ppvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
-            totalillr }} = {{ sensitivity }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
-            = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
-            }} = {{ specifity }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spano">{{ falsenegr }}</span><b>) = {{ sensitivity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
-            = {{ fnrr }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegr }} </span><b>/ (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spano">{{ falsenegr}}</span><b>) = {{ npvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalillr }}/{{ totalr }} = {{ prevalence
-            }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegr }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegr }} +
+              <span class="spanb">{{ falseposr }}</span></span
+            ><b>) = {{ specifity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
-            = {{ fprr }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegr }} </span><b>/ (</b><span class="spanr">{{ trueposr}}</span> +
+            <span class="spano">{{ falsenegr }}</span><b>) = {{ fnrr }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposr }}</span> +
+            <span class="spano">{{ falsenegr }} </span><b>) / (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ prevalence }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposr }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegr }}</span> +
+            <span class="spanb">{{ falseposr }}</span> <b>) = {{ fprr }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -756,51 +825,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
-            = {{ ppvr }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposr }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ ppvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
-            totalillr }} = {{ sensitivity }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
-            = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
-            }} = {{ specifity }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spano">{{ falsenegr }}</span><b>) = {{ sensitivity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
-            = {{ fnrr }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegr }} </span><b>/ (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spano">{{ falsenegr}}</span><b>) = {{ npvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalillr }}/{{ totalr }} = {{ prevalence
-            }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegr }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegr }} +
+              <span class="spanb">{{ falseposr }}</span></span
+            ><b>) = {{ specifity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
-            = {{ fprr }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegr }} </span><b>/ (</b><span class="spanr">{{ trueposr}}</span> +
+            <span class="spano">{{ falsenegr }}</span><b>) = {{ fnrr }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposr }}</span> +
+            <span class="spano">{{ falsenegr }} </span><b>) / (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ prevalence }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposr }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegr }}</span> +
+            <span class="spanb">{{ falseposr }}</span> <b>) = {{ fprr }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -852,50 +937,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
-            = {{ ppvn }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposn }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ ppvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
-            totalilln }} = {{ sensn }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegn }}</span>/{{ totaltestnegn }}
-            = {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegn }}</span>/{{ totalwelln
-            }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ sensn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
-            = {{ fnrn }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegn }} </span><b>/ (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ npvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegn }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegn }} +
+              <span class="spanb">{{ falseposn }}</span></span
+            ><b>) = {{ specn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposn }}</span>/{{ totaltestposn }}
-            = {{ fprn }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegn }} </span><b>/ (</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }}</span><b>) = {{ fnrn }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }} </span> <b>) / (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ prevn }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposn }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegn }}</span> +
+            <span class="spanb">{{ falseposn }}</span> <b>) = {{ fprn }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -903,31 +1005,31 @@
     <div *ngIf="selectedInput === 'range' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <svg height="500" width="500">
+          <svg height="500" width="1000">
             <rect
-              [attr.width.px]="250"
-              [attr.height.px]="trueposr"
+              [attr.width.px]="500"
+              [attr.height.px]="trueposr/2"
               style="fill: red;"
             ></rect>
             <rect
-              [attr.width.px]="250"
-              [attr.height.px]="falseposr"
-              [attr.x.px]="250"
+              [attr.width.px]="500"
+              [attr.height.px]="falseposr/2"
+              [attr.x.px]="500"
               style="fill: blue;"
             ></rect>
 
             <rect
-              [attr.width]="250"
+              [attr.width]="500"
               [attr.height]="falsenegr"
-              [attr.y.px]="trueposr"
+              [attr.y.px]="trueposr/2"
               style="fill: orange;"
             ></rect>
 
             <rect
-              [attr.width]="250"
+              [attr.width]="500"
               [attr.height]="truenegr"
-              [attr.y.px]="falseposr"
-              [attr.x.px]="250"
+              [attr.y.px]="falseposr/2"
+              [attr.x.px]="500"
               style="fill: green;"
             ></rect>
           </svg>
@@ -949,51 +1051,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposr }}</span>/{{ totaltestposr }}
-            = {{ ppvr }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposr }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ ppvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposr }}</span>/{{
-            totalillr }} = {{ sensitivity }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{ truenegr }}</span>/{{ totaltestnegr }}
-            = {{ npvr }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{ truenegr }}</span>/{{ totalwellr
-            }} = {{ specifity }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposr }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposr }}</span
+            >
+            + <span class="spano">{{ falsenegr }}</span><b>) = {{ sensitivity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegr }}</span>/{{ totaltestnegr }}
-            = {{ fnrr }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegr }} </span><b>/ (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spano">{{ falsenegr}}</span><b>) = {{ npvr }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalillr }}/{{ totalr }} = {{ prevalence
-            }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegr }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegr }} +
+              <span class="spanb">{{ falseposr }}</span></span
+            ><b>) = {{ specifity }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposr }}</span>/{{ totaltestposr }}
-            = {{ fprr }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegr }} </span><b>/ (</b><span class="spanr">{{ trueposr}}</span> +
+            <span class="spano">{{ falsenegr }}</span><b>) = {{ fnrr }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposr }}</span> +
+            <span class="spano">{{ falsenegr }} </span><b>) / (</b><span class="spang"
+              >{{ truenegr }}</span
+            >
+            + <span class="spanb">{{ falseposr }}</span><b>) = {{ prevalence }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposr }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegr }}</span> +
+            <span class="spanb">{{ falseposr }}</span> <b>) = {{ fprr }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>
@@ -1001,15 +1119,15 @@
     <div *ngIf="selectedInput === 'number' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <svg height="1000" width="1000">
+          <svg height="500" width="1000">
             <rect
               [attr.width.px]="500"
-              [attr.height.px]="trueposn"
+              [attr.height.px]="trueposn/2"
               style="fill: red;"
             ></rect>
             <rect
               [attr.width.px]="500"
-              [attr.height.px]="falseposn"
+              [attr.height.px]="falseposn/2"
               [attr.x.px]="500"
               style="fill: blue;"
             ></rect>
@@ -1017,14 +1135,14 @@
             <rect
               [attr.width]="500"
               [attr.height]="falsenegn"
-              [attr.y.px]="trueposn"
+              [attr.y.px]="trueposn/2"
               style="fill: orange;"
             ></rect>
 
             <rect
               [attr.width]="500"
               [attr.height]="truenegn"
-              [attr.y.px]="falseposn"
+              [attr.y.px]="falseposn/2"
               [attr.x.px]="500"
               style="fill: green;"
             ></rect>
@@ -1047,50 +1165,67 @@
       <ion-row>
         <ion-col>
           <ion-label
-            >PPV: <span class="spanr">{{ trueposn }}</span>/{{ totaltestposn }}
-            = {{ ppvn }}%</ion-label
+            >Positiver prädiktiver Wert:
+            <span class="spanr">{{ trueposn }} </span><b>/ (</b><span class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ ppvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Sensitivität: <span class="spanr">{{ trueposn }}</span>/{{
-            totalilln }} = {{ sensn }}%</ion-label
-          >
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-label
-            >NPV: <span class="spang">{{truenegn }}</span>/{{ totaltestnegn }} =
-            {{ npvn }}%</ion-label
-          >
-        </ion-col>
-        <ion-col>
-          <ion-label
-            >Spezifität: <span class="spang">{{truenegn }}</span>/{{ totalwelln
-            }} {{ specn }}%</ion-label
+            >Sensitivität: <span class="spanr">{{ trueposn }} </span><b>/ (</b><span
+              class="spanr"
+              >{{ trueposn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ sensn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FNR: <span class="spano">{{ falsenegn }}</span>/{{ totaltestnegn }}
-            = {{ fnrn }}%</ion-label
+            >Negativer prädiktiver Wert:
+            <span class="spang">{{ truenegn }} </span><b>/ (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spano">{{ falsenegn }}</span><b>) = {{ npvn }}%</b></ion-label
           >
         </ion-col>
         <ion-col>
           <ion-label
-            >Prävalenz: {{ totalilln }}/{{ totaln }} = {{ prevn }}%</ion-label
+            >Spezifität: <span class="spang">{{ truenegn }} </span><b>/ (</b><span
+              class="spang"
+              >{{ truenegn }} +
+              <span class="spanb">{{ falseposn }}</span></span
+            ><b>) = {{ specn }}%</b></ion-label
           >
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
           <ion-label
-            >FPR: <span class="spanb">{{ falseposn}}</span>/{{ totaltestposn }}
-            = {{ fprn }}%</ion-label
+            >Falsch-negative-Rate: <span class="spano">{{ falsenegn }} </span><b>/ (</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }}</span><b>) = {{ fnrn }}%</b></ion-label
           >
+        </ion-col>
+        <ion-col>
+          <ion-label
+            >Prävalenz: <b>(</b><span class="spanr">{{ trueposn }}</span> +
+            <span class="spano">{{ falsenegn }} </span> <b>) / (</b><span class="spang"
+              >{{ truenegn }}</span
+            >
+            + <span class="spanb">{{ falseposn }}</span><b>) = {{ prevn }}%</b></ion-label
+          >
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-label
+            >Falsch-positive-Rate: <span class="spanb">{{ falseposn }} </span>
+            <b>/ (</b> <span class="spang">{{ truenegn }}</span> +
+            <span class="spanb">{{ falseposn }}</span> <b>) = {{ fprn }}%</b>
+          </ion-label>
         </ion-col>
       </ion-row>
     </div>

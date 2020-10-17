@@ -18,7 +18,7 @@ export class App1Page implements OnInit {
   prevalence = 15;
   sensitivity = 99;
   specifity = 90;
-  totalr = 500;
+  totalr = 1000;
   trueposr = 74;
   truenegr = 383;
   falseposr = 42;
@@ -29,8 +29,8 @@ export class App1Page implements OnInit {
   totalwellr = 425;
   ppvr = 63.248;
   npvr = 99.739;
-  fprr = 36.752;
-  fnrr = 0.261;
+  fprr = 10;
+  fnrr = 1;
   tp: number;
   tn: number;
   fp: number;
@@ -44,7 +44,7 @@ export class App1Page implements OnInit {
   truenegn = 383;
   falseposn = 42;
   falsenegn = 1;
-  totaln = 500;
+  totaln = 1000;
   totaltestposn = 116;
   totaltestnegn = 384;
   totalilln = 75;
@@ -77,8 +77,8 @@ export class App1Page implements OnInit {
     this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
     this.ppvr = this.roundtoTwo((this.trueposr / this.totaltestposr) * 100);
     this.npvr = this.roundtoTwo((this.truenegr / this.totaltestnegr) * 100);
-    this.fprr = this.roundtoTwo(100 - this.ppvr);
-    this.fnrr = this.roundtoTwo(100 - this.npvr);
+    this.fprr = this.roundtoTwo(100 - this.specifity);
+    this.fnrr = this.roundtoTwo(100 - this.sensitivity);
   }
   // Calculation für NumerischenInput
   calculationnumber() {
@@ -89,11 +89,11 @@ export class App1Page implements OnInit {
     this.totaln = this.totalilln + this.totalwelln;
     this.ppvn = this.roundtoTwo((this.trueposn / this.totaltestposn) * 100);
     this.npvn = this.roundtoTwo((this.truenegn / this.totaltestnegn) * 100);
-    this.fprn = this.roundtoTwo(100 - this.ppvn);
-    this.fnrn = this.roundtoTwo(100 - this.npvn);
     this.sensn = this.roundtoTwo((this.trueposn / this.totalilln) * 100);
     this.specn = this.roundtoTwo((this.truenegn / this.totalwelln) * 100);
     this.prevn = this.roundtoTwo((this.totalilln / this.totaln) * 100);
+    this.fprn = this.roundtoTwo(100 - this.specn);
+    this.fnrn = this.roundtoTwo(100 - this.sensn);
   }
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
@@ -187,11 +187,11 @@ export class App1Page implements OnInit {
   }
   // TrueposEingabe
   trueposchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -217,11 +217,11 @@ export class App1Page implements OnInit {
   }
   // TruenegEingabe
   truenegchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -247,11 +247,11 @@ export class App1Page implements OnInit {
   }
   // FalseposEingabe
   falseposchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -277,11 +277,11 @@ export class App1Page implements OnInit {
   }
   // FalsenegEingabe
   falsenegchange(event: CustomEvent<any>) {
-    if (event.detail.value > 500) {
+    if (event.detail.value > 1000) {
       this.alertCtrl
         .create({
           header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 500 sein!",
+          message: "Der Wert muss kleiner oder gleich 1000 sein!",
           buttons: ["Okay"]
         })
         .then(alertEl => {
@@ -320,31 +320,31 @@ export class App1Page implements OnInit {
 
   // Images generieren mit Schiebern
   forIconRangeLoop() {
-    for (this.tp = this.trueposr; this.tp > 0; this.tp--) {
+    for (this.tp = this.trueposr/2; this.tp > 0; this.tp--) {
       this.rediconr.push("assets/img/Imagered.svg");
     }
-    for (this.fn = this.falsenegr; this.fn > 0; this.fn--) {
+    for (this.fn = this.falsenegr/2; this.fn > 0; this.fn--) {
       this.yellowiconr.push("assets/img/Imageorange.svg");
     }
-    for (this.fp = this.falseposr; this.fp > 0; this.fp--) {
+    for (this.fp = this.falseposr/2; this.fp > 0; this.fp--) {
       this.blueiconr.push("assets/img/Imageblue.svg");
     }
-    for (this.tn = this.truenegr; this.tn > 0; this.tn--) {
+    for (this.tn = this.truenegr/2; this.tn > 0; this.tn--) {
       this.greeniconr.push("assets/img/Imagegreen.svg");
     }
   }
   // Images generieren mit NumerikInput
   forIconNumberLoop() {
-    for (this.tp = this.trueposn; this.tp > 0; this.tp--) {
+    for (this.tp = this.trueposn/2; this.tp > 0; this.tp--) {
       this.rediconn.push("assets/img/Imagered.svg");
     }
-    for (this.fn = this.falsenegn; this.fn > 0; this.fn--) {
+    for (this.fn = this.falsenegn/2; this.fn > 0; this.fn--) {
       this.yellowiconn.push("assets/img/Imageorange.svg");
     }
-    for (this.fp = this.falseposn; this.fp > 0; this.fp--) {
+    for (this.fp = this.falseposn/2; this.fp > 0; this.fp--) {
       this.blueiconn.push("assets/img/Imageblue.svg");
     }
-    for (this.tn = this.truenegn; this.tn > 0; this.tn--) {
+    for (this.tn = this.truenegn/2; this.tn > 0; this.tn--) {
       this.greeniconn.push("assets/img/Imagegreen.svg");
     }
   }

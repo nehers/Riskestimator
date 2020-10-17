@@ -1,10 +1,37 @@
+.unten {
+  --background: darkgrey;
+  --color: white;
+  --background-checked: grey;
+  --background-hover: grey;
+  
+  --color-checked: white;
+}
+
+.oben {
+  --background: #404040;
+  --color: white;
+  --background-checked: black;
+  --background-hover: black;
+  
+  --color-checked: white;
+
+}
+
+.range {
+  --bar-background: black;
+  --bar-background-active: black;
+  --knob-background: black;
+  --pin-background: black;
+  --pin-color: white;
+}
+
 .truepos {
   color: white;
-  background-color: red;
+  background-color: navy;
 }
 .falsepos {
   color: white;
-  background-color: blue;
+  background-color: red;
 }
 .falseneg {
   color: white;
@@ -12,21 +39,21 @@
 }
 .trueneg {
   color: white;
-  background-color: green;
+  background-color: #009900;
 }
 
 .spanr {
-  color: red;
+  color: navy;
 }
 
 .spanb {
-  color: blue;
+  color: red;
 }
 .spano {
   color: orange;
 }
 .spang {
-  color: green;
+  color: #009900;
 }
 
 .container {
