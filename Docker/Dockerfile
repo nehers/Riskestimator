@@ -16,9 +16,9 @@ RUN rm -rf /tmp/* /var/cache/apk/*
 # CLONE RISKESTIMATOR
 RUN git clone https://github.com/nehers/Riskestimator.git
 
-# Installing ANGULAR
+# Installing NPM
 RUN cd Riskestimator && \
     npm i -D -E @angular/cli
 
 WORKDIR Riskestimator
-CMD ["ionic", "serve", "--external"]
+CMD ["ionic", "serve"]
