@@ -27,7 +27,7 @@ npm-debug.log*
 /dist
 /platforms
 /plugins
-/www
+
 /e2e
 /typings
 browserslist
