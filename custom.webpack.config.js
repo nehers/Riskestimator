@@ -1,2 +1,8 @@
 const webpack = require('webpack');
-console.log('The custom config is used');
+console.log("hello");
+module.exports = {
+    devServer: {
+        host: '0.0.0.0',
+        disableHostCheck: true
+    }
+};

@@ -6,13 +6,13 @@
 
 <ion-content class="ion-padding">
   <ion-grid>
-    <ion-buttons>
+    <!-- <ion-buttons>
       <ion-back-button
         defaultHref=""
         icon="arrow-back"
         color="primary"
       ></ion-back-button>
-    </ion-buttons>
+    </ion-buttons> -->
 
     <ion-row>
       <ion-col>
@@ -1005,32 +1005,34 @@
     <div *ngIf="selectedInput === 'range' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <svg height="500" width="1000">
+          <svg height="425" width="700">
             <rect
-              [attr.width.px]="500"
-              [attr.height.px]="trueposr/2"
+              [attr.width]="350"
+              [attr.height]="trueposr/2"
               style="fill: red;"
-            ></rect>
-            <rect
-              [attr.width.px]="500"
-              [attr.height.px]="falseposr/2"
-              [attr.x.px]="500"
-              style="fill: blue;"
             ></rect>
 
             <rect
-              [attr.width]="500"
-              [attr.height]="falsenegr"
-              [attr.y.px]="trueposr/2"
+              [attr.width]="350"
+              [attr.height]="falsenegr/2"
+              [attr.y]="trueposr/2"
               style="fill: orange;"
             ></rect>
 
             <rect
-              [attr.width]="500"
-              [attr.height]="truenegr"
-              [attr.y.px]="falseposr/2"
-              [attr.x.px]="500"
-              style="fill: green;"
+              [attr.width]="350"
+              [attr.height]="falseposr/2"
+              x="350"
+              [attr.y]="truenegr/2"
+              style="fill: blue;"
+            ></rect>
+
+              <rect
+              [attr.width]="350"
+              [attr.height]="truenegr/2"
+              y="falseposr/2"
+              x="350"
+              style="fill:green;"
             ></rect>
           </svg>
         </ion-col>
@@ -1119,32 +1121,34 @@
     <div *ngIf="selectedInput === 'number' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <svg height="500" width="1000">
+          <svg height="425" width="700">
             <rect
-              [attr.width.px]="500"
-              [attr.height.px]="trueposn/2"
+              [attr.width]="350"
+              [attr.height]="trueposn/2"
               style="fill: red;"
-            ></rect>
-            <rect
-              [attr.width.px]="500"
-              [attr.height.px]="falseposn/2"
-              [attr.x.px]="500"
-              style="fill: blue;"
             ></rect>
 
             <rect
-              [attr.width]="500"
-              [attr.height]="falsenegn"
-              [attr.y.px]="trueposn/2"
+              [attr.width]="350"
+              [attr.height]="falsenegn/2"
+              [attr.y]="trueposn/2"
               style="fill: orange;"
             ></rect>
 
             <rect
-              [attr.width]="500"
-              [attr.height]="truenegn"
-              [attr.y.px]="falseposn/2"
-              [attr.x.px]="500"
-              style="fill: green;"
+              [attr.width]="350"
+              [attr.height]="falseposn/2"
+              x="350"
+              [attr.y]="truenegn/2"
+              style="fill: blue;"
+            ></rect>
+
+              <rect
+              [attr.width]="350"
+              [attr.height]="truenegn/2"
+              y="falseposn/2"
+              x="350"
+              style="fill:green;"
             ></rect>
           </svg>
         </ion-col>

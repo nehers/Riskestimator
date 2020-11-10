@@ -67,7 +67,9 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             },
             "ci": {
               "progress": false
@@ -78,6 +80,7 @@
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
             "browserTarget": "app:build"
+            
           },
           "configurations": {
             "production": {
@@ -113,7 +116,8 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
-              }
+              },
+              "src/manifest.webmanifest"
             ]
           },
           "configurations": {
