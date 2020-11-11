@@ -2,7 +2,7 @@ version: '3'
 
 services:
   riskestimator:
-    image: nehers/ionic
+    image: nehers/ionic:1.1
     ports:
     - "80:8100"
     tty: true
