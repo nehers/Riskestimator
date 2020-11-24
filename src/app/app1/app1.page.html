@@ -488,96 +488,65 @@
 
     <div *ngIf="selectedVis === 'tree' && selectedInput === 'number'">
       <ion-row>
-        <ion-col size="5"></ion-col>
-        <ion-col>
-          <svg>
+      
+        <ion-col push="3">
+          <svg width="550" height="500">
+            <text x="250" y="15" fill="black">{{ totaln }}</text>
             <line
-              x1="100"
+              x1="260"
               y1="30"
-              x2="0"
-              y2="150"
+              x2="125"
+              y2="130"
               style="stroke:rgb(0, 0, 0);stroke-width:2"
             />
-            <text x="130" y="15" fill="black">{{ totaln }}</text>
-            <line
-              x1="200"
+             <line
+              x1="260"
               y1="30"
-              x2="300"
-              y2="150"
+              x2="395"
+              y2="130"
               style="stroke:rgb(0, 0, 0);stroke-width:2"
             />
-          </svg>
-        </ion-col>
-      </ion-row>
-      <br>
-      <br>
-      <br>
-      <ion-row>
-        <ion-col size="1.75"></ion-col>
-        <ion-col>
-          <svg>
+            <text x="115" y="150" fill="black">{{ totalilln }}</text>
+            <text x="390" y="150" fill="black">{{ totalwelln }}</text>
             <line
-              x1="100"
-              y1="30"
-              x2="0"
-              y2="150"
+              x1="115"
+              y1="165"
+              x2="15"
+              y2="265"
               style="stroke:red;stroke-width:2"
             />
-            <text x="130" y="15" fill="black">{{ totalilln }}</text>
+            
             <line
-              x1="200"
-              y1="30"
-              x2="300"
-              y2="150"
+              x1="115"
+              y1="165"
+              x2="215"
+              y2="265"
               style="stroke:orange;stroke-width:2"
             />
-          </svg>
-        </ion-col>
-        
-        <ion-col>
-          <svg>
             <line
-              x1="100"
-              y1="30"
-              x2="0"
-              y2="150"
+              x1="410"
+              y1="165"
+              x2="310"
+              y2="265"
               style="stroke:blue;stroke-width:2"
             />
-            <text x="130" y="15" fill="black">{{ totalwelln }}</text>
+
             <line
-              x1="200"
-              y1="30"
-              x2="300"
-              y2="150"
+              x1="410"
+              y1="165"
+              x2="510"
+              y2="265"
               style="stroke:green;stroke-width:2"
             />
+            <text x="5" y="290" fill="red">{{ trueposn }}</text>
+            <text x="215" y="290" fill="orange">{{ falsenegn }}</text>
+            <text x="300" y="290" fill="blue">{{ falseposn}}</text>
+            <text x="510" y="290" fill="green">{{ truenegn }}</text>
           </svg>
         </ion-col>
       </ion-row>
-      <br>
-      <br><br>
-      <ion-row>
-        <ion-col >
-          <svg>
-            <text x="130" y="15" fill="red">{{ trueposn }}</text>
-          </svg>
-        </ion-col>
-        <ion-col>
-          <svg>
-            <text x="130" y="15" fill="orange">{{ falsenegn }}</text>
-          </svg>
-        </ion-col>
-        <ion-col>
-          <svg>
-            <text x="130" y="15" fill="blue">{{ falseposn}}</text>
-          </svg>
-        </ion-col>
-        <ion-col>
-          <svg>
-            <text x="130" y="15" fill="green">{{ truenegn }}</text>
-          </svg>
-        </ion-col>
-      </ion-row>
+      
+        
 
       <ion-row>
         <ion-col>
@@ -649,86 +618,60 @@
 
     <div *ngIf="selectedVis === 'tree' && selectedInput === 'range'">
       <ion-row>
-        <ion-col offset="4.5">
-          <svg>
+      
+        <ion-col push="3">
+          <svg width="550" height="500">
+            <text x="250" y="15" fill="black">{{ totalr }}</text>
             <line
-              x1="100"
+              x1="260"
               y1="30"
-              x2="0"
-              y2="150"
+              x2="125"
+              y2="130"
               style="stroke:rgb(0, 0, 0);stroke-width:2"
             />
-            <text x="130" y="15" fill="black">{{ totalr }}</text>
-            <line
-              x1="200"
+             <line
+              x1="260"
               y1="30"
-              x2="300"
-              y2="150"
+              x2="395"
+              y2="130"
               style="stroke:rgb(0, 0, 0);stroke-width:2"
             />
-          </svg>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col offset="3">
-          <svg>
+            <text x="115" y="150" fill="black">{{ totalillr }}</text>
+            <text x="390" y="150" fill="black">{{ totalwellr }}</text>
             <line
-              x1="100"
-              y1="30"
-              x2="0"
-              y2="150"
+              x1="115"
+              y1="165"
+              x2="15"
+              y2="265"
               style="stroke:red;stroke-width:2"
             />
-            <text x="130" y="15" fill="black">{{ totalillr }}</text>
+            
             <line
-              x1="200"
-              y1="30"
-              x2="300"
-              y2="150"
+              x1="115"
+              y1="165"
+              x2="215"
+              y2="265"
               style="stroke:orange;stroke-width:2"
             />
-          </svg>
-        </ion-col>
-        <ion-col pull="1.5">
-          <svg>
             <line
-              x1="100"
-              y1="30"
-              x2="0"
-              y2="150"
+              x1="410"
+              y1="165"
+              x2="310"
+              y2="265"
               style="stroke:blue;stroke-width:2"
             />
-            <text x="130" y="15" fill="black">{{ totalwellr }}</text>
+
             <line
-              x1="200"
-              y1="30"
-              x2="300"
-              y2="150"
+              x1="410"
+              y1="165"
+              x2="510"
+              y2="265"
               style="stroke:green;stroke-width:2"
             />
-          </svg>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col push="1.75">
-          <svg>
-            <text x="130" y="15" fill="red">{{ trueposr }}</text>
-          </svg>
-        </ion-col>
-        <ion-col push="1.25">
-          <svg>
-            <text x="130" y="15" fill="orange">{{ falsenegr }}</text>
-          </svg>
-        </ion-col>
-        <ion-col pull="1.25">
-          <svg>
-            <text x="130" y="15" fill="blue">{{ falseposr }}</text>
-          </svg>
-        </ion-col>
-        <ion-col pull="1.75">
-          <svg>
-            <text x="130" y="15" fill="green">{{ truenegr }}</text>
+            <text x="5" y="290" fill="red">{{ trueposr}}</text>
+            <text x="215" y="290" fill="orange">{{ falsenegr }}</text>
+            <text x="300" y="290" fill="blue">{{ falseposr}}</text>
+            <text x="510" y="290" fill="green">{{ truenegr }}</text>
           </svg>
         </ion-col>
       </ion-row>
