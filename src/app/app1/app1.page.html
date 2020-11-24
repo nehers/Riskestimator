@@ -15,18 +15,25 @@
     </ion-buttons> -->
 
     <ion-row>
+      <ion-col size="1">
+        <ion-button class="oben">
+          Eingabe
+        </ion-button>
+       
+      </ion-col>
       <ion-col>
         <ion-segment (ionChange)="onInputChange($event)">
+                
           <ion-item lines="none">
             <ion-label>
               <ion-segment-button  value="range" checked class="oben"
-                >Schieber
+                >Relative Häufigkeiten
               </ion-segment-button>
             </ion-label>
           </ion-item>
           <ion-item lines="none">
             <ion-label>
-              <ion-segment-button value="number" class="oben">Zahlen</ion-segment-button>
+              <ion-segment-button value="number" class="oben">Absolute Häufigkeiten</ion-segment-button>
             </ion-label>
           </ion-item>
         </ion-segment>
@@ -34,6 +41,12 @@
     </ion-row>
 
     <ion-row>
+      <ion-col size="1">
+        <ion-button class="unten">
+          Ausgabe
+        </ion-button>
+      </ion-col>
+      <ion-col>
       <ion-segment (ionChange)="onVisChange($event)">
         <ion-row>
           <ion-item lines="none">
@@ -47,13 +60,15 @@
           </ion-item>
 
           <ion-item lines="none">
-            <ion-segment-button value="unitsquare" class="unten">Rechteck</ion-segment-button>
+            <ion-segment-button value="unitsquare" class="unten">Balkendiagramm</ion-segment-button>
           </ion-item>
           <ion-item lines="none">
             <ion-segment-button value="icon" class="unten">Icon Array</ion-segment-button>
           </ion-item>
+       
         </ion-row>
       </ion-segment>
+    </ion-col>
     </ion-row>
 
     <div *ngIf="selectedInput === 'number'">
@@ -473,7 +488,8 @@
 
     <div *ngIf="selectedVis === 'tree' && selectedInput === 'number'">
       <ion-row>
-        <ion-col offset="4.5">
+        <ion-col size="5"></ion-col>
+        <ion-col>
           <svg>
             <line
               x1="100"
@@ -493,8 +509,12 @@
           </svg>
         </ion-col>
       </ion-row>
+      <br>
+      <br>
+      <br>
       <ion-row>
-        <ion-col offset="3">
+        <ion-col size="1.75"></ion-col>
+        <ion-col>
           <svg>
             <line
               x1="100"
@@ -513,7 +533,8 @@
             />
           </svg>
         </ion-col>
-        <ion-col pull="1.5">
+        
+        <ion-col>
           <svg>
             <line
               x1="100"
@@ -533,23 +554,25 @@
           </svg>
         </ion-col>
       </ion-row>
+      <br>
+      <br><br>
       <ion-row>
-        <ion-col push="1.75">
+        <ion-col >
           <svg>
             <text x="130" y="15" fill="red">{{ trueposn }}</text>
           </svg>
         </ion-col>
-        <ion-col push="1.25">
+        <ion-col>
           <svg>
             <text x="130" y="15" fill="orange">{{ falsenegn }}</text>
           </svg>
         </ion-col>
-        <ion-col pull="1.25">
+        <ion-col>
           <svg>
             <text x="130" y="15" fill="blue">{{ falseposn}}</text>
           </svg>
         </ion-col>
-        <ion-col pull="1.75">
+        <ion-col>
           <svg>
             <text x="130" y="15" fill="green">{{ truenegn }}</text>
           </svg>
@@ -1004,6 +1027,7 @@
 
     <div *ngIf="selectedInput === 'range' && selectedVis === 'unitsquare'">
       <ion-row>
+        <ion-col size="4"></ion-col>
         <ion-col>
           <svg height="425" width="700">
             <rect
@@ -1036,6 +1060,7 @@
             ></rect>
           </svg>
         </ion-col>
+        
       </ion-row>
 
       <ion-row>
@@ -1120,6 +1145,7 @@
 
     <div *ngIf="selectedInput === 'number' && selectedVis === 'unitsquare'">
       <ion-row>
+        <ion-col size="4"></ion-col>
         <ion-col>
           <svg height="425" width="700">
             <rect

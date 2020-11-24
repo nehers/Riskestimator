@@ -27,8 +27,9 @@ export class App1Page implements OnInit {
   totaltestnegr = 384;
   totalillr = 75;
   totalwellr = 425;
-  ppvr = 63.248;
-  npvr = 99.739;
+  
+  ppvr = 63;
+  npvr = 99;
   fprr = 10;
   fnrr = 1;
   tp: number;
@@ -63,7 +64,9 @@ export class App1Page implements OnInit {
 
   constructor(private alertCtrl: AlertController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   // Calculation für Regler
   calculationrange() {
@@ -75,10 +78,18 @@ export class App1Page implements OnInit {
     this.falseposr = Math.trunc(this.totalwellr - this.truenegr);
     this.totaltestposr = Math.trunc(this.trueposr + this.falseposr);
     this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
-    this.ppvr = this.roundtoTwo((this.trueposr / this.totaltestposr) * 100);
-    this.npvr = this.roundtoTwo((this.truenegr / this.totaltestnegr) * 100);
-    this.fprr = this.roundtoTwo(100 - this.specifity);
-    this.fnrr = this.roundtoTwo(100 - this.sensitivity);
+    
+    this.ppvr = Math.round((this.trueposr / this.totaltestposr) * 100);
+    this.npvr = Math.round((this.truenegr / this.totaltestnegr) * 100);
+    this.fprr = Math.round(100 - this.specifity);
+    this.fnrr = Math.round(100 - this.sensitivity);
+    
+    if (this.ppvr == 0 || this.ppvr == 100)  {
+      this.ppvr = Number('9BX9');      
+          } 
+    if (this.npvr == 0 || this.npvr == 100)  {
+      this.npvr = Number('9BX9');
+    }      
   }
   // Calculation für NumerischenInput
   calculationnumber() {
@@ -87,13 +98,20 @@ export class App1Page implements OnInit {
     this.totalilln = this.trueposn + this.falsenegn;
     this.totalwelln = this.falseposn + this.truenegn;
     this.totaln = this.totalilln + this.totalwelln;
-    this.ppvn = this.roundtoTwo((this.trueposn / this.totaltestposn) * 100);
-    this.npvn = this.roundtoTwo((this.truenegn / this.totaltestnegn) * 100);
-    this.sensn = this.roundtoTwo((this.trueposn / this.totalilln) * 100);
-    this.specn = this.roundtoTwo((this.truenegn / this.totalwelln) * 100);
-    this.prevn = this.roundtoTwo((this.totalilln / this.totaln) * 100);
-    this.fprn = this.roundtoTwo(100 - this.specn);
-    this.fnrn = this.roundtoTwo(100 - this.sensn);
+    this.ppvn = Math.round((this.trueposn / this.totaltestposn) * 100);
+    this.npvn = Math.round((this.truenegn / this.totaltestnegn) * 100);
+    this.sensn = Math.round((this.trueposn / this.totalilln) * 100);
+    this.specn = Math.round((this.truenegn / this.totalwelln) * 100);
+    this.prevn = Math.round((this.totalilln / this.totaln) * 100);
+    this.fprn = Math.round(100 - this.specn);
+    this.fnrn = Math.round(100 - this.sensn);
+
+    if (this.ppvn == 0 || this.ppvn == 100)  {
+      this.ppvn = Number('9BX9');      
+          } 
+    if (this.npvn == 0 || this.npvn == 100)  {
+      this.npvn = Number('9BX9');
+    } 
   }
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
@@ -320,16 +338,16 @@ export class App1Page implements OnInit {
 
   // Images generieren mit Schiebern
   forIconRangeLoop() {
-    for (this.tp = this.trueposr/2; this.tp > 0; this.tp--) {
+    for (this.tp = Math.trunc((this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100))) ; this.tp > 0; this.tp--) {
       this.rediconr.push("assets/img/Imagered.svg");
     }
-    for (this.fn = this.falsenegr/2; this.fn > 0; this.fn--) {
+    for (this.fn = Math.trunc(Math.trunc(500 * (this.prevalence / 100)) - Math.trunc((this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100)))); this.fn > 0; this.fn--) {
       this.yellowiconr.push("assets/img/Imageorange.svg");
     }
-    for (this.fp = this.falseposr/2; this.fp > 0; this.fp--) {
+    for (this.fp = Math.trunc(Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100))) - Math.trunc((this.specifity / 100) * Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100))))); this.fp > 0; this.fp--) {
       this.blueiconr.push("assets/img/Imageblue.svg");
     }
-    for (this.tn = this.truenegr/2; this.tn > 0; this.tn--) {
+    for (this.tn = Math.trunc((this.specifity / 100) * Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100)))); this.tn > 0; this.tn--) {
       this.greeniconr.push("assets/img/Imagegreen.svg");
     }
   }

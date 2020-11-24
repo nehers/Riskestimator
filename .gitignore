@@ -34,3 +34,6 @@ browserslist
 tslint.json
 tsconfig.spec.json
 node_modules
+.firebaserc
+firebase.json
+.firebase
