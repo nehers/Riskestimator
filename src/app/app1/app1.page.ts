@@ -3,12 +3,12 @@ import { Component, OnInit } from "@angular/core";
 import { throwError } from "rxjs";
 import { AlertController } from "@ionic/angular";
 import { print } from "util";
-import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
+import { THIS_EXPR, ThrowStmt } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-app1",
   templateUrl: "./app1.page.html",
-  styleUrls: ["./app1.page.scss"]
+  styleUrls: ["./app1.page.scss"],
 })
 export class App1Page implements OnInit {
   // 1. angezeigt Visualisierung -> Table mit numerischem Input
@@ -27,7 +27,10 @@ export class App1Page implements OnInit {
   totaltestnegr = 384;
   totalillr = 75;
   totalwellr = 425;
-  
+
+  sensr = 99;
+  specr = 90;
+  prevr = 15;
   ppvr = 63;
   npvr = 99;
   fprr = 10;
@@ -64,32 +67,28 @@ export class App1Page implements OnInit {
 
   constructor(private alertCtrl: AlertController) {}
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   // Calculation für Regler
   calculationrange() {
     this.totalillr = Math.trunc(this.totalr * (this.prevalence / 100));
-    this.totalwellr = Math.trunc(this.totalr - this.totalillr);
+    this.totalwellr = Math.trunc(
+      this.totalr - Math.trunc(this.totalr * (this.prevalence / 100))
+    );
     this.trueposr = Math.trunc((this.sensitivity / 100) * this.totalillr);
     this.falsenegr = Math.trunc(this.totalillr - this.trueposr);
     this.truenegr = Math.trunc((this.specifity / 100) * this.totalwellr);
     this.falseposr = Math.trunc(this.totalwellr - this.truenegr);
     this.totaltestposr = Math.trunc(this.trueposr + this.falseposr);
     this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
-    
+
+    this.sensr = Math.round((this.trueposr / this.totalillr) * 100);
+    this.specr = Math.round((this.truenegr / this.totalwellr) * 100);
+    this.prevr = Math.round((this.totalillr / this.totalr) * 100);
     this.ppvr = Math.round((this.trueposr / this.totaltestposr) * 100);
     this.npvr = Math.round((this.truenegr / this.totaltestnegr) * 100);
-    this.fprr = Math.round(100 - this.specifity);
-    this.fnrr = Math.round(100 - this.sensitivity);
-    
-    if (this.ppvr == 0 || this.ppvr == 100)  {
-      this.ppvr = Number('9BX9');      
-          } 
-    if (this.npvr == 0 || this.npvr == 100)  {
-      this.npvr = Number('9BX9');
-    }      
+    this.fprr = Math.round(100 - this.specr);
+    this.fnrr = Math.round(100 - this.sensr);
   }
   // Calculation für NumerischenInput
   calculationnumber() {
@@ -105,13 +104,6 @@ export class App1Page implements OnInit {
     this.prevn = Math.round((this.totalilln / this.totaln) * 100);
     this.fprn = Math.round(100 - this.specn);
     this.fnrn = Math.round(100 - this.sensn);
-
-    if (this.ppvn == 0 || this.ppvn == 100)  {
-      this.ppvn = Number('9BX9');      
-          } 
-    if (this.npvn == 0 || this.npvn == 100)  {
-      this.npvn = Number('9BX9');
-    } 
   }
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
@@ -120,9 +112,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 100 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.prevalence = 15;
           alertEl.present();
         });
@@ -132,9 +124,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.prevalence = 15;
           alertEl.present();
         });
@@ -150,9 +142,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 100 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.sensitivity = 99;
           alertEl.present();
         });
@@ -162,9 +154,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.sensitivity = 99;
           alertEl.present();
         });
@@ -180,9 +172,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 100 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.specifity = 90;
           alertEl.present();
         });
@@ -192,9 +184,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.specifity = 90;
           alertEl.present();
         });
@@ -210,9 +202,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.trueposn = 74;
           alertEl.present();
         });
@@ -222,9 +214,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.trueposn = 74;
           alertEl.present();
         });
@@ -240,9 +232,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.truenegn = 383;
           alertEl.present();
         });
@@ -252,9 +244,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.truenegn = 383;
           alertEl.present();
         });
@@ -270,9 +262,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.falseposn = 42;
           alertEl.present();
         });
@@ -282,9 +274,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.falseposn = 42;
           alertEl.present();
         });
@@ -300,9 +292,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.falsenegn = 1;
           alertEl.present();
         });
@@ -312,9 +304,9 @@ export class App1Page implements OnInit {
         .create({
           header: "Ein Fehler ist aufgetreten!",
           message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"]
+          buttons: ["Okay"],
         })
-        .then(alertEl => {
+        .then((alertEl) => {
           this.falsenegn = 1;
           alertEl.present();
         });
@@ -338,31 +330,63 @@ export class App1Page implements OnInit {
 
   // Images generieren mit Schiebern
   forIconRangeLoop() {
-    for (this.tp = Math.trunc((this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100))) ; this.tp > 0; this.tp--) {
+    for (
+      this.tp = Math.trunc(
+        (this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100))
+      );
+      this.tp > 0;
+      this.tp--
+    ) {
       this.rediconr.push("assets/img/Imagered.svg");
     }
-    for (this.fn = Math.trunc(Math.trunc(500 * (this.prevalence / 100)) - Math.trunc((this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100)))); this.fn > 0; this.fn--) {
+    for (
+      this.fn = Math.trunc(
+        Math.trunc(500 * (this.prevalence / 100)) -
+          Math.trunc(
+            (this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100))
+          )
+      );
+      this.fn > 0;
+      this.fn--
+    ) {
       this.yellowiconr.push("assets/img/Imageorange.svg");
     }
-    for (this.fp = Math.trunc(Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100))) - Math.trunc((this.specifity / 100) * Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100))))); this.fp > 0; this.fp--) {
+    for (
+      this.fp = Math.trunc(
+        Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100))) -
+          Math.trunc(
+            (this.specifity / 100) *
+              Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100)))
+          )
+      );
+      this.fp > 0;
+      this.fp--
+    ) {
       this.blueiconr.push("assets/img/Imageblue.svg");
     }
-    for (this.tn = Math.trunc((this.specifity / 100) * Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100)))); this.tn > 0; this.tn--) {
+    for (
+      this.tn = Math.trunc(
+        (this.specifity / 100) *
+          Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100)))
+      );
+      this.tn > 0;
+      this.tn--
+    ) {
       this.greeniconr.push("assets/img/Imagegreen.svg");
     }
   }
   // Images generieren mit NumerikInput
   forIconNumberLoop() {
-    for (this.tp = this.trueposn/2; this.tp > 0; this.tp--) {
+    for (this.tp = this.trueposn / 2; this.tp > 0; this.tp--) {
       this.rediconn.push("assets/img/Imagered.svg");
     }
-    for (this.fn = this.falsenegn/2; this.fn > 0; this.fn--) {
+    for (this.fn = this.falsenegn / 2; this.fn > 0; this.fn--) {
       this.yellowiconn.push("assets/img/Imageorange.svg");
     }
-    for (this.fp = this.falseposn/2; this.fp > 0; this.fp--) {
+    for (this.fp = this.falseposn / 2; this.fp > 0; this.fp--) {
       this.blueiconn.push("assets/img/Imageblue.svg");
     }
-    for (this.tn = this.truenegn/2; this.tn > 0; this.tn--) {
+    for (this.tn = this.truenegn / 2; this.tn > 0; this.tn--) {
       this.greeniconn.push("assets/img/Imagegreen.svg");
     }
   }
