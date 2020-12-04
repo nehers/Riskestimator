@@ -564,6 +564,18 @@
 
       <ion-row>
         <ion-col>
+          <ion-label>
+            <span class="spanr">Rot = Richtigpositiv = {{ trueposn }}</span>,
+            <span class="spano">Orange = Falschnegativ = {{ falsenegn }}</span>,
+            <span class="spanb">Blau = Falschpositiv = {{ falseposn }} </span>,
+            <span class="spang">Grün = Richtignegativ = {{ truenegn }}</span>,
+            Total = {{ totaln }}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
           <ion-label
             >Positiver prädiktiver Wert:
             <span class="spanr">{{ trueposn }} </span><b>/ (</b
@@ -686,6 +698,18 @@
             <text x="300" y="290" fill="blue">{{ falseposr}}</text>
             <text x="510" y="290" fill="green">{{ truenegr }}</text>
           </svg>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            <span class="spanr">Rot = Richtigpositiv = {{ trueposr }}</span>,
+            <span class="spano">Orange = Falschnegativ = {{ falsenegr }}</span>,
+            <span class="spanb">Blau = Falschpositiv = {{ falseposr }} </span>,
+            <span class="spang">Grün = Richtignegativ = {{ truenegr }}</span>,
+            Total = {{ totaln }}
+          </ion-label>
         </ion-col>
       </ion-row>
 
