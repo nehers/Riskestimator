@@ -5,6 +5,8 @@
   --background-hover: grey;
   
   --color-checked: white;
+
+  --padding: none;
 }
 
 .oben {
@@ -57,14 +59,17 @@
 }
 
 .container {
-  max-width: 1500px;
+  
+  max-width: 100%;
   display: grid;
   grid-template-columns: auto auto;
+  
 }
 
 img.icon {
   width: 20px;
   height: 30px;
+  max-height: 50vw;
 }
 
 

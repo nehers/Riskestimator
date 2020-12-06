@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
   <ion-grid>
     <!-- <ion-buttons>
       <ion-back-button
@@ -44,7 +44,7 @@
       </ion-col>
       <ion-col>
         <ion-segment (ionChange)="onVisChange($event)">
-          <ion-row>
+         
             <ion-item lines="none">
               <ion-segment-button value="table" checked class="unten"
                 >4-Felder-Tafel</ion-segment-button
@@ -67,7 +67,7 @@
                 >Icon Array</ion-segment-button
               >
             </ion-item>
-          </ion-row>
+         
         </ion-segment>
       </ion-col>
     </ion-row>
@@ -898,6 +898,7 @@
         <ion-col>
           <div class="container">
             <div>
+              
               <img
                 class="icon"
                 *ngFor="let img of rediconn"
@@ -1008,7 +1009,7 @@
     <div *ngIf="selectedInput === 'range' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <svg width="100%" height="300" viewBox="0 0 700 300">
+          <svg width="100%" height="500" viewBox="0 0 900 500">
             <rect
               [attr.width]="350"
               [attr.height]="trueposr/2"
@@ -1033,7 +1034,6 @@
             <rect
               [attr.width]="350"
               [attr.height]="truenegr/2"
-              y="falseposr/2"
               x="350"
               style="fill: green"
             ></rect>
@@ -1124,7 +1124,7 @@
     <div *ngIf="selectedInput === 'number' && selectedVis === 'unitsquare'">
       <ion-row>
         <ion-col>
-          <svg width="100%" height="300" viewBox="0 0 700 300">
+          <svg width="100%" height="500" viewBox="0 0 900 500">
             <rect
               [attr.width]="350"
               [attr.height]="trueposn/2"
