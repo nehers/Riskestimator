@@ -65,9 +65,15 @@ export class App1Page implements OnInit {
   blueiconn = [];
   yellowiconn = [];
 
+  smallscreen = false;
+
   constructor(private alertCtrl: AlertController) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (window.screen.width < 620) {
+      this.smallscreen = true;
+    }
+  }
 
   // Calculation für Regler
   calculationrange() {

@@ -3,10 +3,7 @@
   --color: white;
   --background-checked: grey;
   --background-hover: grey;
-  
   --color-checked: white;
-
-  --padding: none;
 }
 
 .oben {
@@ -14,9 +11,8 @@
   --color: white;
   --background-checked: black;
   --background-hover: black;
-  
-  --color-checked: white;
 
+  --color-checked: white;
 }
 
 .range {
@@ -49,7 +45,7 @@
 }
 
 .spanb {
-  color:navy;
+  color: navy;
 }
 .spano {
   color: orange;
@@ -59,11 +55,9 @@
 }
 
 .container {
-  
   max-width: 100%;
   display: grid;
   grid-template-columns: auto auto;
-  
 }
 
 img.icon {
@@ -71,5 +65,3 @@ img.icon {
   height: 30px;
   max-height: 50vw;
 }
-
-
