@@ -15,7 +15,7 @@
     </ion-buttons> -->
 
     <ion-row>
-      <ion-col size="3">
+      <ion-col size="1">
         <ion-label>
           <ion-button class="oben" disabled> Eingabe </ion-button>
         </ion-label>
@@ -23,13 +23,21 @@
       <ion-col>
         <div *ngIf="!smallscreen">
           <ion-segment (ionChange)="onInputChange($event)" Scrollable="false">
-            <ion-segment-button value="range" class="oben" checked
-              >Relative Häufigkeiten
-            </ion-segment-button>
+            <ion-item lines="none">
+              <ion-label>
+                <ion-segment-button value="range" class="oben" checked
+                  >Relative Häufigkeiten
+                </ion-segment-button>
+              </ion-label>
+            </ion-item>
 
-            <ion-segment-button value="number" class="oben"
-              >Absolute Häufigkeiten</ion-segment-button
-            >
+            <ion-item lines="none">
+              <ion-label>
+                <ion-segment-button value="number" class="oben"
+                  >Absolute Häufigkeiten</ion-segment-button
+                >
+              </ion-label>
+            </ion-item>
           </ion-segment>
         </div>
         <div *ngIf="smallscreen">
@@ -47,28 +55,34 @@
     </ion-row>
 
     <ion-row>
-      <ion-col size="3">
+      <ion-col size="1">
         <ion-button class="unten" disabled> Ausgabe </ion-button>
       </ion-col>
 
       <ion-col>
         <div *ngIf="!smallscreen">
           <ion-segment (ionChange)="onVisChange($event)" Scrollable="false">
-            <ion-segment-button value="table" checked class="unten"
-              >4-Felder-Tafel
-            </ion-segment-button>
+            <ion-item lines="none">
+              <ion-segment-button value="table" checked class="unten"
+                >4-Felder-Tafel
+              </ion-segment-button>
+            </ion-item>
 
-            <ion-segment-button value="tree" class="unten"
-              >Baumdiagramm</ion-segment-button
-            >
-
-            <ion-segment-button value="unitsquare" class="unten"
-              >Balkendiagramm
-            </ion-segment-button>
-
-            <ion-segment-button value="icon" class="unten"
-              >Icon Array
-            </ion-segment-button>
+            <ion-item lines="none">
+              <ion-segment-button value="tree" class="unten"
+                >Baumdiagramm</ion-segment-button
+              >
+            </ion-item>
+            <ion-item lines="none">
+              <ion-segment-button value="unitsquare" class="unten"
+                >Balkendiagramm
+              </ion-segment-button>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-segment-button value="icon" class="unten"
+                >Icon Array
+              </ion-segment-button>
+            </ion-item>
           </ion-segment>
         </div>
         <div *ngIf="smallscreen">
