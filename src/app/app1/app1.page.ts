@@ -87,7 +87,6 @@ export class App1Page implements OnInit {
     this.falseposr = Math.trunc(this.totalwellr - this.truenegr);
     this.totaltestposr = Math.trunc(this.trueposr + this.falseposr);
     this.totaltestnegr = Math.trunc(this.falsenegr + this.truenegr);
-
     this.sensr = Math.round((this.trueposr / this.totalillr) * 100);
     this.specr = Math.round((this.truenegr / this.totalwellr) * 100);
     this.prevr = Math.round((this.totalillr / this.totalr) * 100);
@@ -114,212 +113,87 @@ export class App1Page implements OnInit {
   // Prävalenzregler
   prevalencechange(event: CustomEvent<any>) {
     if (event.detail.value > 100) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 100 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.prevalence = 15;
-          alertEl.present();
-        });
+      this.ShowErrorOverr();
+      this.prevalence = 15;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.prevalence = 15;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.prevalence = 15;
     }
-    this.clearIcon();
-    this.calculationrange();
-    this.forIconRangeLoop();
+    this.ChangeonInputr();
   }
   // Sensitivitätsregler
   sensitivitychange(event: CustomEvent<any>) {
     if (event.detail.value > 100) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 100 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.sensitivity = 99;
-          alertEl.present();
-        });
+      this.ShowErrorOverr();
+      this.sensitivity = 99;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.sensitivity = 99;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.sensitivity = 99;
     }
-    this.clearIcon();
-    this.calculationrange();
-    this.forIconRangeLoop();
+    this.ChangeonInputr();
   }
+
   // Sepzifitätsregler
   specifitychange(event: CustomEvent<any>) {
     if (event.detail.value > 100) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 100 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.specifity = 90;
-          alertEl.present();
-        });
+      this.ShowErrorOverr();
+      this.specifity = 90;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.specifity = 90;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.specifity = 90;
     }
-    this.clearIcon();
-    this.calculationrange();
-    this.forIconRangeLoop();
+    this.ChangeonInputr();
   }
   // TrueposEingabe
   trueposchange(event: CustomEvent<any>) {
     if (event.detail.value > 1000) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.trueposn = 74;
-          alertEl.present();
-        });
+      this.ShowErrorOvern();
+      this.trueposn = 74;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.trueposn = 74;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.trueposn = 74;
     }
-    this.clearIcon();
-    this.calculationnumber();
-    this.forIconNumberLoop();
+    this.ChangeonInputn();
   }
   // TruenegEingabe
   truenegchange(event: CustomEvent<any>) {
     if (event.detail.value > 1000) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.truenegn = 383;
-          alertEl.present();
-        });
+      this.ShowErrorOvern();
+      this.truenegn = 38;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.truenegn = 383;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.truenegn = 38;
     }
-    this.clearIcon();
-    this.calculationnumber();
-    this.forIconNumberLoop();
+    this.ChangeonInputn();
   }
   // FalseposEingabe
   falseposchange(event: CustomEvent<any>) {
     if (event.detail.value > 1000) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.falseposn = 42;
-          alertEl.present();
-        });
+      this.ShowErrorOvern();
+      this.falseposn = 42;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.falseposn = 42;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.falseposn = 42;
     }
-    this.clearIcon();
-    this.calculationnumber();
-    this.forIconNumberLoop();
+    this.ChangeonInputn();
   }
   // FalsenegEingabe
   falsenegchange(event: CustomEvent<any>) {
     if (event.detail.value > 1000) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss kleiner oder gleich 1000 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.falsenegn = 1;
-          alertEl.present();
-        });
+      this.ShowErrorOvern();
+      this.falsenegn = 1;
     }
     if (event.detail.value < 0) {
-      this.alertCtrl
-        .create({
-          header: "Ein Fehler ist aufgetreten!",
-          message: "Der Wert muss größer oder gleich 0 sein!",
-          buttons: ["Okay"],
-        })
-        .then((alertEl) => {
-          this.falsenegn = 1;
-          alertEl.present();
-        });
+      this.ShowErrorUnderr();
+      this.falsenegn = 1;
     }
-    this.clearIcon();
-    this.calculationnumber();
-    this.forIconNumberLoop();
+    this.ChangeonInputn();
   }
   // Löscht alte Icons
   clearIcon() {
@@ -332,69 +206,120 @@ export class App1Page implements OnInit {
     this.yellowiconr = [];
     this.yellowiconn = [];
   }
-  // Löscht alle Rechtecke
 
-  // Images generieren mit Schiebern
-  forIconRangeLoop() {
-    for (
-      this.tp = Math.trunc(
+  setIconsRange() {
+    this._setIcons(
+      this.rediconr,
+      "assets/img/Imagered.svg",
+      Math.trunc(
         (this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100))
-      );
-      this.tp > 0;
-      this.tp--
-    ) {
-      this.rediconr.push("assets/img/Imagered.svg");
-    }
-    for (
-      this.fn = Math.trunc(
+      )
+    );
+    this._setIcons(
+      this.yellowiconr,
+      "assets/img/Imageorange.svg",
+      Math.trunc(
         Math.trunc(500 * (this.prevalence / 100)) -
           Math.trunc(
             (this.sensitivity / 100) * Math.trunc(500 * (this.prevalence / 100))
           )
-      );
-      this.fn > 0;
-      this.fn--
-    ) {
-      this.yellowiconr.push("assets/img/Imageorange.svg");
-    }
-    for (
-      this.fp = Math.trunc(
+      )
+    );
+    this._setIcons(
+      this.blueiconr,
+      "assets/img/Imageblue.svg",
+      Math.trunc(
         Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100))) -
           Math.trunc(
             (this.specifity / 100) *
               Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100)))
           )
-      );
-      this.fp > 0;
-      this.fp--
-    ) {
-      this.blueiconr.push("assets/img/Imageblue.svg");
-    }
-    for (
-      this.tn = Math.trunc(
+      )
+    );
+    this._setIcons(
+      this.greeniconr,
+      "assets/img/Imagegreen.svg",
+      Math.trunc(
         (this.specifity / 100) *
           Math.trunc(500 - Math.trunc(500 * (this.prevalence / 100)))
-      );
-      this.tn > 0;
-      this.tn--
-    ) {
-      this.greeniconr.push("assets/img/Imagegreen.svg");
-    }
+      )
+    );
   }
+
+  setIcons() {
+    this._setIcons(this.rediconn, "assets/img/Imagered.svg", this.trueposn / 2);
+    this._setIcons(
+      this.yellowiconn,
+      "assets/img/Imageorange.svg",
+      this.falsenegn / 2
+    );
+    this._setIcons(
+      this.blueiconn,
+      "assets/img/Imageblue.svg",
+      this.falseposn / 2
+    );
+    this._setIcons(
+      this.greeniconn,
+      "assets/img/Imagegreen.svg",
+      this.truenegn / 2
+    );
+  }
+
   // Images generieren mit NumerikInput
-  forIconNumberLoop() {
-    for (this.tp = this.trueposn / 2; this.tp > 0; this.tp--) {
-      this.rediconn.push("assets/img/Imagered.svg");
-    }
-    for (this.fn = this.falsenegn / 2; this.fn > 0; this.fn--) {
-      this.yellowiconn.push("assets/img/Imageorange.svg");
-    }
-    for (this.fp = this.falseposn / 2; this.fp > 0; this.fp--) {
-      this.blueiconn.push("assets/img/Imageblue.svg");
-    }
-    for (this.tn = this.truenegn / 2; this.tn > 0; this.tn--) {
-      this.greeniconn.push("assets/img/Imagegreen.svg");
-    }
+  _setIcons(target, asset, howmany) {
+    for (var i = 0; i < howmany; i++) target.push(asset);
+  }
+
+  // Alte Icons löschen und neue berechnen und anzeigen Zahlen
+  ChangeonInputn() {
+    this.clearIcon();
+    this.calculationnumber();
+    this.setIcons();
+  }
+
+  // ALte Icons löschen und neue berechnen und anzeigen Schieber
+  ChangeonInputr() {
+    this.clearIcon();
+    this.calculationrange();
+    this.setIconsRange();
+  }
+
+  // Fehlermeldung für Schieber
+  ShowErrorOverr() {
+    this.alertCtrl
+      .create({
+        header: "Ein Fehler ist aufgetreten!",
+        message: "Der Wert muss kleiner oder gleich 100 sein!",
+        buttons: ["Okay"],
+      })
+      .then((alertEl) => {
+        alertEl.present();
+      });
+  }
+
+  ShowErrorUnderr() {
+    this.alertCtrl
+      .create({
+        header: "Ein Fehler ist aufgetreten!",
+        message: "Der Wert muss größer oder gleich 0 sein!",
+        buttons: ["Okay"],
+      })
+      .then((alertEl) => {
+        alertEl.present();
+      });
+  }
+
+  // Fehlermeldung für Zahl
+  ShowErrorOvern() {
+    this.alertCtrl
+      .create({
+        header: "Ein Fehler ist aufgetreten!",
+        message: "Der Wert muss kleiner oder gleich 1000 sein!",
+        buttons: ["Okay"],
+      })
+      .then((alertEl) => {
+        alertEl.present();
+      });
   }
 
   // Zur Anzeige
@@ -404,9 +329,5 @@ export class App1Page implements OnInit {
   // Zur Anzeige
   onVisChange(event: CustomEvent<SegmentChangeEventDetail>) {
     this.selectedVis = event.detail.value;
-  }
-
-  roundtoTwo(value: number) {
-    return (value = +Math.round(value * 1000) / 1000);
   }
 }
