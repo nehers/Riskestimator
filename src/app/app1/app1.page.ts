@@ -1,9 +1,7 @@
 import { SegmentChangeEventDetail } from "@ionic/core";
 import { Component, OnInit } from "@angular/core";
-import { throwError } from "rxjs";
 import { AlertController } from "@ionic/angular";
-import { print } from "util";
-import { THIS_EXPR, ThrowStmt } from "@angular/compiler/src/output/output_ast";
+
 
 @Component({
   selector: "app-app1",
