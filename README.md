@@ -24,11 +24,15 @@ SOFTWARE.
 
 
 # Ionic Framework
-about Ionic: https://ionicframework.com/
 Version: 5.4.16
+
+about Ionic: https://ionicframework.com/ 
+
 Ionic is a trademark of Drifty Co. (d/b/a Ionic)
 
 # Angular Framework
-about Angular: https://angular.io/
 Version: 10.2.2
+
+about Angular: https://angular.io/
+
 Angular is a trademark of Google LLC 
