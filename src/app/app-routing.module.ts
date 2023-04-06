@@ -14,6 +14,14 @@ const routes: Routes = [
     path: 'impressum',
     loadChildren: () => import('./impressum/impressum.module').then( m => m.ImpressumPageModule)
   },
+  {
+    path: 'datenschutz',
+    loadChildren: () => import('./datenschutz/datenschutz.module').then( m => m.DatenschutzPageModule)
+  },
+  {
+    path: 'barrierefreiheit',
+    loadChildren: () => import('./barrierefreiheit/barrierefreiheit.module').then( m => m.BarrierefreiheitPageModule)
+  },
 
   
 ];
